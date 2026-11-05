@@ -3243,13 +3243,13 @@
          it reads each card's rendered title, summary and links, and re-attaches its buttons whenever cards redraw. */
       window.XDig = (function () {
         var FOCUS = [
-          { key: "deep", label: "Go deep", text: function () { return "Give me a thorough, well-organised deep dive: background, what happened, why it matters, and the main viewpoints."; } },
+          { key: "deep", label: "Go deep", text: function () { return "Give me a visual deep dive, bottom line first. Start with a one-page C-suite BLUF: a 3-sentence bottom line, 3 to 5 key points, so what, risks, 3 things to watch and sources. Make it clean enough to share, with no personal details. Then offer the full deep dive for me to read if I want it. The deep dive covers background, what happened (with dates), why it matters, the main viewpoints (including a critical one), what is uncertain or disputed, and 3 things to watch. Make it visual: a dated timeline, a key-numbers strip, a facts-vs-claims table (confirmed / company claim / disputed), a comparison with 2 to 3 rivals, and an image of the product or source where available. If you can make files, deliver both as PDFs, the BLUF first and the deep dive second."; } },
           { key: "simple", label: "Explain it simply", text: function () { return "Explain it simply, as if to a smart friend new to the topic, with one everyday analogy."; } },
           { key: "since", label: "What's changed since", text: function (d) { return d ? "Tell me what has changed or happened since " + d + ", newest first." : "Tell me what has changed or happened recently, newest first."; } },
           { key: "who", label: "Who's involved", text: function () { return "Map the companies, people and organisations involved and how they connect."; } },
           { key: "me", label: "What it means for me", text: function () { return "Explain what this means in practice for an everyday user and for a small organisation, with concrete next steps."; } }
         ];
-        var CLOSING = "Please cite sources with links, separate facts from opinion, flag anything uncertain or disputed, and end with 3 things to watch next.";
+        var CLOSING = "Check the original date and anything newer from the last 14 days. Trace claims to primary sources and fetch the page behind every number. Cite sources with links, keep facts separate from company claims, flag anything uncertain or disputed, and end with 3 things to watch next.";
         var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var REDUCED = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
