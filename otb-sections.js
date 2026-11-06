@@ -140,7 +140,7 @@ window.XSections = (function () {
   // Latest releases
   function relLogo(r) {
     var d = str(r.Domain).replace(/^https?:\/\//i, "").replace(/\/.*$/, "");
-    if (!/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(d) || /^(www\.)?(zest\.app|alibabagroup\.com|nju\.edu\.cn|hexafuture\.ai|iquest\.ai)$/i.test(d)) d = "";
+    if (!/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(d) || /^(www\.)?(zest\.app|alibabagroup\.com|nju\.edu\.cn|hexafuture\.ai|iquest\.ai|ruc\.edu\.cn|sjtu\.edu\.cn|sensenova\.cn|myflorida\.com)$/i.test(d)) d = "";
     var who = str(r.Company) || str(r.Name);
     return '<span class="x-logo x-logo--lg' + (d ? "" : " is-initials") + '" role="img" aria-label="' + esc(who) + ' logo">' +
       (d ? '<img class="x-logo__img" src="https://www.google.com/s2/favicons?domain=' + encodeURIComponent(d) + '&amp;sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />' : "") +
