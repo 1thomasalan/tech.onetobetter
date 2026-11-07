@@ -1114,6 +1114,10 @@
       td .btn { background: var(--x-bg); }
       .x-cmd { background: var(--x-bg); }
       .x-bluf, .x-guide__panel, .x-lesson { border-left-color: var(--x-red-rule); }
+      .x-bluf.x-bluf--top { gap: 8px; max-width: none; padding: 12px 16px 14px; border-left: 0; border-top: 2px solid var(--x-red-rule); }
+      .x-bluf--top .x-bluf__lead { font: 500 clamp(16px, 1.6vw, 19px)/1.45 var(--sans); }
+      .x-bluf--top .links { margin-top: 2px; }
+      .x-lead-sec > .x-bluf.x-bluf--top { margin-top: 0; }
       .x-lead__no { background: var(--x-red-fill); }
       .x-dig { background: var(--x-bg); border-color: var(--x-red-rule); color: var(--x-red); }
       .x-dig:hover, .x-dig:focus-visible { background: var(--x-red-fill); border-color: var(--x-red-fill); color: #ffffff; }
@@ -1305,9 +1309,8 @@
       </header>
       <main class="main">
         <section class="section x-lead-sec" id="today" data-nav="Today" aria-label="Today's lead story">
-          <article class="x-lead" id="lead" aria-labelledby="lead-h"></article>
-          <div class="x-bluf" role="note" aria-label="Today's bottom line">
-            <p class="x-kicker">The day's bottom line</p>
+          <div class="x-bluf x-bluf--top" role="note" aria-label="Today's bottom line">
+            <p class="x-kicker">Bottom line</p>
             <p class="x-bluf__lead" id="today-bluf"></p>
             <div class="links">
               <a class="btn" id="btn-listen" href="#" target="_blank" rel="noopener" hidden>Listen to today</a>
@@ -1315,6 +1318,7 @@
               <a class="btn" href="#graph">Explore the graph</a>
             </div>
           </div>
+          <article class="x-lead" id="lead" aria-labelledby="lead-h"></article>
         </section>
 
         <section class="section" id="stories" data-nav="Top stories">
@@ -3669,6 +3673,10 @@
       #paper h4 { margin: 0 0 4px; font-size: 18px; line-height: 1.25; font-weight: 600; }
       #paper p { margin: 0 0 6px; font-size: 15px; line-height: 1.5; }
       #paper .pbluf { font-size: 16px; }
+      #paper .pbl { margin: 0 0 14px; padding: 8px 12px 10px; border-top: 2px solid var(--pr); background: #f1f0eb; }
+      :root[data-theme="dark"] #paper .pbl { background: #202125; }
+      #paper .pbl .pk { margin-bottom: 4px; }
+      #paper .pbl .pbl-t { margin: 0; font-family: var(--sans, "Helvetica Neue", Helvetica, Arial, sans-serif); font-size: 17px; line-height: 1.42; font-weight: 500; }
       #paper .pso b { color: var(--pr); }
       #paper .pc-it { padding-bottom: 12px; border-bottom: 1px solid var(--pl); }
       #paper .pc-it p:not(.pk), #paper .psrc { color: var(--x-g1, #525252); }
@@ -3710,7 +3718,9 @@
           var lk = document.querySelector(".x-mast .otb-lockup"), mast = "";
           if (lk) { lk = lk.cloneNode(true); lk.removeAttribute("href"); lk.setAttribute("aria-hidden", "true"); mast = lk.outerHTML; }
           var src = L ? cov(d) : "";
+          var bl = s(iss["Day bottom line"]);
           add("front", "pc-front", mast + '<p class="pdate">The Tech Brief · Issue ' + e(iss.Issue) + (date ? " | " + e(date) : "") + "</p>" +
+            (bl ? '<div class="pbl" role="note" aria-label="Bottom line"><p class="pk">Bottom line</p><p class="pbl-t">' + e(bl) + "</p></div>" : "") +
             (src ? '<figure class="pfig"><img src="' + e(src) + '" alt="Cover of Issue ' + e(iss.Issue) + '" /></figure>' : ""));
           if (L) {
             add("lead", "pc-lead", '<p class="pk">' + e(L.Category) + "</p><h2>" + e(L.Headline) + '</h2><p class="pbluf">' + e(L["Bottom line"]) + "</p>" +
@@ -3769,6 +3779,14 @@
           if (!c.children.length) c.remove();
           return cont.children.length ? cont : null;
         }
+        /* Front page overflow: shrink the cover (down to a floor) before anything moves on to page 2. */
+        function fitCover(body, g) {
+          var img = body.querySelector(".pfig img");
+          if (!img) return false;
+          var h = img.offsetHeight, min = Math.max(72, Math.round(g.h * 0.14));
+          while (over(body) && h > min) { h = Math.max(min, h - 12); img.style.maxHeight = h + "px"; }
+          return !over(body);
+        }
         function paginate(g) {
           P.style.setProperty("--pw", g.w + "px"); P.style.setProperty("--ph", g.h + "px");
           var stage = document.createElement("div"); stage.className = "pf-stage"; P.appendChild(stage);
@@ -3776,6 +3794,7 @@
           while (q.length && guard++ < 3000) {
             var c = q.shift(); body.appendChild(c);
             if (!over(body)) continue;
+            if (pages.length === 1 && /^(front|lead)$/.test(c.getAttribute("data-key")) && fitCover(body, g)) continue;
             var isLead = !leadDone && c.getAttribute("data-key") === "lead";
             leadDone = leadDone || c.getAttribute("data-key") === "lead";
             if (body.children.length > 1 && !isLead) {
