@@ -276,6 +276,8 @@
           continue;
         }
         var a = max > min ? Math.round(40 + 60 * (it.n - min) / (max - min)) : 100;
+        // The one dark category colour: cap its strength so the day number keeps 4.5:1
+        if (colors[it.cat] === "var(--chart-2)") a = Math.min(a, 85);
         cells += '<button type="button" class="x-pulse__sq" data-pu="' + d + '" ' + pos + ";--c:" + colors[it.cat] + ";--a:" + a + '%"' +
           ' aria-pressed="' + (d === PU.sel ? "true" : "false") + '" aria-label="' + esc(longDate(d) + ": " + plural(it.n, "story") + ", mostly " + it.cat) + '">' +
           '<span aria-hidden="true">' + day + "</span></button>";
