@@ -44,7 +44,7 @@ window.XVisuals = (function () {
     return /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(d) && !NO_FAVICON.test(d) ? d : "";
   }
   // Domains the favicon service answers with a 404: show initials without requesting
-  var NO_FAVICON = /^(www\.)?(zest\.app|alibabagroup\.com|nju\.edu\.cn|hexafuture\.ai|iquest\.ai|ruc\.edu\.cn|sjtu\.edu\.cn|sensenova\.cn|myflorida\.com|jd\.com|new\.quest|zju\.edu\.cn)$/i;
+  var NO_FAVICON = /^(www\.)?(zest\.app|alibabagroup\.com|nju\.edu\.cn|hexafuture\.ai|iquest\.ai|ruc\.edu\.cn|sjtu\.edu\.cn|sensenova\.cn|myflorida\.com|jd\.com|new\.quest|zju\.edu\.cn|peppi\.ai)$/i;
   function initials(name) {
     var w = str(name).replace(/[^\p{L}\p{N}\s]/gu, " ").split(/\s+/).filter(Boolean);
     if (!w.length) return "?";
