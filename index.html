@@ -1629,6 +1629,28 @@
       window.BRIEF_SNAPSHOT = (function () {
         try { return JSON.parse(document.getElementById("brief-snapshot").textContent || "{}"); } catch (e) { return {}; }
       })();
+      /* XBlufFor(issueRow): the day's bottom line and its preview lines. The live Sheet has no
+         "Bottom line preview" column, so a missing preview comes from the snapshot row of the same date. */
+      window.XBlufFor = function (row) {
+        row = row || {};
+        function d10(v) { v = v == null ? "" : String(v).trim(); var m = /^\d{4}-\d{2}-\d{2}/.exec(v); return m ? m[0] : v; }
+        function list(v) {
+          if (typeof v === "string" && v.trim()) { try { v = JSON.parse(v); } catch (e) { v = null; } }
+          return Array.isArray(v) ? v.filter(function (x) { return x && (String(x.label || "").trim() || String(x.text || "").trim()); }) : [];
+        }
+        var bl = row["Day bottom line"] == null ? "" : String(row["Day bottom line"]).trim();
+        var pv = list(row["Bottom line preview"]);
+        if (!pv.length || !bl) {
+          var iss = (window.BRIEF_SNAPSHOT && Array.isArray(window.BRIEF_SNAPSHOT.Issues)) ? window.BRIEF_SNAPSHOT.Issues : [];
+          var d = d10(row.Date), snap = null;
+          for (var i = 0; d && i < iss.length; i++) if (iss[i] && d10(iss[i].Date) === d) { snap = iss[i]; break; }
+          if (snap) {
+            if (!pv.length) pv = list(snap["Bottom line preview"]);
+            if (!bl && snap["Day bottom line"] != null) bl = String(snap["Day bottom line"]).trim();
+          }
+        }
+        return { bl: bl, pv: pv };
+      };
     </script>
     <script>
       /* Shared UI helpers, defined before anything renders.
@@ -2854,12 +2876,30 @@
 
           // Today
           (function () {
-            var el = $("today-bluf"), pv = today["Bottom line preview"];
-            pv = Array.isArray(pv) ? pv.filter(function (x) { return x && (x.label || x.text); }) : [];
-            if (!pv.length) { el.textContent = today["Day bottom line"] || ""; return; }
-            var box = document.createElement("div");
+            var el = $("today-bluf");
+            if (!el) return;
+            var r = window.XBlufFor ? window.XBlufFor(today) : { bl: today["Day bottom line"] || "", pv: [] };
+            var pv = r.pv, bl = r.bl;
+            if (!pv.length) {
+              // Plain text fallback; if a previous render turned it into the preview div, turn it back.
+              if (el.tagName !== "P") {
+                var pl = document.createElement("p");
+                pl.className = "x-bluf__lead";
+                pl.id = "today-bluf";
+                el.parentNode.replaceChild(pl, el);
+                el = pl;
+              }
+              el.textContent = bl;
+              return;
+            }
+            var box = el;
+            if (el.tagName !== "DIV") {
+              box = document.createElement("div");
+              box.id = "today-bluf";
+              el.parentNode.replaceChild(box, el);
+            }
             box.className = "x-bluf__lead x-bluf__pv";
-            box.id = "today-bluf";
+            while (box.firstChild) box.removeChild(box.firstChild);
             function para(label, text) {
               var p = document.createElement("p"), b = document.createElement("b");
               b.textContent = label + ":";
@@ -2867,9 +2907,8 @@
               p.appendChild(document.createTextNode(" " + (text == null ? "" : String(text))));
               box.appendChild(p);
             }
-            para("Bottom line", today["Day bottom line"] || "");
+            para("Bottom line", bl);
             pv.forEach(function (x) { para(String(x.label || "").trim(), x.text); });
-            el.parentNode.replaceChild(box, el);
             var k = box.parentNode.querySelector(".x-kicker");
             if (k) k.textContent = "Bottom line up front";
           })();
@@ -2884,7 +2923,7 @@
             return '<div class="x-stack">' + num(i + 1) + "<p>" + cat(s.Category) + fbox("Story", storyId(s.Date, s.Headline), s.Headline) + "</p>" +
               "<h3>" + ext(s.Link, esc(s.Headline)) + "</h3>" +
               "<p>" + esc(s["Bottom line"]) + "</p>" +
-              (s["So what"] ? '<p><span class="x-label">So what:</span> ' + esc(s["So what"]) + "</p>" : "") +
+              (s["So what"] ? '<p><span class="x-label">BLUF:</span> ' + esc(s["So what"]) + "</p>" : "") +
               (url(s.Link) ? '<p class="x-srcs">' + src(s.Link, s.Source) + "</p>" : "") +
               more((str(s.Details) ? "<p>" + esc(s.Details) + "</p>" : "") + entChips(findItem("Story", s.Headline, s.Date))) + "</div>";
           }).join("");
@@ -3748,7 +3787,8 @@
           var lk = document.querySelector(".x-mast .otb-lockup"), mast = "";
           if (lk) { lk = lk.cloneNode(true); lk.removeAttribute("href"); lk.setAttribute("aria-hidden", "true"); mast = lk.outerHTML; }
           var src = L ? cov(d) : "";
-          var bl = s(iss["Day bottom line"]), pv = Array.isArray(iss["Bottom line preview"]) ? iss["Bottom line preview"].filter(function (x) { return x && (s(x.label) || s(x.text)); }) : [];
+          var blr = window.XBlufFor ? window.XBlufFor(iss) : { bl: s(iss["Day bottom line"]), pv: [] };
+          var bl = s(blr.bl), pv = blr.pv;
           var blBox = pv.length
             ? '<div class="pbl pbl--pv" role="note" aria-label="Bottom line up front"><p class="pk">Bottom line up front</p><p class="pbl-t"><b>Bottom line:</b> ' + e(bl) + "</p>" +
               pv.map(function (x) { return '<p class="pbl-t pbl-i"><b>' + e(x.label) + ":</b> " + e(x.text) + "</p>"; }).join("") + "</div>"
@@ -3758,7 +3798,7 @@
             (src ? '<figure class="pfig"><img src="' + e(src) + '" alt="Cover of Issue ' + e(iss.Issue) + '" /></figure>' : ""));
           if (L) {
             add("lead", "pc-lead", '<p class="pk">' + e(L.Category) + "</p><h2>" + e(L.Headline) + '</h2><p class="pbluf">' + e(L["Bottom line"]) + "</p>" +
-              (s(L["So what"]) ? '<p class="pso"><b>So what.</b> ' + e(L["So what"]) + "</p>" : "") +
+              (s(L["So what"]) ? '<p class="pso"><b>BLUF.</b> ' + e(L["So what"]) + "</p>" : "") +
               (s(L.Link) || s(L.Source) ? '<p class="psrc">Source: ' + (lnk(L.Link, L.Source || "Read") || e(L.Source)) + "</p>" : ""));
           }
           function sec(t, list, f) { if (!list.length) return; secHead = '<h3 class="psec">' + e(t) + "</h3>"; list.forEach(f); }

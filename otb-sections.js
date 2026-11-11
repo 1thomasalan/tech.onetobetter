@@ -127,7 +127,7 @@ window.XSections = (function () {
       if (names.length && logo(names[0])) html += '<div class="x-logos">' + names.slice(0, 6).map(logo).join("") + (names.length > 6 ? '<span class="x-logos__more">+' + (names.length - 6) + "</span>" : "") + "</div>";
       html += '<h2 class="x-lead__h" id="lead-h">' + ext(s.Link, esc(s.Headline)) + "</h2>";
       if (str(s["Bottom line"])) html += '<p class="x-lead__line">' + esc(s["Bottom line"]) + "</p>";
-      if (str(s["So what"])) html += '<p><span class="x-label">So what:</span> ' + esc(s["So what"]) + "</p>";
+      if (str(s["So what"])) html += '<p><span class="x-label">BLUF:</span> ' + esc(s["So what"]) + "</p>";
       html += '<div class="links">' + (url(s.Link) ? '<a class="x-src" href="' + esc(url(s.Link)) + '" target="_blank" rel="noopener">Read source' + (str(s.Source) ? " · " + esc(s.Source) : "") + " ↗</a>" : "") +
         fbox("Story", iso10(s.Date) + "|" + str(s.Headline), s.Headline) + "</div>";
       html += more((str(s.Details) ? "<p>" + esc(s.Details) + "</p>" : "") + chips("Story", s.Headline, s.Date));
