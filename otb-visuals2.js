@@ -239,7 +239,7 @@
     if (!dates.length) { box.innerHTML = ""; return; }
     var cats = Object.keys(totals).sort(function (a, b) { return totals[b] - totals[a] || a.localeCompare(b); });
     var colors = {};
-    cats.forEach(function (c, k) { colors[c] = CAT_COLORS[k] || "var(--chart-muted)"; });
+    cats.forEach(function (c, k) { colors[c] = CAT_COLORS[k] || "var(--x-cat-other)"; });
     var info = {}, min = Infinity, max = 0;
     dates.forEach(function (d) {
       var cnt = {}, best = "", bestN = 0;

@@ -84,7 +84,7 @@
 }
 
 /* ---------- Batch 2: star race, pulse calendar, five pillars ---------- */
-:root { --x-cat-8: #9a8c7a; --x-cat-9: #8c9aa8; --x-cat-10: #b0a08a; }
+:root { --x-cat-8: #9a8c7a; --x-cat-9: #8c9aa8; --x-cat-10: #b0a08a; --x-cat-other: #c4c4c0; }
 .x-race .chart__canvas, .x-pl .chart__canvas { touch-action: pan-y; }
 
 /* Star race */

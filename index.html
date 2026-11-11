@@ -558,6 +558,9 @@
       .x-bluf--sm .x-bluf__lead { font-size: 16px; font-weight: 400; }
       .x-bluf__issue { font-size: 14px; color: var(--x-g1); }
       .x-bluf .links { margin-top: 4px; }
+      .x-bluf__pv p { margin: 0; }
+      .x-bluf__pv p + p { margin-top: 0.5em; }
+      .x-bluf__pv b { font-weight: 700; color: var(--x-ink); }
 
       /* Buttons, links, tags */
       .btn {
@@ -1072,6 +1075,8 @@
       }
       /* Full strength needs no mix: paint the category colour itself, so the day number sits on a solid, known colour */
       .x-pulse__sq:not(.is-empty)[style*="--a:100%"] { background-color: var(--c); }
+      /* The capped dark category: a solid pre-mixed shade (its 85% wash), so the day number sits on a plain, known colour */
+      .x-pulse__sq:not(.is-empty)[style*="--c:var(--chart-2)"] { background-color: light-dark(#788c7f, #a0b5a7); }
 
       /* Light big numbers */
       .x-big, .x-tally dd, .x-rev__fig, .stat__fig {
@@ -2848,7 +2853,26 @@
           if (pdf) $("btn-pdf").href = pdf;
 
           // Today
-          $("today-bluf").textContent = today["Day bottom line"] || "";
+          (function () {
+            var el = $("today-bluf"), pv = today["Bottom line preview"];
+            pv = Array.isArray(pv) ? pv.filter(function (x) { return x && (x.label || x.text); }) : [];
+            if (!pv.length) { el.textContent = today["Day bottom line"] || ""; return; }
+            var box = document.createElement("div");
+            box.className = "x-bluf__lead x-bluf__pv";
+            box.id = "today-bluf";
+            function para(label, text) {
+              var p = document.createElement("p"), b = document.createElement("b");
+              b.textContent = label + ":";
+              p.appendChild(b);
+              p.appendChild(document.createTextNode(" " + (text == null ? "" : String(text))));
+              box.appendChild(p);
+            }
+            para("Bottom line", today["Day bottom line"] || "");
+            pv.forEach(function (x) { para(String(x.label || "").trim(), x.text); });
+            el.parentNode.replaceChild(box, el);
+            var k = box.parentNode.querySelector(".x-kicker");
+            if (k) k.textContent = "Bottom line up front";
+          })();
           $("n-stories").textContent = rows("Stories").length;
           $("n-repos").textContent = rows("GitHub Repos").length;
           $("n-papers").textContent = rows("Research Papers").length;
@@ -3679,6 +3703,10 @@
       :root[data-theme="dark"] #paper .pbl { background: #202125; }
       #paper .pbl .pk { margin-bottom: 4px; }
       #paper .pbl .pbl-t { margin: 0; font-family: var(--sans, "Helvetica Neue", Helvetica, Arial, sans-serif); font-size: 17px; line-height: 1.42; font-weight: 500; }
+      #paper .pbl--pv .pbl-t { font-size: 16px; line-height: 1.38; }
+      #paper .pbl--pv .pbl-i { font-size: 15px; font-weight: 400; }
+      #paper .pbl--pv .pbl-t + .pbl-t { margin-top: 0.5em; }
+      #paper .pbl--pv b { font-weight: 700; color: var(--x-ink, #171717); }
       #paper .pso b { color: var(--pr); }
       #paper .pc-it { padding-bottom: 12px; border-bottom: 1px solid var(--pl); }
       #paper .pc-it p:not(.pk), #paper .psrc { color: var(--x-g1, #525252); }
@@ -3720,9 +3748,13 @@
           var lk = document.querySelector(".x-mast .otb-lockup"), mast = "";
           if (lk) { lk = lk.cloneNode(true); lk.removeAttribute("href"); lk.setAttribute("aria-hidden", "true"); mast = lk.outerHTML; }
           var src = L ? cov(d) : "";
-          var bl = s(iss["Day bottom line"]);
+          var bl = s(iss["Day bottom line"]), pv = Array.isArray(iss["Bottom line preview"]) ? iss["Bottom line preview"].filter(function (x) { return x && (s(x.label) || s(x.text)); }) : [];
+          var blBox = pv.length
+            ? '<div class="pbl pbl--pv" role="note" aria-label="Bottom line up front"><p class="pk">Bottom line up front</p><p class="pbl-t"><b>Bottom line:</b> ' + e(bl) + "</p>" +
+              pv.map(function (x) { return '<p class="pbl-t pbl-i"><b>' + e(x.label) + ":</b> " + e(x.text) + "</p>"; }).join("") + "</div>"
+            : (bl ? '<div class="pbl" role="note" aria-label="Bottom line"><p class="pk">Bottom line</p><p class="pbl-t">' + e(bl) + "</p></div>" : "");
           add("front", "pc-front", mast + '<p class="pdate">The Tech Brief · Issue ' + e(iss.Issue) + (date ? " | " + e(date) : "") + "</p>" +
-            (bl ? '<div class="pbl" role="note" aria-label="Bottom line"><p class="pk">Bottom line</p><p class="pbl-t">' + e(bl) + "</p></div>" : "") +
+            blBox +
             (src ? '<figure class="pfig"><img src="' + e(src) + '" alt="Cover of Issue ' + e(iss.Issue) + '" /></figure>' : ""));
           if (L) {
             add("lead", "pc-lead", '<p class="pk">' + e(L.Category) + "</p><h2>" + e(L.Headline) + '</h2><p class="pbluf">' + e(L["Bottom line"]) + "</p>" +
@@ -3772,7 +3804,16 @@
         }
         function split(c, body, alone, isLead) {
           var cont = c.cloneNode(false); cont.classList.add("pc-cont");
-          while (over(body) && c.children.length > 1) cont.insertBefore(c.lastElementChild, cont.firstChild);
+          while (over(body) && c.children.length > 1) {
+            var le = c.lastElementChild;
+            if (le.classList.contains("pbl--pv") && le.children.length > 2) {
+              var pb = le.cloneNode(false);
+              while (over(body) && le.children.length > 2) pb.insertBefore(le.lastElementChild, pb.firstChild);
+              if (pb.children.length) cont.insertBefore(pb, cont.firstChild);
+              if (!over(body)) break;
+            }
+            cont.insertBefore(c.lastElementChild, cont.firstChild);
+          }
           if (over(body)) {
             var last = c.lastElementChild;
             if (!(last && last.tagName === "P" && splitP(last, cont, body)) && !alone && last) cont.insertBefore(last, cont.firstChild);
