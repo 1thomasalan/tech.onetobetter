@@ -89,6 +89,82 @@ window.XSections = (function () {
       '<div class="x-more-panel" id="' + id + '" hidden>' + body + "</div>";
   }
 
+  /* Small data-driven visuals and the Unconfirmed tag, shared with the page's own cards through window.XVisUI.
+     Each returns "" when its data is missing, so old rows render exactly as before. */
+  function vis(tab, row) { try { return window.XVis ? XVis(tab, row) : null; } catch (e) { return null; } }
+  var UNC = "Unconfirmed: we could not check this line against a primary source.";
+  function unc(v, f) {
+    return v && v.unconfirmed && v.unconfirmed.indexOf(f) >= 0
+      ? ' <span class="x-unc" role="note" title="' + UNC + '" aria-label="' + UNC + '">Unconfirmed</span>' : "";
+  }
+  var PIL;
+  function pillarsOf(date, headline) {
+    if (PIL === undefined) { try { var el = $("brief-visuals"); PIL = (JSON.parse((el && el.textContent) || "{}").story_pillars) || {}; } catch (e) { PIL = {}; } }
+    var p = PIL[iso10(date) + "|" + str(headline)];
+    return Array.isArray(p) ? p.filter(function (x) { return str(x) && str(x).toLowerCase() !== "ai"; }) : [];
+  }
+  function numTxt(n) { return str(n).replace(/(^|[\s(,])-(?=[\d$€£¥.])/g, "$1\u2212"); }
+  function fmtNum(n) { n = str(n).replace(/^\+/, ""); return /^\d+$/.test(n) ? (+n).toLocaleString("en-US") : n; }
+  function chip(inner, cls) { return '<span class="x-vchip' + (cls ? " " + cls : "") + '">' + inner + "</span>"; }
+  function row(list) { return list.length ? '<div class="x-vchips">' + list.join("") + "</div>" : ""; }
+  function storyChips(s, v) {
+    v = v || vis("Stories", s);
+    if (!v || !v.keyNumbers.length) return "";
+    var c = pillarsOf(s.Date, s.Headline).map(function (p) {
+      return chip('<b class="x-vchip__ico" aria-hidden="true">' + esc(str(p).charAt(0).toUpperCase()) + "</b><span>" + esc(p) + "</span>");
+    });
+    v.keyNumbers.forEach(function (k) { c.push(chip('<b class="x-vnum">' + esc(numTxt(k.n)) + "</b>" + (k.label ? "<span> " + esc(k.label) + "</span>" : ""))); });
+    return row(c);
+  }
+  var AUD = [["everyday", "Everyday"], ["work", "Work"], ["developers", "Developers"]];
+  function releaseChips(r, v) {
+    v = v || vis("Releases", r);
+    if (!v) return "";
+    var c = [];
+    if (v.priceTier) c.push(chip("<span>Price </span>" + '<b class="x-vnum">' + esc(v.priceTier) + "</b>"));
+    if (v.platform) c.push(chip(esc(v.platform), "x-vchip--muted"));
+    if (v.audience) {
+      var on = AUD.filter(function (a) { return a[0] === v.audience; })[0];
+      c.push('<span class="x-vchip x-vchip--for" role="img" aria-label="For ' + (on[0] === "everyday" ? "everyday use" : on[1].toLowerCase()) + '"><span aria-hidden="true">For</span>' + AUD.map(function (a) {
+        return '<span class="x-for' + (a[0] === v.audience ? " is-on" : "") + '" aria-hidden="true">' + a[1] + "</span>";
+      }).join("") + "</span>");
+    }
+    return row(c);
+  }
+  function moneyBars(b, v) {
+    v = v || vis("AI Business", b);
+    if (!v || !v.money.length) return "";
+    var max = Math.max.apply(null, v.money.map(function (m) { return m.value; })) || 1;
+    return '<div class="x-money" role="group" aria-label="The money, as reported">' + v.money.map(function (m, i) {
+      var w = Math.max(1.5, Math.round((m.value / max) * 1000) / 10);
+      return '<div class="x-money__row"><span class="x-money__l">' + esc(m.label) + '</span><span class="x-money__track" aria-hidden="true"><span class="x-money__bar' + (i ? "" : " is-first") + '" style="width:' + w + '%"></span></span><span class="x-money__v">' + esc(m.text) + "</span></div>";
+    }).join("") + '<div class="x-money__note">' + esc(v.moneyNote) + "</div></div>";
+  }
+  function repoChips(r, v) {
+    v = v || vis("GitHub Repos", r);
+    if (!v || !v.language) return "";
+    var c = [];
+    if (str(r["Total stars"])) c.push('<span class="x-vchip" role="img" aria-label="' + esc(fmtNum(r["Total stars"])) + ' stars in total"><span aria-hidden="true">★</span><b class="x-vnum" aria-hidden="true">' + esc(fmtNum(r["Total stars"])) + "</b></span>");
+    if (str(r["Stars this week"])) c.push(chip("<b>+" + esc(fmtNum(r["Stars this week"])) + "</b><span> this week</span>"));
+    c.push(chip('<i class="x-ydot" aria-hidden="true"></i><span>' + esc(v.language) + "</span>", "x-vchip--muted"));
+    return row(c);
+  }
+  function paperChips(p, v) {
+    v = v || vis("Research Papers", p);
+    if (!v || (!v.evidence && !v.qtr)) return "";
+    var c = [], up = str(p.Upvotes);
+    if (v.evidence) c.push(chip(/^preprint/i.test(v.evidence) ? "Preprint, not peer reviewed" : esc(v.evidence), "x-vchip--muted"));
+    if (up) c.push(chip('<span aria-hidden="true">▲</span><b class="x-vnum">' + esc(up) + "</b><span> " + (up === "1" ? "vote" : "votes") + "</span>"));
+    var h = row(c);
+    if (v.qtr) {
+      h += '<div class="x-qtr">' + [["Question", v.qtr.q], ["Test", v.qtr.t], ["Result", v.qtr.r]].filter(function (x) { return x[1]; }).map(function (x) {
+        return '<div class="x-qtr__box"><span class="x-qtr__k">' + x[0] + '</span><span class="x-qtr__v">' + esc(numTxt(x[1])) + "</span></div>";
+      }).join("") + "</div>";
+    }
+    return h;
+  }
+  window.XVisUI = { vis: vis, unc: unc, storyChips: storyChips, releaseChips: releaseChips, moneyBars: moneyBars, repoChips: repoChips, paperChips: paperChips, pillars: pillarsOf, num: numTxt, fmt: fmtNum };
+
   // A section with no rows leaves the page and the nav
   function showSection(id, on) {
     var s = $(id);
@@ -123,14 +199,16 @@ window.XSections = (function () {
     html += '<div class="x-lead__copy">';
     html += '<p class="x-kicker">' + esc(kicker) + "</p>";
     if (s) {
+      var v = vis("Stories", s);
       var names = companiesFor(D, "Story", str(s.Headline));
       if (names.length && logo(names[0])) html += '<div class="x-logos">' + names.slice(0, 6).map(logo).join("") + (names.length > 6 ? '<span class="x-logos__more">+' + (names.length - 6) + "</span>" : "") + "</div>";
       html += '<h2 class="x-lead__h" id="lead-h">' + ext(s.Link, esc(s.Headline)) + "</h2>";
-      if (str(s["Bottom line"])) html += '<p class="x-lead__line">' + esc(s["Bottom line"]) + "</p>";
-      if (str(s["So what"])) html += '<p><span class="x-label">BLUF:</span> ' + esc(s["So what"]) + "</p>";
+      html += storyChips(s, v);
+      if (str(s["Bottom line"])) html += '<p class="x-lead__line">' + esc(s["Bottom line"]) + unc(v, "bluf") + "</p>";
+      if (str(s["So what"])) html += '<p><span class="x-label">BLUF:</span> ' + esc(s["So what"]) + unc(v, "so_what") + "</p>";
       html += '<div class="links">' + (url(s.Link) ? '<a class="x-src" href="' + esc(url(s.Link)) + '" target="_blank" rel="noopener">Read source' + (str(s.Source) ? " · " + esc(s.Source) : "") + " ↗</a>" : "") +
         fbox("Story", iso10(s.Date) + "|" + str(s.Headline), s.Headline) + "</div>";
-      html += more((str(s.Details) ? "<p>" + esc(s.Details) + "</p>" : "") + chips("Story", s.Headline, s.Date));
+      html += more((str(s.Details) ? "<p>" + esc(s.Details) + unc(v, "details") + "</p>" : "") + chips("Story", s.Headline, s.Date));
     }
     html += "</div>";
     box.className = "x-lead" + (src ? " has-cover" : "");
@@ -140,21 +218,22 @@ window.XSections = (function () {
   // Latest releases
   function relLogo(r) {
     var d = str(r.Domain).replace(/^https?:\/\//i, "").replace(/\/.*$/, "");
-    if (!/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(d) || /^(www\.)?(zest\.app|alibabagroup\.com|nju\.edu\.cn|hexafuture\.ai|iquest\.ai|ruc\.edu\.cn|sjtu\.edu\.cn|sensenova\.cn|myflorida\.com|jd\.com|new\.quest|zju\.edu\.cn|peppi\.ai)$/i.test(d)) d = "";
+    if (!/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(d) || /^(www\.)?(zest\.app|alibabagroup\.com|nju\.edu\.cn|hexafuture\.ai|iquest\.ai|ruc\.edu\.cn|sjtu\.edu\.cn|sensenova\.cn|myflorida\.com|jd\.com|new\.quest|zju\.edu\.cn|tsinghua\.edu\.cn|peppi\.ai)$/i.test(d)) d = "";
     var who = str(r.Company) || str(r.Name);
     return '<span class="x-logo x-logo--lg' + (d ? "" : " is-initials") + '" role="img" aria-label="' + esc(who) + ' logo">' +
       (d ? '<img class="x-logo__img" src="https://www.google.com/s2/favicons?domain=' + encodeURIComponent(d) + '&amp;sz=128" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" />' : "") +
       '<span class="x-logo__ini" aria-hidden="true">' + esc(initials(who)) + "</span></span>";
   }
   function releaseCard(r) {
-    var similar = str(r["Similar to"]), price = str(r.Pricing), src = url(r.Source);
+    var similar = str(r["Similar to"]), price = str(r.Pricing), src = url(r.Source), v = vis("Releases", r);
     return '<div class="x-stack x-rel">' +
       '<div class="x-rel__top">' + relLogo(r) + '<div><h3>' + esc(r.Name) + "</h3>" + (str(r.Company) ? '<p class="x-rel__co">' + esc(r.Company) + "</p>" : "") + "</div></div>" +
       "<p>" + (str(r.Category) ? '<span class="x-cat" data-t="Release">' + esc(r.Category) + "</span>" : "") + fbox("release", str(r.Name), r.Name) + "</p>" +
       (str(r.Launched) ? '<p class="x-meta">Launched ' + esc(shortDate(r.Launched)) + "</p>" : "") +
-      (str(r["Bottom line"]) ? "<p>" + esc(r["Bottom line"]) + "</p>" : "") +
-      (similar ? '<p><span class="x-label">Similar to:</span> ' + esc(similar) + "</p>" : "") +
-      (price ? '<p><span class="pill x-price">' + esc(price) + "</span></p>" : "") +
+      releaseChips(r, v) +
+      (str(r["Bottom line"]) ? "<p>" + esc(r["Bottom line"]) + unc(v, "bluf") + "</p>" : "") +
+      (similar ? '<p><span class="x-label">Similar to:</span> ' + esc(similar) + unc(v, "similar_to") + "</p>" : "") +
+      (price ? '<p><span class="pill x-price">' + esc(price) + "</span>" + unc(v, "pricing") + "</p>" : "") +
       chips("Release", r.Name, r.Date) +
       '<div class="x-rel__foot">' + (url(r.Link) ? ext(r.Link, "Try it", "btn x-btn--primary x-try") : "") +
       srcLink(src, hostOf(src)) + "</div></div>";
@@ -180,7 +259,8 @@ window.XSections = (function () {
 
   // AI & small business
   var FIG = /^(?:(?:more than|over|about|almost|nearly|roughly|around|~)\s+)?[$€£¥]\s?[\d][\d,.]*\s?(?:[KMB]\b|million|billion|thousand)?/i;
-  function revenue(text) {
+  function revenue(text, tag) {
+    tag = tag || "";
     var t = str(text), self = /\(self-reported\)/i.test(t);
     t = t.replace(/\s*\(self-reported\)/ig, "").trim();
     var m = FIG.exec(t), fig = "", rest = t;
@@ -190,21 +270,22 @@ window.XSections = (function () {
       if (m2 && t.length > 32) { fig = m2[0].trim(); }
       else if (t.length <= 32) { fig = t; rest = ""; }
     }
-    if (!fig) return t ? '<div class="x-rev"><p class="x-rev__note">' + esc(t) + (self ? " <small>(self-reported)</small>" : "") + "</p></div>" : "";
+    if (!fig) return t ? '<div class="x-rev"><p class="x-rev__note">' + esc(t) + (self ? " <small>(self-reported)</small>" : "") + tag + "</p></div>" : "";
     fig = fig.charAt(0).toUpperCase() + fig.slice(1);
     return '<div class="x-rev"><p class="x-rev__fig">' + esc(fig) + "</p>" +
-      (rest || self ? '<p class="x-rev__note">' + esc(rest) + (self ? " <small>(self-reported)</small>" : "") + "</p>" : "") + "</div>";
+      (rest || self ? '<p class="x-rev__note">' + esc(rest) + (self ? " <small>(self-reported)</small>" : "") + tag + "</p>" : tag ? '<p class="x-rev__note">' + tag.trim() + "</p>" : "") + "</div>";
   }
   function bizCard(b) {
-    var who = [str(b.Business), str(b.Founders)].filter(Boolean).join(" · "), src = url(b.Source) || url(b.Link);
+    var who = [str(b.Business), str(b.Founders)].filter(Boolean).join(" · "), src = url(b.Source) || url(b.Link), v = vis("AI Business", b);
     return '<div class="x-stack x-biz">' +
       "<h3>" + ext(b.Link || b.Source, esc(b.Headline)) + "</h3>" +
       (who ? '<p class="x-rel__co">' + esc(who) + "</p>" : "") +
-      revenue(b.Revenue) +
+      revenue(b.Revenue, unc(v, "revenue")) +
+      moneyBars(b, v) +
       (str(b["Team size"]) ? '<p><span class="pill x-price">Team: ' + esc(b["Team size"]) + "</span></p>" : "") +
-      (str(b["Bottom line"]) ? "<p>" + esc(b["Bottom line"]) + "</p>" : "") +
-      (str(b["How AI is used"]) ? '<p><span class="x-label">How AI is used:</span> ' + esc(b["How AI is used"]) + "</p>" : "") +
-      (str(b.Lesson) ? '<div class="x-lesson"><p class="x-kicker">Lesson</p><p>' + esc(b.Lesson) + "</p></div>" : "") +
+      (str(b["Bottom line"]) ? "<p>" + esc(b["Bottom line"]) + unc(v, "bluf") + "</p>" : "") +
+      (str(b["How AI is used"]) ? '<p><span class="x-label">How AI is used:</span> ' + esc(b["How AI is used"]) + unc(v, "how_ai") + "</p>" : "") +
+      (str(b.Lesson) ? '<div class="x-lesson"><p class="x-kicker">Lesson</p><p>' + esc(b.Lesson) + unc(v, "lesson") + "</p></div>" : "") +
       chips("AI Business", b.Headline, b.Date) +
       srcLink(src, hostOf(src)) + "</div>";
   }
@@ -232,5 +313,5 @@ window.XSections = (function () {
     [renderLead, renderReleases, renderBusiness].forEach(function (f) { try { f(D || {}); } catch (e) {} });
   }
 
-  return { items: items, update: update };
+  return { items: items, update: update, model: function () { return M; } };
 })();
