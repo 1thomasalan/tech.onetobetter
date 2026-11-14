@@ -35,6 +35,7 @@
       box.className = "otbp";
       box.setAttribute("aria-label", "Today across the five pillars");
       top.parentNode.insertBefore(box, top.nextSibling);
+      if (window.ResizeObserver) { var w0 = 0; new ResizeObserver(function () { var w = box.clientWidth; if (w !== w0) { w0 = w; fitLabels(); } }).observe(box); }
     }
     return box;
   }

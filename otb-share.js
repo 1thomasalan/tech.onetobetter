@@ -674,7 +674,8 @@
     if (scroll) {
       try { card.scrollIntoView({ block: card.offsetHeight > innerHeight * 0.8 ? "start" : "center", behavior: "auto" }); } catch (e) { card.scrollIntoView(); }
       var navH = 0, nav = document.getElementById("x-nav");
-      if (nav && getComputedStyle(nav).position === "sticky" && nav.offsetHeight) navH = nav.offsetHeight;
+      if (window.XApp && XApp.isApp && XApp.isApp()) navH = XApp.headH();
+      else if (nav && getComputedStyle(nav).position === "sticky" && nav.offsetHeight) navH = nav.offsetHeight;
       var r = card.getBoundingClientRect();
       if (r.top < navH + 8) window.scrollBy(0, r.top - navH - 12);
     }
