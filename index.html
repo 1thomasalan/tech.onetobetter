@@ -1292,8 +1292,29 @@
       :root[data-theme="dark"] #paper .punc { border-color: #5c5d63; color: #b0b0b0; }
       :root[data-theme="dark"] #paper .pdev { background: #2c2d32; color: #d4d4d4; }
     </style>
-  <link rel="stylesheet" href="otb-next.css" />
-<link rel="manifest" href="manifest.webmanifest" />
+    <style id="otb-next-a11y">
+      /* Readability and tap-target overrides for the attached otb-next.css (left unchanged); :root raises specificity so these win though it loads later. */
+      :root body .otba-k, :root body .otba-lbl, :root body .otba-lbl .otba-swipe, :root body .otba-c,
+      :root body .otba-tab, :root body .otba-aa small, :root body .otb-pbadge b,
+      :root body .otbt-tab thead th, :root body .otbt-tab tbody th .otbp-ico, :root body .otbp-tiles .otbp-tile, :root body .otbp-tile .otbp-l { font-size: 12px; }
+      :root body .otba-skip small { font-size: 12px; top: 14px; }
+      :root body .otbp-tile.is-zero, :root body .otbp-tile.is-zero .otbp-l, :root body .otba-rail .otba-card .otba-c { color: var(--x-g1, #525252); }
+      :root[data-theme="dark"] body .otbp-tile.is-zero, :root[data-theme="dark"] body .otbp-tile.is-zero .otbp-l, :root[data-theme="dark"] body .otba-rail .otba-card .otba-c { color: #b0b0b0; }
+      :root body .otba-rail .otba-card.is-on .otba-c { color: #d4d4d4; }
+      :root[data-theme="dark"] body .otba-rail .otba-card.is-on .otba-c { color: #404040; }
+      :root body .otbc .otbc-url span { color: #666; }
+      /* Screen-reader text in the pillar trends table: sized to its text, then scaled away, so nothing is clipped inside it */
+      :root body .otbt-tab .x-sr { width: auto; height: auto; margin: 0; overflow: visible; clip: auto; transform: scale(0); transform-origin: 0 0; pointer-events: none; }
+      :root body .otbs-link .otbs-link__t { white-space: normal; overflow-wrap: anywhere; text-overflow: clip; }
+      @media (max-width: 1023px) {
+        :root body .otba-link, :root body .otbp-what { display: inline-flex; align-items: center; min-height: 44px; }
+        :root body .otbp-clear, :root body .otbs-copy, :root body .otba-secs .otba-sec { min-height: 44px; }
+        :root body p .otbs-btn, :root body .otbs-btn { min-width: 44px; min-height: 44px; }
+        :root body .otba-acts .otbs-btn--text, :root body .otbs-btn--text { min-height: 44px; }
+      }
+    </style>
+    <link rel="stylesheet" href="otb-next.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-title" content="Tech Brief" />
@@ -4863,9 +4884,9 @@
         if (want) open(false);
       })();
     </script>
-  <script src="otb-share.js"></script>
-<script src="otb-pillars.js"></script>
-<script src="otb-app.js"></script>
-<script src="otb-pwa.js"></script>
+    <script src="otb-share.js"></script>
+    <script src="otb-pillars.js"></script>
+    <script src="otb-app.js"></script>
+  <script src="otb-pwa.js"></script>
 </body>
 </html>

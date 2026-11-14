@@ -1,6 +1,6 @@
 /* The Tech Brief service worker (mirror only). Keeps today's issue readable offline. No push, no notifications.
    Version stamp is filled in by library/publish_github.py on every publish, so each daily refresh replaces the cache. */
-var V = "tb-202611140422-8b3172a3";
+var V = "tb-202611140431-bfe16934";
 var CORE = ["/", "/index.html", "/manifest.webmanifest", "/hark.css", "/hark.js", "/hark-charts.css", "/hark-charts.js", "/hark-hero.css",
   "/chart.js", "/datalabels.js", "/otb-visuals.css", "/otb-visuals.js", "/otb-visuals2.js", "/otb-visuals3.js", "/otb-map.js", "/otb-sections.js",
   "/otb-world.js", "/page-flip.browser.js", "/otb-next.css", "/otb-share.js", "/otb-pillars.js", "/otb-app.js", "/otb-pwa.js",
