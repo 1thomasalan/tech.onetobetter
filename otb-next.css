@@ -114,3 +114,87 @@ html.paper .otbs-bar { display: none; }
 .otbc-url { text-align: right; font-size: 23px; font-weight: 700; line-height: 1.3; }
 .otbc-url span { color: #888; font-size: 17px; font-weight: 400; }
 #otbc-stage { position: fixed; left: 0; top: 0; z-index: 2147483647; width: 1200px; height: 630px; background: #fff; }
+
+/* ---------- 2. Five pillars: the pulse strip on Today ---------- */
+.otbp { margin: 20px 0 8px; padding: 16px 0 4px; border-top: var(--x-rule, 1.5px solid #171717); }
+.otbp-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 12px; }
+.otbp-k { margin: 0; color: var(--x-red, #c81018); font: 700 12px/1.3 var(--sans, Helvetica, Arial, sans-serif); letter-spacing: 0.12em; text-transform: uppercase; }
+.otbp-what { color: var(--x-g2, #737373); font: 400 13px/1.3 var(--sans, Helvetica, Arial, sans-serif); text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+.otbp-what:hover { color: var(--x-red, #c81018); }
+.otbp-tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.otbp-tile {
+  display: grid; justify-items: center; align-content: start; gap: 6px; min-width: 0; min-height: 96px; padding: 12px 3px 10px;
+  border: 1px solid transparent; border-radius: 12px; background: var(--x-chip, #f1f1ef); color: var(--x-ink, #171717);
+  font: 600 12px/1.15 var(--sans, Helvetica, Arial, sans-serif); text-align: center; cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+.otbp-tile.has { background: var(--x-tint, #fcf1f1); }
+.otbp-tile:hover { border-color: var(--x-g3, #a3a3a3); }
+.otbp-tile:focus-visible, .otbp-found:focus-visible { outline: 2px solid var(--x-red, #c81018); outline-offset: 2px; }
+.otbp-tile.is-on, .otbp-found.is-on { border-color: var(--x-red-rule, #c81018); box-shadow: inset 0 0 0 1px var(--x-red-rule, #c81018); }
+.otbp-ico { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 6px; background: var(--x-chip-ico, #171717); color: var(--x-chip-ico-ink, #fff); font: 700 12px/1 var(--sans, Helvetica, Arial, sans-serif); }
+.otbp-tile.has .otbp-ico { background: var(--x-red-fill, #c81018); color: #fff; }
+.otbp-l { display: block; max-width: 100%; overflow: hidden; white-space: nowrap; letter-spacing: -0.01em; }
+.otbp-abbr, .otbp-l.is-short .otbp-full { display: none; }
+.otbp-l.is-short .otbp-abbr { display: inline; }
+.otbp-n { font: 700 24px/1 var(--x-num-font, "Helvetica Neue", Helvetica, Arial, sans-serif); font-variant-numeric: tabular-nums; }
+.otbp-tile.has .otbp-n { color: var(--x-red, #c81018); }
+.otbp-tile.is-zero { color: var(--x-g2, #737373); }
+.otbp-tile.is-zero .otbp-ico { background: var(--x-dot-off, #d4d4d4); color: var(--x-g1, #525252); }
+:root[data-theme="dark"] .otbp-tile.is-zero .otbp-ico { color: #d4d4d4; }
+.otbp-found {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; min-height: 44px; margin-top: 8px; padding: 0 16px;
+  border: 1px solid transparent; border-radius: 10px; background: #171717; color: #f1f1f1; cursor: pointer;
+  font: 400 14px/1.2 var(--sans, Helvetica, Arial, sans-serif); text-align: left;
+}
+.otbp-found__l b { font-weight: 700; color: #fff; }
+.otbp-found__n { font-weight: 700; font-variant-numeric: tabular-nums; }
+.otbp-found.has .otbp-found__n { color: #ff5a62; }
+:root[data-theme="dark"] .otbp-found { background: #f1f1f1; color: #171717; }
+:root[data-theme="dark"] .otbp-found__l b { color: #0f1013; }
+:root[data-theme="dark"] .otbp-found.has .otbp-found__n { color: #c81018; }
+.otbp-status { margin: 10px 0 0; color: var(--x-g1, #525252); font: 400 14px/1.4 var(--sans, Helvetica, Arial, sans-serif); }
+.otbp-status:empty { display: none; }
+.otbp-clear { margin-left: 4px; padding: 4px 10px; border: 1px solid var(--x-line, #e5e5e5); border-radius: 999px; background: none; color: var(--x-red, #c81018); font: 700 13px/1.2 var(--sans, Helvetica, Arial, sans-serif); cursor: pointer; }
+@media (max-width: 380px) { .otbp-tiles { gap: 6px; } .otbp-tile { font-size: 11px; padding-left: 2px; padding-right: 2px; } }
+@media (min-width: 1024px) { .otbp { max-width: 760px; margin-left: auto; margin-right: auto; } }
+
+/* Filtering Today */
+.otbp-out { display: none !important; }
+.otbp-none { display: none !important; }
+
+/* Pillar badge, Beyond the chatbot tag, Where it lands */
+.otb-pbadge {
+  display: inline-flex; align-items: center; gap: 5px; margin-left: 8px; padding: 2px 8px 2px 3px; vertical-align: middle;
+  border-radius: 999px; background: var(--x-chip, #f1f1ef); color: var(--x-chip-ink, #171717); font: 600 12px/1.2 var(--sans, Helvetica, Arial, sans-serif); white-space: nowrap;
+}
+.otb-pbadge b { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 5px; background: var(--x-chip-ico, #171717); color: var(--x-chip-ico-ink, #fff); font-size: 11px; }
+.otb-bc {
+  display: inline-flex; align-items: center; margin-left: 8px; padding: 2px 9px; vertical-align: middle;
+  border: 1px solid var(--x-red-rule, #c81018); border-radius: 999px; color: var(--x-red, #c81018); font: 700 12px/1.3 var(--sans, Helvetica, Arial, sans-serif); white-space: nowrap;
+}
+.otb-prow { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 2px; }
+.otb-prow .otb-pbadge, .otb-prow .otb-bc { margin-left: 0; }
+.otb-wil { margin: 0; padding: 8px 12px; border-left: 3px solid var(--x-red-rule, #c81018); background: var(--x-wash, #fafafa); color: var(--x-g1, #525252); font: 400 15px/1.45 var(--sans, Helvetica, Arial, sans-serif); }
+.otb-wil__k { display: block; margin-bottom: 2px; color: var(--x-red, #c81018); font: 700 11px/1.3 var(--sans, Helvetica, Arial, sans-serif); letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* Weekly pillar trends */
+.otbt { margin: 28px 0 0; padding: 18px 0 0; border-top: 1px solid var(--x-line, #e5e5e5); }
+.otbt-cap { display: grid; gap: 4px; margin: 0 0 14px; }
+.otbt-k { color: var(--x-red, #c81018); font: 700 12px/1.3 var(--sans, Helvetica, Arial, sans-serif); letter-spacing: 0.12em; text-transform: uppercase; }
+.otbt-t { color: var(--x-ink, #171717); font: 700 20px/1.25 var(--sans, Helvetica, Arial, sans-serif); letter-spacing: -0.01em; }
+.otbt-cap small { color: var(--x-g2, #737373); font: 400 13px/1.45 var(--sans, Helvetica, Arial, sans-serif); }
+.otbt-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.otbt-tab { width: 100%; border-collapse: collapse; table-layout: fixed; min-width: 330px; }
+.otbt-tab th, .otbt-tab td { padding: 6px 2px; border: 0; text-align: center; vertical-align: bottom; background: none; }
+.otbt-tab thead th { color: var(--x-g2, #737373); font: 600 11px/1.2 var(--sans, Helvetica, Arial, sans-serif); letter-spacing: 0.02em; white-space: nowrap; }
+.otbt-tab thead th.is-cur { color: var(--x-red, #c81018); }
+.otbt-tab tbody th { width: 118px; text-align: left; vertical-align: middle; color: var(--x-ink, #171717); font: 600 13px/1.2 var(--sans, Helvetica, Arial, sans-serif); white-space: nowrap; }
+.otbt-tab tbody th .otbp-ico { width: 20px; height: 20px; margin-right: 6px; font-size: 11px; vertical-align: middle; }
+.otbt-tab tbody tr + tr th, .otbt-tab tbody tr + tr td { border-top: 1px solid var(--x-line, #e5e5e5); }
+.otbt-bar { display: block; width: 14px; margin: 0 auto 3px; border-radius: 3px 3px 0 0; background: var(--x-g3, #a3a3a3); }
+.otbt-tab td.is-cur .otbt-bar { background: var(--x-red-fill, #c81018); }
+.otbt-v { display: block; color: var(--x-g1, #525252); font: 600 12px/1.2 var(--sans, Helvetica, Arial, sans-serif); font-variant-numeric: tabular-nums; }
+.otbt-tab td.is-cur .otbt-v { color: var(--x-red, #c81018); }
+.otbt-tab tr.is-found th { color: var(--x-g1, #525252); }
+@media (max-width: 599px) { .otbt-old { display: none; } .otbt-tab tbody th { width: 122px; font-size: 12px; } }
