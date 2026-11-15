@@ -1,7 +1,8 @@
 /* The Tech Brief service worker (mirror only). Keeps today's issue readable offline. No push, no notifications.
    Version stamp is filled in by library/publish_github.py on every publish, so each daily refresh replaces the cache. */
-var V = "tb-202611141950-492ab1fe";
-var CORE = ["/", "/index.html", "/manifest.webmanifest", "/hark.css", "/hark.js", "/hark-charts.css", "/hark-charts.js", "/hark-hero.css",
+var V = "tb-202611151022-492ab1fe";
+var OFFLINE = "/offline.html";
+var CORE = ["/", "/index.html", OFFLINE, "/manifest.webmanifest", "/hark.css", "/hark.js", "/hark-charts.css", "/hark-charts.js", "/hark-hero.css",
   "/chart.js", "/datalabels.js", "/otb-visuals.css", "/otb-visuals.js", "/otb-visuals2.js", "/otb-visuals3.js", "/otb-map.js", "/otb-sections.js",
   "/otb-world.js", "/page-flip.browser.js", "/otb-next.css", "/otb-share.js", "/otb-pillars.js", "/otb-app.js", "/otb-pwa.js",
   "/otb-logo-160.png", "/otb-logo-dark.png", "/icons/icon-192.png", "/icons/icon-512.png"];
@@ -28,7 +29,12 @@ self.addEventListener("fetch", function (e) {
   if (req.mode === "navigate") {
     // Pages: network first (fresh brief), cached copy when offline
     e.respondWith(fetch(req).then(function (res) { return put(url.pathname === "/" || url.pathname === "/index.html" ? new Request("/") : req, res); }).catch(function () {
-      return caches.match(req, { ignoreSearch: true }).then(function (r) { return r || caches.match("/"); });
+      // A saved copy of this page if there is one. Otherwise only the home page falls back to the cached brief;
+      // any other page (an article, a /s/ share page) gets offline.html, so the home page never shows at an article's URL.
+      var home = url.pathname === "/" || url.pathname === "/index.html";
+      return caches.match(home ? "/" : req, { ignoreSearch: true }).then(function (r) {
+        return r || (home ? caches.match("/index.html") : caches.match(OFFLINE));
+      });
     }));
     return;
   }
