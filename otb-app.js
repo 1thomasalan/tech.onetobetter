@@ -15,16 +15,19 @@
   var MQ = window.matchMedia ? matchMedia("(max-width: 1023px)") : { matches: false };
   var REDUCED = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var BASE = "https://tech.onetobetter.com";
+  // Mobile v2 (Alan, 2026-11-16): Today · Explore · Library · Saved. Explore = who and where (directory, pillars, map, graph,
+  // pulse, star race, story arcs); Library = past issues (issues, archive, covers, glossary).
   var GROUPS = {
     today: ["today", "stories", "releases", "ai-business", "github", "research"],
-    library: ["arcs", "pulse", "star-race", "pillars", "map", "graph", "archive", "covers", "issues", "glossary"],
-    directory: ["directory"],
+    explore: ["directory", "pillars", "pulse", "map", "graph", "star-race", "arcs"],
+    library: ["issues", "archive", "covers", "glossary"],
     saved: ["following"]
   };
+  var SUBS = ["releases", "ai-business", "github", "research"];
   var TABS = [
     ["today", "Today", '<path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z"/>'],
+    ["explore", "Explore", '<circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>'],
     ["library", "Library", '<path d="M5 4h4v16H5zM10.5 4h4v16h-4zM16 5.2l3.6-1 3.4 15.5-3.6.9z" transform="translate(-1 0)"/>'],
-    ["directory", "Directory", '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M12 3.5v3M12 17.5v3M3.5 12h3M17.5 12h3"/>'],
     ["saved", "Saved", '<path d="M7 3.5h10a1 1 0 0 1 1 1V21l-6-4-6 4V4.5a1 1 0 0 1 1-1z"/>']
   ];
   function groupOf(id) { for (var g in GROUPS) if (GROUPS[g].indexOf(id) >= 0) return g; return ""; }
@@ -51,14 +54,17 @@
     head.innerHTML = '<a class="otba-brand" href="#today" data-otba-tab="today" aria-label="The Tech Brief, Today"><img class="otba-logo otba-logo--l" src="' + esc(logoSrc()) + '" alt="" width="24" height="24" />' +
       (logoDark() ? '<img class="otba-logo otba-logo--d" src="' + esc(logoDark()) + '" alt="" width="24" height="24" />' : "") + '<span>The Tech Brief</span></a>' +
       '<div class="otba-tools">' +
-      '<button type="button" class="otba-ic" id="otba-text" aria-label="Text size" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true" class="otba-aa">A<small>A</small></span></button>' +
-      '<button type="button" class="otba-ic" id="otba-paper" aria-label="Paper view">' + svg('<path d="M4 5h13v13a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v9a2 2 0 0 1-4 0M7 9h7M7 12.5h7M7 16h4"/>', 20) + "</button>" +
-      '<button type="button" class="otba-ic" id="otba-theme" aria-label="Switch to dark mode">' + svg('<path class="otba-moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/><g class="otba-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g>', 20) + "</button>" +
+      '<button type="button" class="otba-ic" id="otba-text" aria-label="Reading settings" aria-haspopup="true" aria-expanded="false" aria-controls="otba-sizes">' + svg('<path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/>', 20) + "</button>" +
       "</div>" +
-      '<div class="otba-sizes" id="otba-sizes" role="group" aria-label="Text size" hidden>' +
+      '<div class="otba-sizes otbm-set" id="otba-sizes" role="group" aria-label="Reading settings" hidden>' +
+      '<p class="otbm-set__l">Text size</p><div class="otbm-set__row">' +
       [["0.9", "Smaller"], ["1", "Default"], ["1.12", "Larger"], ["1.25", "Largest"]].map(function (s, i) {
         return '<button type="button" data-otba-size="' + s[0] + '" aria-label="' + s[1] + ' text" style="font-size:' + (13 + i * 3) + 'px">A</button>';
       }).join("") + "</div>" +
+      '<div class="otbm-set__row otbm-set__row--2">' +
+      '<button type="button" class="otbm-set__b" id="otba-theme" aria-label="Switch to dark mode">' + svg('<path class="otba-moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/><g class="otba-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g>', 18) + '<span class="otbm-theme-t">Dark mode</span></button>' +
+      '<button type="button" class="otbm-set__b" id="otba-paper" aria-label="Paper view">' + svg('<path d="M4 5h13v13a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v9a2 2 0 0 1-4 0M7 9h7M7 12.5h7M7 16h4"/>', 18) + "<span>Paper view</span></button>" +
+      "</div></div>" +
       '<div class="otba-prog" aria-hidden="true"><i></i></div>';
     document.body.insertBefore(head, document.body.firstChild);
     prog = head.querySelector(".otba-prog i");
@@ -99,15 +105,23 @@
   }
   // Library tab: a chip row to its parts (Explore and Library sections)
   function libNav() {
-    var first = $("arcs");
-    if (!first || $("otb-libnav")) return;
-    var L = [["archive", "Archive"], ["covers", "Covers"], ["issues", "Past issues"], ["glossary", "Glossary"], ["arcs", "Story arcs"], ["pulse", "Pulse"], ["star-race", "Star race"], ["pillars", "Pillars"], ["map", "Map"], ["graph", "Graph"]];
-    var n = document.createElement("nav");
-    n.id = "otb-libnav";
-    n.className = "otba-libnav";
-    n.setAttribute("aria-label", "Library");
-    n.innerHTML = '<p class="otba-lbl">Library</p><div class="otba-secs otba-secs--wrap">' + L.filter(function (x) { return $(x[0]); }).map(function (x) { return '<a class="otba-sec" href="#' + x[0] + '">' + x[1] + "</a>"; }).join("") + "</div>";
-    first.parentNode.insertBefore(n, first);
+    var NAVS = {
+      explore: [["directory", "Directory"], ["pillars", "Pillars"], ["map", "Map"], ["graph", "Graph"], ["pulse", "Pulse"], ["star-race", "Star race"], ["arcs", "Story arcs"]],
+      library: [["issues", "Past issues"], ["archive", "Archive"], ["covers", "Covers"], ["glossary", "Glossary"]]
+    };
+    Object.keys(NAVS).forEach(function (g) {
+      if ($("otb-libnav-" + g)) return;
+      var have = NAVS[g].filter(function (x) { return $(x[0]); });
+      if (!have.length) return;
+      var first = have.map(function (x) { return $(x[0]); }).sort(function (p, q) { return p.compareDocumentPosition(q) & 4 ? -1 : 1; })[0];
+      var n = document.createElement("nav");
+      n.id = "otb-libnav-" + g;
+      n.className = "otba-libnav otbm-libnav";
+      n.setAttribute("data-otbm-group", g);
+      n.setAttribute("aria-label", g === "explore" ? "Explore" : "Library");
+      n.innerHTML = '<h2 class="otbm-tabh">' + (g === "explore" ? "Explore" : "Library") + '</h2><div class="otba-secs otba-secs--wrap">' + have.map(function (x) { return '<a class="otba-sec" href="#' + x[0] + '">' + x[1] + "</a>"; }).join("") + "</div>";
+      first.parentNode.insertBefore(n, first);
+    });
   }
   function syncTheme() {
     var b = $("otba-theme");
@@ -115,6 +129,8 @@
     var dark = H.getAttribute("data-theme") === "dark";
     b.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
     b.classList.toggle("is-dark", dark);
+    var t = b.querySelector(".otbm-theme-t");
+    if (t) t.textContent = dark ? "Light mode" : "Dark mode";
   }
 
   // Text size (applies to the reading area and the sheets on phones)
@@ -142,7 +158,8 @@
     opts = opts || {};
     if (!GROUPS[name]) return;
     if (!on) { tab = name; return; }
-    if (name === tab && !opts.force) { if (opts.top) scrollTop(); return; }
+    if (name === tab && !opts.force) { if (sub && name === "today") { setSub(""); return; } if (opts.top) scrollTop(); return; }
+    if (sub) setSub("", { noScroll: true });
     scrollMem[tab] = window.scrollY;
     tab = name;
     H.setAttribute("data-otba-tab", name);
@@ -166,6 +183,7 @@
     if (on) {
       var sec = sectionOf(this), g = sec ? groupOf(sec.id) : "";
       if (g && g !== tab) setTab(g, { keepScroll: true });
+      if (sec && SUBS.indexOf(sec.id) >= 0 && sub !== sec.id) setSub(sec.id, { noScroll: true });
     }
     return origSIV.apply(this, arguments);
   };
@@ -181,8 +199,13 @@
     if (g && g !== tab) {
       ev.preventDefault();
       setTab(g, { keepScroll: true });
+      if (SUBS.indexOf(sec.id) >= 0) { setSub(sec.id); if (el !== sec) setTimeout(function () { jump(el); }, 20); return; }
       setTimeout(function () { jump(el); }, 20);
-    } else if (g) { ev.preventDefault(); jump(el); }
+    } else if (g) {
+      ev.preventDefault();
+      if (SUBS.indexOf(sec.id) >= 0 && sub !== sec.id) { setSub(sec.id); if (el !== sec) setTimeout(function () { jump(el); }, 20); return; }
+      jump(el);
+    }
   }, true);
   function headH() { return head && on ? head.offsetHeight : 0; }
   function jump(el) {
@@ -192,7 +215,9 @@
   window.addEventListener("hashchange", function () {
     if (!on) return;
     var el = $(location.hash.slice(1)), sec = el && (sectionOf(el) || el), g = sec && groupOf(sec.id);
-    if (g && g !== tab) { setTab(g, { keepScroll: true }); setTimeout(function () { jump(el); }, 20); }
+    if (g && g !== tab) setTab(g, { keepScroll: true });
+    if (sec && SUBS.indexOf(sec.id) >= 0) { if (sub !== sec.id) setSub(sec.id); if (el !== sec) setTimeout(function () { jump(el); }, 20); return; }
+    if (g) setTimeout(function () { jump(el); }, 20);
   });
   // The Saved count follows the page's own badge
   function syncBadge() {
@@ -205,13 +230,35 @@
     a.setAttribute("aria-label", "Saved" + (n ? ", " + n + " saved" : ""));
   }
 
-  // ---------- Today screen ----------
+  // ---------- Today screen (mobile v2, Alan 2026-11-16) ----------
+  // Date + AI-curated pill; the Bottom line card (one-sentence headline, Listen, Read in N min); Today's top 3 as photo
+  // swipe cards; today's stories by pillar as one chip row; "More in today's issue" rows with small thumbnails that open
+  // each section as its own screen. Phone data (short headlines, top 3, pictures) comes from visuals.json "mobile".
   function todayRow() { var d = X.today(); return X.issueRow(d) || {}; }
   function blParts(row) { try { return window.XBlufFor ? XBlufFor(row) : { bl: str(row["Day bottom line"]), pv: [] }; } catch (e) { return { bl: str(row["Day bottom line"]), pv: [] }; } }
   function splitFirst(t) {
     t = str(t);
-    var m = /^([\s\S]{20,}?[.!?])(\s+[A-Z“"‘(][\s\S]*)?$/.exec(t);
+    var m = /^([\s\S]{20,}?[.!?])(\s+[A-Z\u201c"\u2018(][\s\S]*)?$/.exec(t);
     return m ? [m[1], str(m[2])] : [t, ""];
+  }
+  function mob(d) { var m = X.visuals().mobile; return (m && m[d || X.today()]) || {}; }
+  function ik(it) { return it.type + "|" + it.title; }
+  function imgUrl(p) { return !p ? "" : /^https?:/.test(p) ? p : (location.hostname === "tech.onetobetter.com" || window.OTB_AUDIO_LOCAL ? "" : BASE) + p; }
+  function imgOf(it) { var m = mob(it.date); return imgUrl(m.img && m.img[ik(it)]); }
+  function shortOf(it) { var m = mob(it.date); return str(m.short && m.short[ik(it)]) || it.title; }
+  function img(src, alt, cls) { return src ? '<img class="' + (cls || "") + '" src="' + esc(src) + '" alt="' + esc(alt || "") + '" loading="lazy" decoding="async" onerror="this.parentNode&&this.parentNode.classList.add(\'otbm-noimg\');this.remove()" />' : ""; }
+  var PL = [["AI", "AI", '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>'],
+    ["Robotics", "Robotics", '<rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 4v4M9 13h.01M15 13h.01"/>'],
+    ["Advanced manufacturing", "Manufacturing", '<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>'],
+    ["Biotechnology", "Biotech", '<path d="M8 3c0 6 8 6 8 12M16 3c0 6-8 6-8 12M8 21c0-2 1-3 2-4M16 21c0-2-1-3-2-4M9 7h6M9 13h6"/>'],
+    ["Energy", "Energy", '<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>'],
+    ["Semiconductors", "Chips", '<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/>']];
+  function plLabel(p) { var x = PL.filter(function (q) { return q[0] === p; })[0]; return x ? x[1] : p; }
+  function readMin(d, r) {
+    var t = [r.bl].concat((r.pv || []).map(function (x) { return str(x.text); }));
+    X.items(d).forEach(function (it) { var w = it.row || {}; t.push(str(w["Bottom line"]), str(w["So what"])); });
+    var words = t.join(" ").split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.round(words / 220));
   }
   var heroKey = "";
   function drawHero() {
@@ -221,85 +268,209 @@
     if (!hero) {
       hero = document.createElement("div");
       hero.id = "otb-today";
-      hero.className = "otba-hero";
+      hero.className = "otba-hero otbm-hero";
       sec.insertBefore(hero, sec.firstChild);
+      hero.addEventListener("click", heroClick);
     }
-    var row = todayRow(), d = X.today(), r = blParts(row);
-    var key = d + "|" + r.bl + "|" + JSON.stringify(r.pv) + "|" + str(row.Issue);
+    var row = todayRow(), d = X.today(), r = blParts(row), m = mob(d), a = audioUrl();
+    var stories = X.items(d).filter(function (x) { return x.type === "Story"; });
+    var top = topOf(stories, m);
+    var key = d + "|" + r.bl + "|" + JSON.stringify(r.pv) + "|" + str(row.Issue) + "|" + JSON.stringify(m) + "|" + (a ? a.sec : "");
     if (key === heroKey) return;
     heroKey = key;
-    var two = splitFirst(r.bl);
-    var date = X.dateLong(d).replace(/^(\w{3}), (\w{3}) (\d+), \d{4}$/, function (m, a, b, c) { return { Sun: "Sunday", Mon: "Monday", Tue: "Tuesday", Wed: "Wednesday", Thu: "Thursday", Fri: "Friday", Sat: "Saturday" }[a] + ", " + b + " " + c; });
-    var h = '<p class="otba-date">' + esc(date) + (str(row.Issue) ? " · Issue " + esc(row.Issue) : "") + "</p>" +
-      '<p class="otba-k">Bottom line</p><h1 class="otba-h1">' + esc(two[0]) + "</h1>" + (two[1] ? '<p class="otba-bl">' + esc(two[1]) + "</p>" : "");
-    if (r.pv && r.pv.length) {
-      h += '<details class="otba-more"><summary>The bottom line in full</summary><div class="otba-pv">' + r.pv.map(function (x) {
-        return "<p><b>" + esc(str(x.label)) + ":</b> " + esc(str(x.text)) + "</p>";
-      }).join("") + "</div></details>";
-    }
-    var pdf = $("btn-pdf");
-    if (pdf && !pdf.hidden && /^https?:/.test(pdf.getAttribute("href") || "")) h += '<p class="otba-links"><a class="otba-link" href="' + esc(pdf.getAttribute("href")) + '" target="_blank" rel="noopener">Read today\u2019s PDF \u2197</a></p>';
+    var two = splitFirst(r.bl), h1 = str(m.bluf_short) || two[0], dek = str(m.bluf_dek) || (m.bluf_short ? "" : two[1]);
+    var date = X.dateLong(d).replace(/^(\w{3}), (\w{3}) (\d+), \d{4}$/, "$1, $2 $3");
+    var thumbs = top.map(imgOf).filter(Boolean).slice(0, 3);
+    var disc = document.querySelector(".x-disclaim");
+    var dtext = disc ? str(disc.textContent) : "Curated and checked with AI. AI can make mistakes, so check the sources on anything important.";
+    var h = '<div class="otbm-dl"><p class="otba-date">' + esc(date) + (str(row.Issue) ? " \u00b7 Issue " + esc(row.Issue) : "") + "</p>" +
+      '<button type="button" class="otbm-pill" aria-expanded="false" aria-controls="otbm-disc"><i aria-hidden="true"></i>AI-curated</button></div>' +
+      '<p class="otbm-disc" id="otbm-disc" hidden>' + esc(dtext) + "</p>" +
+      '<div class="otbm-blc"><div class="otbm-ebrow"><p class="otba-k">The bottom line</p>' +
+      (thumbs.length ? '<span class="otbm-trio" aria-hidden="true">' + thumbs.map(function (u) { return img(u, ""); }).join("") + "</span>" : "") + "</div>" +
+      '<h1 class="otba-h1 otbm-h1">' + esc(h1) + "</h1>" + (dek ? '<p class="otbm-dek">' + esc(dek) + "</p>" : "") +
+      '<div class="otbm-ctas">' + (a ? '<button type="button" class="otbm-listen" data-otbm="listen"><svg viewBox="0 0 10 12" width="12" height="12" aria-hidden="true"><path d="M0 0l10 6-10 6z" fill="currentColor"/></svg>Listen' + (mins(a.sec) ? " \u00b7 " + mins(a.sec) : "") + "</button>" : "") +
+      '<button type="button" class="otbm-read" data-otbm="read">Read in ' + readMin(d, r) + " min</button></div></div>";
     hero.innerHTML = h;
   }
+  function heroClick(ev) {
+    var b = ev.target.closest ? ev.target.closest("button") : null;
+    if (!b) return;
+    if (b.classList.contains("otbm-pill")) { var p = $("otbm-disc"), o = p.hidden; p.hidden = !o; b.setAttribute("aria-expanded", o ? "true" : "false"); return; }
+    var w = b.getAttribute("data-otbm");
+    if (w === "listen") { listen(); }
+    else if (w === "read") { readSheet(b); }
+  }
+  function readSheet(from) {
+    var row = todayRow(), r = blParts(row), m = mob();
+    var h = '<div class="otbm-read-s"><p class="otba-k">The bottom line</p><h2 class="otbm-rh">' + esc(str(m.bluf_short) || splitFirst(r.bl)[0]) + "</h2>" +
+      '<p class="otbm-rp">' + esc(r.bl) + "</p>" +
+      (r.pv && r.pv.length ? r.pv.map(function (x) { return '<div class="otbm-rpart"><p class="otba-k">' + esc(str(x.label)) + '</p><p class="otbm-rp">' + esc(str(x.text)) + "</p></div>"; }).join("") : "");
+    var pdf = $("btn-pdf");
+    if (pdf && !pdf.hidden && /^https?:/.test(pdf.getAttribute("href") || "")) h += '<p class="otba-links"><a class="otba-link" href="' + esc(pdf.getAttribute("href")) + '" target="_blank" rel="noopener">Read today\u2019s PDF \u2197</a></p>';
+    openHtml(h + "</div>", "The bottom line", from);
+  }
+  function topOf(stories, m) {
+    var idx = Array.isArray(m.top3) && m.top3.length ? m.top3 : [0, 1, 2], out = [];
+    idx.forEach(function (i) { var s = stories.filter(function (x) { return x.index === i; })[0]; if (s && out.indexOf(s) < 0) out.push(s); });
+    stories.forEach(function (s) { if (out.length < Math.min(3, stories.length) && out.indexOf(s) < 0) out.push(s); });
+    return out.slice(0, 3);
+  }
+  function savedOf(it) {
+    var c = X.cardOf(it), i = c && c.querySelector("input[data-follow]");
+    return i || null;
+  }
+  var BM = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7 3.5h10a1 1 0 0 1 1 1V21l-6-4-6 4V4.5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+  var CHEV = '<svg class="otbm-chev" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var railKey = "";
   function drawRail() {
-    var pulse = $("otb-pulse"), sec = $("today");
+    var sec = $("today");
     if (!sec) return;
     var wrap = $("otb-railwrap");
     if (!wrap) {
       wrap = document.createElement("div");
       wrap.id = "otb-railwrap";
-      wrap.className = "otba-railwrap";
-      var lead = $("lead");
-      sec.insertBefore(wrap, lead || null);
+      wrap.className = "otba-railwrap otbm-wrap";
+      var hero = $("otb-today");
+      sec.insertBefore(wrap, hero ? hero.nextSibling : sec.firstChild);
+      wrap.addEventListener("click", wrapClick);
+    } else {
+      var hero2 = $("otb-today");
+      if (hero2 && hero2.nextSibling !== wrap) sec.insertBefore(wrap, hero2.nextSibling);
     }
-    if (pulse && pulse.nextSibling !== wrap && pulse.parentNode === sec) sec.insertBefore(wrap, pulse.nextSibling);
-    var d = X.today(), list = X.items(d).filter(function (x) { return x.type === "Story"; }).slice(0, 5);
-    var key = d + "|" + list.map(function (x) { return x.slug; }).join(",");
-    var counts = { Release: 0, Business: 0, Repo: 0, Paper: 0 };
-    X.items(d).forEach(function (x) { if (counts.hasOwnProperty(x.type)) counts[x.type]++; });
-    key += JSON.stringify(counts);
-    if (key === railKey && wrap.firstChild) return;
+    var d = X.today(), all = X.items(d), m = mob(d);
+    var stories = all.filter(function (x) { return x.type === "Story"; });
+    var top = topOf(stories, m), rest = stories.filter(function (s) { return top.indexOf(s) < 0; });
+    var gl = X.rows("Glossary").filter(function (g) { return str(g["First seen"]).slice(0, 10) === d; }).length;
+    var key = d + "|" + all.map(function (x) { return x.slug; }).join(",") + "|" + JSON.stringify(m) + "|" + gl;
+    if (key === railKey && wrap.firstChild) { syncMarks(); return; }
     railKey = key;
-    var h = '<p class="otba-lbl">Top ' + list.length + '<span class="otba-swipe"> <span aria-hidden="true">·</span> swipe</span></p><div class="otba-rail" role="list" aria-label="Top stories" tabindex="0">';
-    list.forEach(function (it, i) {
-      var r = it.row || {}, src = str(r.Link);
-      h += '<article class="x-stack otba-card" role="listitem" data-otb-item="' + esc(it.slug) + '" aria-label="' + esc((i + 1) + ". " + it.title) + '">' +
-        '<p class="otba-n" aria-hidden="true">' + (i < 9 ? "0" : "") + (i + 1) + "</p>" +
-        '<p class="otba-c">' + esc(str(r.Category) || "Top story") + "</p>" +
-        '<h3 class="otba-t"><a href="#stories" data-otba-open="' + esc(it.slug) + '">' + esc(it.title) + "</a></h3>" +
-        '<p style="display:none">' + esc(str(r["Bottom line"])) + "</p>" +
-        (/^https?:/.test(src) ? '<a class="x-src" href="' + esc(src) + '" hidden>source</a>' : "") +
-        '<div class="otba-acts"></div></article>';
+    // Top 3
+    var h = '<div class="otbm-sh"><h2>Today\u2019s top ' + top.length + '</h2><span class="otbm-pos" aria-hidden="true">1 of ' + top.length + "</span></div>" +
+      '<div class="otba-rail otbm-rail" role="list" aria-label="Today\u2019s top stories" tabindex="0">';
+    top.forEach(function (it, i) {
+      var kn = m.kn && m.kn[ik(it)], pics = imgOf(it), pls = X.pillarsOf(it.type, it.date, it.title), pl = pls[1] || pls[0] || "AI";
+      var co = m.co && m.co[ik(it)];
+      h += '<article class="otbm-card' + (pics ? "" : " otbm-noimg") + '" role="listitem" data-otb-item="' + esc(it.slug) + '">' +
+        '<div class="otbm-band">' + img(pics, "") +
+        (kn ? '<p class="otbm-kn"><b>' + esc(kn.n) + "</b><span>" + esc(kn.label) + "</span></p>" : "") +
+        '<span class="otbm-tag' + (pl === "AI" ? " otbm-tag--ai" : "") + '">' + esc(plLabel(pl)) + "</span></div>" +
+        '<div class="otbm-cb"><h3 class="otbm-ct"><a href="#stories" data-otba-open="' + esc(it.slug) + '">' + esc(shortOf(it)) + "</a></h3>" +
+        '<div class="otbm-meta"><span>' + (co ? esc(co) + " \u00b7 " : "") + (i + 1) + " of " + top.length + '</span>' +
+        '<button type="button" class="otbm-save" data-otbm-save="' + esc(it.slug) + '" aria-pressed="false" aria-label="Save ' + esc(shortOf(it)) + '">' + BM + "</button></div></div></article>";
     });
-    h += '</div><div class="otba-dots" aria-hidden="true">' + list.map(function (x, i) { return "<i" + (i ? "" : ' class="is-on"') + "></i>"; }).join("") + "</div>";
-    var M = [["releases", "Releases", counts.Release], ["ai-business", "Business", counts.Business], ["github", "GitHub", counts.Repo], ["research", "Research", counts.Paper]];
-    h += '<p class="otba-lbl">More today</p><div class="otba-secs">' + M.filter(function (m) { return m[2] > 0; }).map(function (m) {
-      return '<a class="otba-sec" href="#' + m[0] + '">' + m[1] + " <b>" + m[2] + "</b></a>";
+    h += '</div><div class="otba-dots otbm-dots" aria-hidden="true">' + top.map(function (x, i) { return "<i" + (i ? "" : ' class="is-on"') + "></i>"; }).join("") + "</div>";
+    // Pillars today
+    var cnt = {};
+    stories.forEach(function (s) { X.pillarsOf("Story", d, s.title).forEach(function (p) { cnt[p] = (cnt[p] || 0) + 1; }); });
+    h += '<div class="otbm-sh"><h2>Today across the pillars</h2><a class="otbm-shl" href="#pillars">What\u2019s this?</a></div>' +
+      '<div class="otbm-pulse"><p class="otba-k">Stories today, by pillar</p><div class="otbm-chips">' + PL.map(function (p) {
+        var n = cnt[p[0]] || 0;
+        return '<span class="otbm-chip' + (n ? "" : " is-zero") + '">' + svg(p[2], 14) + esc(p[1]) + (n ? " <b>" + n + "</b>" : " " + n) + "</span>";
+      }).join("") + "</div></div>";
+    // More in today's issue
+    function stack(list, cls) {
+      var u = list.map(imgOf).filter(Boolean).slice(0, 3);
+      return '<span class="otbm-stack ' + (cls || "") + (u.length === 1 ? " is-one" : "") + '" aria-hidden="true">' + (u.length ? u.map(function (x) { return img(x, ""); }).join("") : '<span class="otbm-ph"></span>') + "</span>";
+    }
+    function names(list, f) { return list.map(f).filter(Boolean).join(", "); }
+    var by = function (t) { return all.filter(function (x) { return x.type === t; }); };
+    var rows = [];
+    if (rest.length) rows.push(["stories", "More stories", rest.length, names(rest, function (x) { return shortOf(x); }), stack(rest)]);
+    [["Release", "releases", "New to try", "", function (x) { return x.title; }],
+     ["Business", "ai-business", "AI & small business", "", function (x) { return shortOf(x) !== x.title ? shortOf(x) : str((x.row || {}).Business) || x.title; }],
+     ["Repo", "github", "Hot on GitHub", "is-round", function (x) { return x.title.split("/").pop(); }],
+     ["Paper", "research", "Research", "is-paper", function (x) { return shortOf(x) !== x.title ? shortOf(x) : x.title.split(":")[0]; }]].forEach(function (k) {
+      var l = by(k[0]);
+      if (l.length) rows.push([k[1], k[2], l.length, names(l, k[4]), stack(l, k[3])]);
+    });
+    rows.push(["glossary", "Words to know", gl, gl ? "New terms in today\u2019s issue" : "Every term so far", '<span class="otbm-stack is-one" aria-hidden="true"><span class="otbm-aa">Aa</span></span>']);
+    h += '<div class="otbm-sh"><h2>More in today\u2019s issue</h2></div><div class="otbm-list">' + rows.map(function (r) {
+      var inner = r[4] + '<span class="otbm-rt"><b>' + esc(r[1]) + (r[2] ? "<em>" + r[2] + "</em>" : "") + "</b><small>" + esc(r[3]) + "</small></span>" + CHEV;
+      if (r[0] === "stories") {
+        return '<details class="otbm-row otbm-more"><summary class="otbm-rowi">' + inner + '</summary><div class="otbm-mini">' + rest.map(function (it) {
+          var u = imgOf(it);
+          return '<a class="otbm-minii" href="#stories" data-otba-open="' + esc(it.slug) + '">' + (u ? '<span class="otbm-stack is-one" aria-hidden="true">' + img(u, "") + "</span>" : "") + "<span>" + esc(shortOf(it)) + "</span></a>";
+        }).join("") + "</div></details>";
+      }
+      return '<a class="otbm-row otbm-rowi" href="#' + r[0] + '" data-otbm-row="' + r[0] + '">' + inner + "</a>";
     }).join("") + "</div>";
     wrap.innerHTML = h;
-    [].forEach.call(wrap.querySelectorAll(".otba-card"), function (card, i) {
-      var it = list[i], acts = card.querySelector(".otba-acts");
-      if (window.XBrief && XBrief.digBtn) acts.insertAdjacentHTML("beforeend", XBrief.digBtn("Story", it.title));
-      if (window.XShare) acts.appendChild(XShare.btn(it, "Share"));
-    });
-    var rail = wrap.querySelector(".otba-rail");
+    var rail = wrap.querySelector(".otbm-rail");
     rail.addEventListener("scroll", dots, { passive: true });
     dots();
-    if (window.XPillars) try { XPillars.apply(); } catch (e) {}
+    syncMarks();
+  }
+  function syncMarks() {
+    [].forEach.call(document.querySelectorAll("[data-otbm-save]"), function (b) {
+      var it = X.findBySlug(b.getAttribute("data-otbm-save")), i = it && savedOf(it), on = !!(i && i.checked);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.classList.toggle("is-on", on);
+      b.hidden = !i;
+    });
+  }
+  function wrapClick(ev) {
+    var b = ev.target.closest ? ev.target.closest("[data-otbm-save]") : null;
+    if (b) {
+      ev.preventDefault(); ev.stopPropagation();
+      var it = X.findBySlug(b.getAttribute("data-otbm-save")), i = it && savedOf(it);
+      if (i) { i.click(); setTimeout(syncMarks, 30); }
+      return;
+    }
+    var r = ev.target.closest ? ev.target.closest("[data-otbm-row]") : null;
+    if (r) {
+      var id = r.getAttribute("data-otbm-row");
+      ev.preventDefault(); ev.stopPropagation();
+      if (id === "glossary") { setTab("library", { keepScroll: true }); setTimeout(function () { var g = $("glossary"); if (g) jump(g); }, 20); return; }
+      setSub(id);
+    }
   }
   var dotT = 0;
   function dots() {
     clearTimeout(dotT);
     dotT = setTimeout(function () {
-      var rail = document.querySelector("#otb-railwrap .otba-rail");
+      var rail = document.querySelector("#otb-railwrap .otbm-rail");
       if (!rail) return;
       var cards = [].filter.call(rail.children, function (c) { return c.offsetParent !== null; }), best = 0, bd = 1e9, rl = rail.getBoundingClientRect().left;
       cards.forEach(function (c, i) { var dd = Math.abs(c.getBoundingClientRect().left - rl - 16); if (dd < bd) { bd = dd; best = i; } });
       cards.forEach(function (c, i) { c.classList.toggle("is-on", i === best); });
       var ds = document.querySelectorAll("#otb-railwrap .otba-dots i");
       [].forEach.call(ds, function (dd, i) { dd.classList.toggle("is-on", i === best); dd.hidden = i >= cards.length; });
+      var pos = document.querySelector("#otb-railwrap .otbm-pos");
+      if (pos) pos.textContent = (best + 1) + " of " + cards.length;
     }, 40);
+  }
+  // One section as its own screen (Releases, AI & small business, GitHub, Research), with a back bar to Today
+  var sub = "", subY = 0, subBar = null;
+  var SUBNAME = { releases: "New to try", "ai-business": "AI & small business", github: "Hot on GitHub", research: "Research" };
+  function setSub(id, opts) {
+    opts = opts || {};
+    if (!on) return;
+    if (id && SUBS.indexOf(id) < 0) return;
+    if (id && !sub) subY = window.scrollY;
+    sub = id || "";
+    [].forEach.call(document.querySelectorAll(".otba-subon"), function (n) { n.classList.remove("otba-subon"); });
+    if (sub) {
+      var el = $(sub);
+      if (el) el.classList.add("otba-subon");
+      if (!subBar) {
+        subBar = document.createElement("div");
+        subBar.id = "otbm-subbar";
+        subBar.className = "otbm-subbar";
+        subBar.innerHTML = '<button type="button" class="otbm-back"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Today</button><span class="otbm-subt"></span>';
+        subBar.querySelector("button").addEventListener("click", function () { setSub(""); });
+      }
+      var t = $("today");
+      if (t && t.parentNode && subBar.parentNode !== t.parentNode) t.parentNode.insertBefore(subBar, t);
+      subBar.querySelector(".otbm-subt").textContent = SUBNAME[sub] || "";
+      H.setAttribute("data-otba-sub", sub);
+      if (!opts.noScroll) window.scrollTo(0, 0);
+    } else {
+      H.removeAttribute("data-otba-sub");
+      if (!opts.noScroll) window.scrollTo(0, subY || 0);
+    }
+    try { window.dispatchEvent(new Event("resize")); } catch (e) {}
+    progress();
   }
 
   // ---------- Story bottom sheet: the full card, moved in and put back on close ----------
@@ -327,6 +498,7 @@
     card.parentNode.insertBefore(mark, card);
     moved = { card: card, mark: mark };
     sheetBody.innerHTML = "";
+    sheetL.querySelector(".x-dig-sheet").setAttribute("aria-label", "Story");
     sheetBody.appendChild(card);
     card.classList.add("otba-incard");
     sheetOpener = from || document.activeElement;
@@ -340,6 +512,24 @@
     var x = sheetL.querySelector(".x-dig-x");
     if (x) try { x.focus({ preventScroll: true }); } catch (e) {}
     return true;
+  }
+  // A sheet with its own content (the full Bottom line)
+  function openHtml(html, label, from) {
+    if (!sheetL) buildSheet();
+    clearTimeout(sheetCloseT);
+    putBack();
+    sheetBody.innerHTML = html;
+    sheetL.querySelector(".x-dig-sheet").setAttribute("aria-label", label || "Details");
+    sheetOpener = from || document.activeElement;
+    sheetL.hidden = false;
+    H.style.overflow = "hidden";
+    var page = document.querySelector(".page");
+    if (page) page.setAttribute("inert", "");
+    void sheetL.offsetWidth;
+    sheetL.classList.add("is-open");
+    sheetBody.scrollTop = 0;
+    var x = sheetL.querySelector(".x-dig-x");
+    if (x) try { x.focus({ preventScroll: true }); } catch (e) {}
   }
   function putBack() {
     if (!moved) return;
@@ -376,7 +566,7 @@
     if (!t) return;
     var o = t.closest("[data-otba-open]");
     if (o) { ev.preventDefault(); openStory(X.findBySlug(o.getAttribute("data-otba-open")), o); return; }
-    var card = t.closest(".otba-card");
+    var card = t.closest(".otba-card, .otbm-card");
     if (card && !t.closest("button, a")) openStory(X.findBySlug(card.getAttribute("data-otb-item")), card);
   });
   document.addEventListener("keydown", function (ev) {
@@ -413,7 +603,14 @@
   }
   function mins(s) { return s ? Math.max(1, Math.round(s / 60)) + " min" : ""; }
   function clock(s) { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ":" + (s % 60 < 10 ? "0" : "") + (s % 60); }
-  var aInfo = null;
+  var aInfo = null, listened = false;
+  // The mini player shows only after Listen is tapped (mobile v2), then stays while you read
+  function listen() {
+    listened = true;
+    if (player) player.removeAttribute("data-closed");
+    drawPlayer();
+    if (audio && audio.paused) togglePlay();
+  }
   function buildPlayer() {
     player = document.createElement("div");
     player.id = "otb-player";
@@ -445,7 +642,7 @@
   function drawPlayer() {
     if (!player) return;
     var a = audioUrl();
-    if (!a || player.getAttribute("data-closed")) { player.hidden = true; H.classList.remove("otba-has-player"); return; }
+    if (!a || !listened || player.getAttribute("data-closed")) { player.hidden = true; H.classList.remove("otba-has-player"); return; }
     if (!aInfo || aInfo.url !== a.url) {
       aInfo = a;
       if (audio) { audio.pause(); audio.removeAttribute("src"); }
@@ -559,6 +756,7 @@
   function leave() {
     on = false;
     closeSheet();
+    if (sub) setSub("", { noScroll: true });
     H.classList.remove("x-app", "otba-has-player");
     H.removeAttribute("data-otba-tab");
     applySize();
@@ -583,7 +781,7 @@
       if (main) new MutationObserver(function (ms) {
         for (var i = 0; i < ms.length; i++) {
           var n = ms[i].target;
-          if (n && n.closest && (n.closest("#otb-today") || n.closest("#otb-railwrap"))) continue;
+          if (n && n.closest && (n.closest("#otb-today") || n.closest("#otb-railwrap") || n.closest("#otbm-subbar"))) continue;
           queue();
           return;
         }
@@ -595,5 +793,5 @@
   else start();
 
   window.XApp = { isApp: isApp, tab: function (n) { if (n) setTab(n, { keepScroll: false, top: true }); return tab; }, reveal: reveal, openStory: openStory, closeStory: closeSheet, headH: headH,
-    onFilter: function () { dots(); }, audio: function () { return audio; } };
+    onFilter: function () { dots(); }, audio: function () { return audio; }, sub: function (id) { if (id !== undefined) setSub(id); return sub; }, listen: listen };
 })();
