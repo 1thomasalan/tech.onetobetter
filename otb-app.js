@@ -341,7 +341,7 @@
     var d = X.today(), all = X.items(d), m = mob(d);
     var stories = all.filter(function (x) { return x.type === "Story"; });
     var top = topOf(stories, m), rest = stories.filter(function (s) { return top.indexOf(s) < 0; });
-    var gl = X.rows("Glossary").filter(function (g) { return str(g["First seen"]).slice(0, 10) === d; }).length;
+    var glr = X.rows("Glossary").filter(function (g) { return str(g["First seen"]).slice(0, 10) === d; }), gl = glr.length;
     var key = d + "|" + all.map(function (x) { return x.slug; }).join(",") + "|" + JSON.stringify(m) + "|" + gl;
     if (key === railKey && wrap.firstChild) { syncMarks(); return; }
     railKey = key;
@@ -392,6 +392,11 @@
           var u = imgOf(it);
           return '<a class="otbm-minii" href="#stories" data-otba-open="' + esc(it.slug) + '">' + (u ? '<span class="otbm-stack is-one" aria-hidden="true">' + img(u, "") + "</span>" : "") + "<span>" + esc(shortOf(it)) + "</span></a>";
         }).join("") + "</div></details>";
+      }
+      if (r[0] === "glossary" && gl) {
+        return '<details class="otbm-row otbm-more otbm-gl"><summary class="otbm-rowi">' + inner + '</summary><div class="otbm-mini otbm-terms">' + glr.map(function (g) {
+          return '<div class="otbm-term"><b>' + esc(str(g.Term)) + '</b><span>' + esc(str(g.Meaning)) + '</span></div>';
+        }).join("") + '<a class="otbm-allterms" href="#glossary" data-otbm-row="glossary">See all terms</a></div></details>';
       }
       return '<a class="otbm-row otbm-rowi" href="#' + r[0] + '" data-otbm-row="' + r[0] + '">' + inner + "</a>";
     }).join("") + "</div>";
