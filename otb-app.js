@@ -119,7 +119,7 @@
       n.className = "otba-libnav otbm-libnav";
       n.setAttribute("data-otbm-group", g);
       n.setAttribute("aria-label", g === "explore" ? "Explore" : "Library");
-      n.innerHTML = '<h2 class="otbm-tabh">' + (g === "explore" ? "Explore" : "Library") + '</h2><div class="otba-secs otba-secs--wrap">' + have.map(function (x) { return '<a class="otba-sec" href="#' + x[0] + '">' + x[1] + "</a>"; }).join("") + "</div>";
+      n.innerHTML = '<h2 class="otbm-tabh">' + (g === "explore" ? "Explore" : "Library") + '</h2><div class="otba-secs otba-secs--wrap">' + have.map(function (x) { return '<a class="otba-sec" href="#' + x[0] + '">' + x[1] + "</a>"; }).join("") + (g === "explore" ? '<a class="otba-sec" href="tools/">AI tools</a>' : "") + "</div>";
       first.parentNode.insertBefore(n, first);
     });
   }
