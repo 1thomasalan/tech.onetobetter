@@ -1,0 +1,61 @@
+{
+ "note": "GitHub stargazers_count from api.github.com/repos/<owner>/<repo>",
+ "repos": {
+  "NousResearch/hermes-agent": {
+   "stars": 266602,
+   "fetched": "2026-11-28"
+  },
+  "obsidianmd/obsidian-skills": {
+   "stars": 54352,
+   "fetched": "2026-11-28"
+  },
+  "K-Dense-AI/scientific-agent-skills": {
+   "stars": 58703,
+   "fetched": "2026-11-28"
+  },
+  "github/spec-kit": {
+   "stars": 152340,
+   "fetched": "2026-11-28"
+  },
+  "earthtojake/text-to-cad": {
+   "stars": 27626,
+   "fetched": "2026-11-28"
+  },
+  "anomalyco/opencode": {
+   "stars": 229638,
+   "fetched": "2026-11-28"
+  },
+  "alibaba/open-code-review": {
+   "stars": 56909,
+   "fetched": "2026-11-28"
+  },
+  "ChromeDevTools/chrome-devtools-mcp": {
+   "stars": 59638,
+   "fetched": "2026-11-28"
+  },
+  "n8n-io/nod": {
+   "stars": 4361,
+   "fetched": "2026-11-28"
+  },
+  "anthropics/skills": {
+   "stars": 201538,
+   "fetched": "2026-11-28"
+  },
+  "Comfy-Org/ComfyUI": {
+   "stars": 148936,
+   "fetched": "2026-11-28"
+  },
+  "heygen-com/hyperframes": {
+   "stars": 91554,
+   "fetched": "2026-11-28"
+  },
+  "HKUDS/DeepTutor": {
+   "stars": 63820,
+   "fetched": "2026-11-28"
+  },
+  "google-deepmind/mujoco": {
+   "stars": 18543,
+   "fetched": "2026-11-28"
+  }
+ }
+}
