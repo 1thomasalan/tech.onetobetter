@@ -96,6 +96,10 @@ def detail(t):
     out.append(f'<div><h3>What it is</h3><p>{e(t["what"])}</p></div>')
     out.append(f'<div><h3>Try first</h3><p>{e(t["firstTask"])}</p></div>')
     out.append(f'<div><h3>Skip it if</h3><p>{e(t["skip"])}</p></div>')
+    if t.get("similar"):
+        names = {x["slug"]: x["name"] for x in tools}
+        items = "".join((f'<li><a href="#{e(x)}">{e(names[x])}</a> <small>in the directory</small></li>' if x in names else f'<li>{e(x)}</li>') for x in t["similar"])
+        out.append(f'<div><h3>Similar to</h3><ul class="similar">{items}</ul></div>')
     out.append(f'<div><h3>Skill level · {e(lvname)}</h3><p>{e(t["levelNote"])}</p></div>')
     p = t["price"]
     out.append(f'<div><h3>Price · {e(p["tier"])}</h3><p>{e(p["detail"])}</p><p class="src">Source: {link(p["source"])} · checked {e(fmt_date(p["checked"]))}</p></div>')

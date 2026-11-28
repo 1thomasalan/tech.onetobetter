@@ -266,6 +266,7 @@ img{max-width:100%;display:block}
 .bar__theme{width:36px;height:36px;flex:none}
 .intro{margin:12px 0 10px;font-size:14px;line-height:1.45;color:var(--g1,#666)}.intro b{color:var(--ink,#111);font-weight:700}
 .controls{position:sticky!important;top:52px!important;margin-top:0!important}
+.similar{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}.similar li{border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:13px}.similar a{color:inherit;font-weight:600;text-decoration:none;border-bottom:1px solid #c81018}.similar small{color:var(--g2,#888);font-size:11px}
 </style>
 </head>
 <body>
@@ -468,6 +469,7 @@ grid.addEventListener("click",function(e){var a=e.target.closest(".tool__hit");i
 $("#sheet-close").addEventListener("click",function(){closeSheet()});
 sheet.addEventListener("cancel",function(e){e.preventDefault();closeSheet()});
 sheet.addEventListener("click",function(e){if(e.target===sheet)closeSheet()});
+doc.addEventListener("click",function(ev){var a=ev.target.closest&&ev.target.closest(".similar a");if(!a)return;var id=decodeURIComponent(a.getAttribute("href").slice(1));var c=doc.getElementById(id);if(!c||!c.classList.contains("tool"))return;ev.preventDefault();var was=openId;if(was)closeSheet(true);setTimeout(function(){openSheet(id,false);history.replaceState(history.state,"",location.pathname+location.search+"#"+encodeURIComponent(id))},was?380:0)});
 window.addEventListener("popstate",function(){var h=decodeURIComponent(location.hash.slice(1));if(openId&&h!==openId)closeSheet(true);if(h&&h!==openId){var c=doc.getElementById(h);if(c&&c.classList.contains("tool"))setTimeout(function(){openSheet(h,false)},openId?380:0)}});
 /* Drag the grip (or the top of the sheet) down to dismiss */
 (function(){var y0=null,dy=0;
