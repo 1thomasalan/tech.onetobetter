@@ -1,0 +1,89 @@
+{
+ "note": "Each tool's own og:image, read from the page listed, resized to 640px WebP (q72). Logos are One to Better's own.",
+ "images": {
+  "wispr-flow": {
+   "image": "https://cdn.prod.website-files.com/682f84b3838c89f8ff7667db/6a724a4fff322698a57a7d97_dictation-og%20(1).jpg",
+   "page": "https://wisprflow.ai/"
+  },
+  "perplexity-teammates": {
+   "image": "https://cdn.sanity.io/images/aqo64vfr/production/7351bf78dfcaa924fa0b6da9b93ec206173cc104-1920x1080.png?rect=0,36,1920,1008&w=1200&h=630&fm=jpg&q=80&fit=crop",
+   "page": "https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work"
+  },
+  "google-ai-mode": {
+   "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_pContext_Drive_1118.width-1300.png",
+   "page": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
+  },
+  "claude-ship": {
+   "image": "https://claude.com/resources/articles/introducing-claude-ship/opengraph-image/og",
+   "page": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  "claude-artifact-apps": {
+   "image": "https://claude.com/resources/articles/install-as-app/opengraph-image/og",
+   "page": "https://claude.com/resources/articles/install-as-app"
+  },
+  "canva": {
+   "image": "https://www.canva.dev/_next/static/media/canva-developers-banner.e4c301bf.png",
+   "page": "https://www.canva.dev/solutions/mcp/"
+  },
+  "glm-coding-plan": {
+   "image": "https://z-ai-bj.oss-cn-beijing.aliyuncs.com/prompts-rich-media-resources/5.4-blog/20261123-173242.jpeg?w=1280&h=720&fit=fill",
+   "page": "https://z.ai/blog/glm-5.4"
+  },
+  "nod": {
+   "image": "https://nod.n8n.io/docs/_astro/og.Cp_fF7ej.png",
+   "page": "https://nod.n8n.io/"
+  },
+  "eney": {
+   "image": "https://eney-site-cms-cdn.eney.ai/og-image.jpg",
+   "page": "https://eney.ai/"
+  },
+  "lottie-ai": {
+   "image": "https://framerusercontent.com/assets/NNxAsuhMqav9o9kXcayPKcHiumY.png",
+   "page": "https://lottiefiles.com/ai"
+  },
+  "suno": {
+   "image": "https://cdn-o.suno.com/meta-preview.jpg",
+   "page": "https://suno.com/"
+  },
+  "gemini-mac-computer-use": {
+   "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/hero_header_CU_copy.width-1300.png",
+   "page": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac"
+  },
+  "cloudflare-search-for-agents": {
+   "image": "https://blog.cloudflare.com/_emdash/api/media/file/01M87EHBMCJY691A3ADBXCMG6A.png",
+   "page": "https://blog.cloudflare.com/search-for-agents"
+  },
+  "comfyui": {
+   "image": "https://media.comfy.org/website/comfy.webp",
+   "page": "https://www.comfy.org/"
+  },
+  "hyperframes": {
+   "image": "https://hyperframes.studio/og-discover-2026-11.jpg",
+   "page": "https://hyperframes.studio"
+  },
+  "opencode": {
+   "image": "https://opencode.ai/files/site/og/home-98637499f6.png",
+   "page": "https://opencode.ai/"
+  },
+  "text-to-cad": {
+   "image": "https://www.texttocad.dev/social-preview-products.png",
+   "page": "https://www.texttocad.dev"
+  },
+  "runway": {
+   "image": "https://d3phaj0sisr2ct.cloudfront.net/site/images/product-og.png",
+   "page": "https://runway.com/product"
+  },
+  "higgsfield": {
+   "image": "https://static.higgsfield.ai/public/thumbnail/default.jpg",
+   "page": "https://higgsfield.ai/"
+  },
+  "photoroom": {
+   "image": "https://storyblok-cdn.photoroom.com/f/191576/2400x1260/5c12e4c46c/photoroom-og-generic.webp/m/1200x0/filters:format(jpeg):quality(80):no_upscale()",
+   "page": "https://www.photoroom.com/"
+  },
+  "obsidian-skills": {
+   "image": "https://obsidian.md/images/banner.png",
+   "page": "https://obsidian.md/"
+  }
+ }
+}

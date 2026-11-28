@@ -1,0 +1,356 @@
+{
+ "generated": "2026-11-28T02:27Z",
+ "issues_scanned": 45,
+ "latest": {
+  "date": "2026-11-28",
+  "headline": "Volvo trains Hexagon's AEON humanoid robots inside its Ghent car plant",
+  "url": "https://tech.onetobetter.com/s/2026-11-28-volvo-trains-hexagons-aeon-humanoid-robots/"
+ },
+ "mentions": {
+  "adobe-firefly": [],
+  "runway": [
+   {
+    "date": "2026-11-23",
+    "section": "Top story",
+    "title": "Runway releases Praxis-1, an open robot 'brain' learned mostly from video",
+    "url": "https://tech.onetobetter.com/s/2026-11-23-runway-releases-praxis-1-an-open-robot/",
+    "share": true
+   }
+  ],
+  "higgsfield": [],
+  "canva": [
+   {
+    "date": "2026-11-25",
+    "section": "Latest release",
+    "title": "Canva MCP",
+    "url": "https://tech.onetobetter.com/s/2026-11-25-canva-mcp/",
+    "share": true
+   }
+  ],
+  "photoroom": [],
+  "hermes-agent": [],
+  "wispr-flow": [
+   {
+    "date": "2026-11-28",
+    "section": "Latest release",
+    "title": "Canto-2",
+    "url": "https://tech.onetobetter.com/s/2026-11-28-canto-2/",
+    "share": true
+   }
+  ],
+  "obsidian-skills": [
+   {
+    "date": "2026-11-28",
+    "section": "Hot on GitHub",
+    "title": "obsidianmd/obsidian-skills",
+    "url": "https://tech.onetobetter.com/s/2026-11-28-obsidianmd-obsidian-skills/",
+    "share": true
+   }
+  ],
+  "perplexity-teammates": [
+   {
+    "date": "2026-11-13",
+    "section": "Latest release",
+    "title": "Perplexity Teammates",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   },
+   {
+    "date": "2026-11-07",
+    "section": "Latest release",
+    "title": "Perplexity Teammates",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "google-ai-mode": [
+   {
+    "date": "2026-11-25",
+    "section": "Latest release",
+    "title": "AI Mode connections",
+    "url": "https://tech.onetobetter.com/s/2026-11-25-ai-mode-connections/",
+    "share": true
+   }
+  ],
+  "scientific-agent-skills": [
+   {
+    "date": "2026-10-20",
+    "section": "Hot on GitHub",
+    "title": "K-Dense-AI/scientific-agent-skills",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "claude-ship": [
+   {
+    "date": "2026-11-25",
+    "section": "Latest release",
+    "title": "Claude Ship",
+    "url": "https://tech.onetobetter.com/s/2026-11-25-claude-ship/",
+    "share": true
+   }
+  ],
+  "claude-artifact-apps": [
+   {
+    "date": "2026-11-26",
+    "section": "Latest release",
+    "title": "Install as app for Claude artifacts",
+    "url": "https://tech.onetobetter.com/s/2026-11-26-install-as-app-for-claude-artifacts/",
+    "share": true
+   }
+  ],
+  "spec-kit": [
+   {
+    "date": "2026-11-08",
+    "section": "Hot on GitHub",
+    "title": "github/spec-kit",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "text-to-cad": [
+   {
+    "date": "2026-10-14",
+    "section": "Hot on GitHub",
+    "title": "earthtojake/text-to-cad",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "opencode": [
+   {
+    "date": "2026-10-28",
+    "section": "Hot on GitHub",
+    "title": "anomalyco/opencode",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   },
+   {
+    "date": "2026-10-22",
+    "section": "Hot on GitHub",
+    "title": "anomalyco/opencode",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "open-code-review": [
+   {
+    "date": "2026-11-26",
+    "section": "Hot on GitHub",
+    "title": "alibaba/open-code-review",
+    "url": "https://tech.onetobetter.com/s/2026-11-26-alibaba-open-code-review/",
+    "share": true
+   },
+   {
+    "date": "2026-11-22",
+    "section": "Hot on GitHub",
+    "title": "alibaba/open-code-review",
+    "url": "https://tech.onetobetter.com/s/2026-11-22-alibaba-open-code-review/",
+    "share": true
+   },
+   {
+    "date": "2026-11-18",
+    "section": "Hot on GitHub",
+    "title": "alibaba/open-code-review",
+    "url": "https://tech.onetobetter.com/s/2026-11-18-alibaba-open-code-review/",
+    "share": true
+   }
+  ],
+  "glm-coding-plan": [
+   {
+    "date": "2026-11-24",
+    "section": "Latest release",
+    "title": "GLM-5.4",
+    "url": "https://tech.onetobetter.com/s/2026-11-24-glm-5-4/",
+    "share": true
+   }
+  ],
+  "chrome-devtools-mcp": [
+   {
+    "date": "2026-11-22",
+    "section": "Hot on GitHub",
+    "title": "ChromeDevTools/chrome-devtools-mcp",
+    "url": "https://tech.onetobetter.com/s/2026-11-22-chromedevtools-chrome-devtools-mcp/",
+    "share": true
+   },
+   {
+    "date": "2026-11-18",
+    "section": "Hot on GitHub",
+    "title": "ChromeDevTools/chrome-devtools-mcp",
+    "url": "https://tech.onetobetter.com/s/2026-11-18-chromedevtools-chrome-devtools-mcp/",
+    "share": true
+   }
+  ],
+  "nod": [
+   {
+    "date": "2026-11-28",
+    "section": "Hot on GitHub",
+    "title": "n8n-io/nod",
+    "url": "https://tech.onetobetter.com/s/2026-11-28-n8n-io-nod/",
+    "share": true
+   },
+   {
+    "date": "2026-11-11",
+    "section": "Latest release",
+    "title": "Nod",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "gemini-mac-computer-use": [
+   {
+    "date": "2026-11-21",
+    "section": "Top story",
+    "title": "Gemini on Mac can now click, type and fill forms in your apps",
+    "url": "https://tech.onetobetter.com/s/2026-11-21-gemini-on-mac-can-now-click-type/",
+    "share": true
+   },
+   {
+    "date": "2026-11-21",
+    "section": "Latest release",
+    "title": "Gemini computer use for Mac",
+    "url": "https://tech.onetobetter.com/s/2026-11-21-gemini-computer-use-for-mac/",
+    "share": true
+   }
+  ],
+  "google-workspace-mcp": [
+   {
+    "date": "2026-11-26",
+    "section": "Latest release",
+    "title": "Google Workspace MCP servers and CLI",
+    "url": "https://tech.onetobetter.com/s/2026-11-26-google-workspace-mcp-servers-and-cli/",
+    "share": true
+   }
+  ],
+  "eney": [
+   {
+    "date": "2026-11-16",
+    "section": "Latest release",
+    "title": "Eney",
+    "url": "https://tech.onetobetter.com/s/2026-11-16-eney/",
+    "share": true
+   },
+   {
+    "date": "2026-11-11",
+    "section": "Latest release",
+    "title": "Eney",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "anthropic-skills": [
+   {
+    "date": "2026-11-16",
+    "section": "Hot on GitHub",
+    "title": "anthropics/skills",
+    "url": "https://tech.onetobetter.com/s/2026-11-16-anthropics-skills/",
+    "share": true
+   },
+   {
+    "date": "2026-11-11",
+    "section": "Hot on GitHub",
+    "title": "anthropics/skills",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   },
+   {
+    "date": "2026-11-07",
+    "section": "Hot on GitHub",
+    "title": "anthropics/skills",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   },
+   {
+    "date": "2026-10-31",
+    "section": "Hot on GitHub",
+    "title": "anthropics/skills",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "comfyui": [
+   {
+    "date": "2026-10-23",
+    "section": "Hot on GitHub",
+    "title": "Comfy-Org/ComfyUI",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "hyperframes": [
+   {
+    "date": "2026-10-24",
+    "section": "Hot on GitHub",
+    "title": "heygen-com/hyperframes",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   },
+   {
+    "date": "2026-10-19",
+    "section": "Hot on GitHub",
+    "title": "heygen-com/hyperframes",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   },
+   {
+    "date": "2026-10-16",
+    "section": "Hot on GitHub",
+    "title": "heygen-com/hyperframes",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   },
+   {
+    "date": "2026-10-13",
+    "section": "Hot on GitHub",
+    "title": "heygen-com/hyperframes",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "lottie-ai": [
+   {
+    "date": "2026-11-13",
+    "section": "Latest release",
+    "title": "Lottie AI",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "suno": [
+   {
+    "date": "2026-11-19",
+    "section": "Latest release",
+    "title": "Suno Visuals",
+    "url": "https://tech.onetobetter.com/s/2026-11-19-suno-visuals/",
+    "share": true
+   }
+  ],
+  "cloudflare-search-for-agents": [
+   {
+    "date": "2026-11-26",
+    "section": "AI & small business",
+    "title": "Cloudflare's Search for Agents lets even free-plan websites be searched by AI agents with one switch",
+    "url": "https://tech.onetobetter.com/s/2026-11-26-cloudflares-search-for-agents-lets-even-free/",
+    "share": true
+   }
+  ],
+  "deeptutor": [
+   {
+    "date": "2026-11-03",
+    "section": "Hot on GitHub",
+    "title": "HKUDS/DeepTutor",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ],
+  "mujoco": [
+   {
+    "date": "2026-11-12",
+    "section": "Hot on GitHub",
+    "title": "google-deepmind/mujoco",
+    "url": "https://tech.onetobetter.com/#issues",
+    "share": false
+   }
+  ]
+ }
+}

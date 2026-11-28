@@ -1,0 +1,1542 @@
+[
+ {
+  "slug": "adobe-firefly",
+  "name": "Adobe Firefly",
+  "maker": "Adobe",
+  "url": "https://www.adobe.com/products/firefly.html",
+  "jobs": [
+   "create"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "image",
+   "video",
+   "vector",
+   "branding",
+   "credits"
+  ],
+  "level": "intermediate",
+  "levelNote": "A single image is easy to try; a full campaign means managing models, reference frames and credits.",
+  "what": "Adobe's generative suite for images, vectors, video and audio, with Adobe and partner models, built to hand off into Creative Cloud apps.",
+  "anchor": "Like image generation in ChatGPT or Gemini, but the output drops straight into Photoshop, Illustrator and Premiere for real production work.",
+  "firstTask": "Generate one product still from a reference image before trying video.",
+  "skip": "You only need a few concept images. ChatGPT or Gemini will do that inside a plan you already pay for.",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free daily generations · Standard US$9.99/mo",
+   "detail": "US list prices: Firefly Free has limited daily generations. Standard US$9.99/mo (2,000 credits). Pro regularly US$19.99/mo (4,000). Pro Plus regularly US$49.99/mo (10,000). Introductory discounts were running when checked.",
+   "source": {
+    "label": "Adobe Firefly plans",
+    "url": "https://www.adobe.com/products/firefly/plans.html"
+   },
+   "checked": "2026-11-28"
+  },
+  "example": {
+   "type": "Vendor case study",
+   "text": "Adobe says retailer Currys used Composition Reference and Generative Expand on a campaign.",
+   "source": {
+    "label": "Adobe's Currys case study",
+    "url": "https://business.adobe.com/customer-success-stories/currys.html"
+   }
+  },
+  "match": {
+   "names": [
+    "Adobe Firefly",
+    "Firefly"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28"
+ },
+ {
+  "slug": "runway",
+  "name": "Runway",
+  "maker": "Runway AI",
+  "url": "https://runway.com/product",
+  "jobs": [
+   "create"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "video",
+   "image-to-video",
+   "editing",
+   "keyframes"
+  ],
+  "level": "intermediate",
+  "levelNote": "A usable clip takes practice with reference images, motion prompts and retries.",
+  "what": "A multi-model platform for generating and editing video, animating stills, and chaining steps into reusable workflows.",
+  "anchor": "Like video generation in Gemini or ChatGPT, but with an editor, several video models side by side, and workflows you can reuse.",
+  "firstTask": "Animate a single still with one camera move.",
+  "skip": "You need one short clip. Try the video feature already in your assistant subscription first.",
+  "price": {
+   "tier": "Free + paid",
+   "line": "125 one-time free credits · Standard US$12/mo billed yearly",
+   "detail": "Free: 125 credits once, not monthly. Standard US$12/mo billed yearly (625 credits a month). Pro US$28/mo billed yearly (2,250). Max US$76/mo billed yearly (9,500). A first-year discount was running when checked.",
+   "source": {
+    "label": "Runway pricing",
+    "url": "https://runway.com/pricing"
+   },
+   "checked": "2026-11-28"
+  },
+  "example": {
+   "type": "Vendor case study",
+   "text": "Runway says Studio Unveil used its Gen-4.5 and Aleph models in a hybrid live-action and AI campaign for Salomon.",
+   "source": {
+    "label": "Runway customer story",
+    "url": "https://runwayml.com/customers/inside-salomons-latest-global-brand-campaign-built-on-runway"
+   }
+  },
+  "match": {
+   "names": [
+    "Runway"
+   ],
+   "urls": [
+    "runwayml.com",
+    "runway.com"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/runway.webp",
+   "source": "https://runway.com/product"
+  }
+ },
+ {
+  "slug": "higgsfield",
+  "name": "Higgsfield",
+  "maker": "Higgsfield",
+  "url": "https://higgsfield.ai/",
+  "jobs": [
+   "create"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "video",
+   "camera moves",
+   "product ads",
+   "MCP"
+  ],
+  "level": "intermediate",
+  "levelNote": "Presets help, but choosing a model and directing camera motion takes practice. The MCP connection is a separate, more technical path.",
+  "what": "A multi-model image and video platform with Cinema Studio for camera direction and studios for ads and short videos.",
+  "anchor": "Like asking Gemini or ChatGPT for a video, but you direct the camera move and lens look instead of hoping the prompt lands.",
+  "firstTask": "Try one slow push-in on a product photo you own.",
+  "skip": "Your current video model already makes a usable shot. Use your assistant for scripts and shot lists instead.",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free to explore · Starter US$19/mo",
+   "detail": "Free plan: 0 monthly credits, selected models only. Starter US$19/mo (270 credits). Plus list price US$59/mo (1,200 credits). A Black Friday sale ending Nov 29, 2026 was running when checked.",
+   "source": {
+    "label": "Higgsfield pricing (Markdown version)",
+    "url": "https://higgsfield.ai/pricing.md"
+   },
+   "checked": "2026-11-28"
+  },
+  "example": {
+   "type": "Vendor case study",
+   "text": "Higgsfield says olive-oil brand Alya Health used Claude with Higgsfield's MCP connection to make video ads.",
+   "source": {
+    "label": "Higgsfield case study",
+    "url": "https://higgsfield.ai/creator-hub/case-studies/video-ads-in-just-2-hours-with-higgsfield-mcp-alya-health-shares-their-insights"
+   }
+  },
+  "match": {
+   "names": [
+    "Higgsfield"
+   ],
+   "urls": [
+    "higgsfield.ai"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/higgsfield.webp",
+   "source": "https://higgsfield.ai/"
+  }
+ },
+ {
+  "slug": "canva",
+  "name": "Canva (and Canva MCP)",
+  "maker": "Canva",
+  "url": "https://www.canva.com/",
+  "jobs": [
+   "create",
+   "business"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "templates",
+   "brand kit",
+   "social",
+   "MCP",
+   "presentations"
+  ],
+  "level": "beginner",
+  "levelNote": "Templates and editable text give you a starting point with no setup. The MCP connection for AI assistants is a developer step.",
+  "what": "A template-first design platform. Its MCP server, generally available since Nov 2026, lets Claude, ChatGPT, Gemini and other assistants create editable Canva designs.",
+  "anchor": "Like asking Claude or ChatGPT to make a flyer, but you get a real, editable, on-brand Canva design instead of a flat image.",
+  "firstTask": "Edit one promo template with your own photo and offer text, then resize it for a second format.",
+  "skip": "You only need the copy or a rough layout. Your assistant can draft that without a new tool.",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free plan · Pro US$18/mo",
+   "detail": "US prices: Free US$0 with limited AI. Pro US$18/mo. Business US$25/mo per person. A 50% promotion was showing when checked. Canva MCP: sign up in the Canva Developer Portal.",
+   "source": {
+    "label": "Canva pricing",
+    "url": "https://www.canva.com/pricing/"
+   },
+   "checked": "2026-11-28"
+  },
+  "claims": [
+   {
+    "text": "Canva says nearly 500,000 people signed up through its MCP in the month before general availability.",
+    "source": {
+     "label": "Canva Newsroom",
+     "url": "https://www.canva.com/newsroom/news/canva-mcp-update/"
+    }
+   }
+  ],
+  "match": {
+   "names": [
+    "Canva"
+   ],
+   "urls": [
+    "canva.com",
+    "canva.dev"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/canva.webp",
+   "source": "https://www.canva.dev/solutions/mcp/"
+  }
+ },
+ {
+  "slug": "photoroom",
+  "name": "Photoroom",
+  "maker": "Photoroom",
+  "url": "https://www.photoroom.com/",
+  "jobs": [
+   "create",
+   "business"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "product photos",
+   "background removal",
+   "ecommerce",
+   "batch"
+  ],
+  "level": "beginner",
+  "levelNote": "Start with one upload and a guided edit. Batch work and the API are optional.",
+  "what": "An AI product-photo editor for background removal, product scenes, catalog batches and short product videos from photos you already have.",
+  "anchor": "Like asking ChatGPT to clean up a product photo, but built for doing 200 listing photos the same way, with real edges and shadows.",
+  "firstTask": "Remove the background from one product photo and check the edges.",
+  "skip": "You need one mockup. Try ChatGPT or Gemini, and use real photos whenever product accuracy matters.",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free (non-commercial) · Pro US$7.50/mo billed yearly",
+   "detail": "Pro US$7.50/mo billed yearly (8,000 AI credits, 1,000 exports). Max US$20.99/mo billed yearly. Ultra US$82.50/mo billed yearly. Monthly billing costs more.",
+   "source": {
+    "label": "Photoroom pricing",
+    "url": "https://www.photoroom.com/pricing"
+   },
+   "checked": "2026-11-28"
+  },
+  "example": {
+   "type": "Vendor case study",
+   "text": "Photoroom says print-on-demand company Completeful used its API to automate product mockups.",
+   "source": {
+    "label": "Photoroom customer story",
+    "url": "https://www.photoroom.com/customer-stories/completeful"
+   }
+  },
+  "match": {
+   "names": [
+    "Photoroom"
+   ],
+   "urls": [
+    "photoroom.com"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/photoroom.webp",
+   "source": "https://www.photoroom.com/"
+  }
+ },
+ {
+  "slug": "hermes-agent",
+  "name": "Hermes Agent",
+  "maker": "Nous Research",
+  "url": "https://hermes-agent.nousresearch.com/docs/",
+  "jobs": [
+   "automate",
+   "code"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "agent",
+   "self-hosted",
+   "open source",
+   "scheduling"
+  ],
+  "level": "advanced",
+  "levelNote": "Expect to configure model providers and tools, manage file access and decide what the agent may do.",
+  "what": "Nous Research's open-source (MIT license) agent that you run on your own machine or server, connecting models, tools and files for repeatable tasks.",
+  "anchor": "Like Projects in Claude or custom GPTs in ChatGPT, but it runs on your own computer, on any model, and keeps working on a schedule.",
+  "firstTask": "Have it turn a short brief into a local checklist before you give it wider permissions.",
+  "skip": "You need a draft or a one-off task. Your chat assistant is simpler and has no setup.",
+  "github": "NousResearch/hermes-agent",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free to self-host · hosted Plus US$20/mo",
+   "detail": "The agent is free and open source. Model and hosting costs depend on what you connect. Nous Portal hosted plans start at Plus US$20/mo.",
+   "source": {
+    "label": "Hermes Agent: open source and hosted",
+    "url": "https://hermes-agent.nousresearch.com/open-source-ai-agent"
+   },
+   "checked": "2026-11-28"
+  },
+  "disclosure": "Used to build this directory. The first draft of this page was prepared with Hermes Agent, so we list it but do not rank it.",
+  "match": {
+   "names": [
+    "Hermes Agent"
+   ],
+   "urls": [
+    "NousResearch/hermes-agent"
+   ]
+  },
+  "status": "Researched · used to build this directory",
+  "added": "2026-11-28"
+ },
+ {
+  "slug": "wispr-flow",
+  "name": "Wispr Flow",
+  "maker": "Wispr",
+  "url": "https://wisprflow.ai/",
+  "jobs": [
+   "write"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "dictation",
+   "voice",
+   "speech-to-text",
+   "notetaker"
+  ],
+  "level": "beginner",
+  "levelNote": "Install, hold a key, talk. It works in any app.",
+  "what": "A dictation app for Mac, Windows, iPhone and Android that turns speech into clean text in any app, plus a meeting notetaker.",
+  "anchor": "Like voice mode in ChatGPT or Gemini, but it types what you say into any app on your computer, not just the chat box.",
+  "firstTask": "Dictate one email reply and compare it with what you would have typed.",
+  "skip": "Your phone's built-in dictation already gets your words right.",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free · Pro US$15/user/mo",
+   "detail": "Free US$0 on Mac, Windows, iPhone and Android. Pro US$15/user/mo monthly or US$12 billed yearly. Growth and Enterprise add admin controls.",
+   "source": {
+    "label": "Wispr Flow pricing",
+    "url": "https://wisprflow.ai/pricing"
+   },
+   "checked": "2026-11-28"
+  },
+  "claims": [
+   {
+    "text": "Wispr says its Canto-2 model cut average transcription error across 14 languages from 9.9% to 6.3% in its own internal benchmark (report in Chinese).",
+    "source": {
+     "label": "AITOP, Nov 27, 2026",
+     "url": "https://aitop.news/item/64536"
+    }
+   }
+  ],
+  "match": {
+   "names": [
+    "Wispr Flow",
+    "Wispr",
+    "Canto-2"
+   ],
+   "urls": [
+    "wisprflow.ai"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/wispr-flow.webp",
+   "source": "https://wisprflow.ai/"
+  }
+ },
+ {
+  "slug": "obsidian-skills",
+  "name": "Obsidian Skills",
+  "maker": "Obsidian",
+  "url": "https://github.com/obsidianmd/obsidian-skills",
+  "jobs": [
+   "write",
+   "learn"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "notes",
+   "agent skills",
+   "Markdown",
+   "knowledge base"
+  ],
+  "level": "intermediate",
+  "levelNote": "You need a coding agent (such as Claude Code or Codex) and an Obsidian vault.",
+  "what": "Official agent skills that teach AI agents to read and write Obsidian notes and its open formats: Markdown, Bases and JSON Canvas.",
+  "anchor": "Like Projects in Claude holding your files, but your notes stay as plain Markdown files on your own computer and the agent learns Obsidian's formats.",
+  "firstTask": "Point your agent at one vault folder and ask it to build an index note.",
+  "skip": "You don't keep notes in Obsidian, or you don't use a coding agent.",
+  "github": "obsidianmd/obsidian-skills",
+  "price": {
+   "tier": "Free",
+   "line": "Free · MIT license",
+   "detail": "Open source under the MIT license. Obsidian itself is free.",
+   "source": {
+    "label": "obsidianmd/obsidian-skills on GitHub",
+    "url": "https://github.com/obsidianmd/obsidian-skills"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "obsidian-skills"
+   ],
+   "urls": [
+    "obsidianmd/obsidian-skills"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/obsidian-skills.webp",
+   "source": "https://obsidian.md/"
+  }
+ },
+ {
+  "slug": "perplexity-teammates",
+  "name": "Perplexity Teammates",
+  "maker": "Perplexity",
+  "url": "https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work",
+  "jobs": [
+   "research",
+   "business"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "agent",
+   "monitoring",
+   "Slack",
+   "ongoing work"
+  ],
+  "level": "intermediate",
+  "levelNote": "Setup is guided, but you have to connect tools and describe the work it should own.",
+  "what": "Long-running Perplexity agents that own ongoing work, such as watching competitors or chasing stalled sales conversations, and bring results back for review.",
+  "anchor": "Like scheduled tasks in ChatGPT or Deep Research in Gemini, but each teammate keeps a standing job, remembers it, and can take requests in Slack.",
+  "firstTask": "Create one teammate that watches three competitor pricing pages and reports weekly.",
+  "skip": "You need one research answer, not an ongoing job. Deep research in your current assistant covers that.",
+  "price": {
+   "tier": "Paid",
+   "line": "Needs Perplexity Max",
+   "detail": "Launched on the web for Perplexity Max subscribers, iPhone app promised. Free and Pro users can upgrade in Settings. Max price is listed on Perplexity's pricing page.",
+   "source": {
+    "label": "Perplexity blog",
+    "url": "https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "Perplexity Teammates"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/perplexity-teammates.webp",
+   "source": "https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work"
+  }
+ },
+ {
+  "slug": "google-ai-mode",
+  "name": "Google AI Mode with Personal Intelligence",
+  "maker": "Google",
+  "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+  "jobs": [
+   "research"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "search",
+   "Drive",
+   "Wallet",
+   "personal answers"
+  ],
+  "level": "beginner",
+  "levelNote": "It's Google Search. Connecting your apps is an opt-in setting.",
+  "what": "AI Mode in Google Search can, if you opt in, connect to Google Drive, Google Wallet and the Gemini app to give answers based on your own stuff.",
+  "anchor": "Like connecting Google Drive to ChatGPT or Claude, but inside the Google Search box you already use.",
+  "firstTask": "Turn on one connection (Drive) and ask a question your own documents can answer.",
+  "skip": "You'd rather not link your personal accounts to Search. It works without them.",
+  "price": {
+   "tier": "Included",
+   "line": "Part of Google Search · no separate price stated",
+   "detail": "Google's announcement does not list a price; it is opt-in and can be turned off.",
+   "source": {
+    "label": "Google blog",
+    "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "AI Mode"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/google-ai-mode.webp",
+   "source": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
+  }
+ },
+ {
+  "slug": "scientific-agent-skills",
+  "name": "Scientific Agent Skills",
+  "maker": "K-Dense",
+  "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+  "jobs": [
+   "research"
+  ],
+  "pillars": [
+   "AI",
+   "Biotechnology"
+  ],
+  "tags": [
+   "science",
+   "agent skills",
+   "biology",
+   "chemistry"
+  ],
+  "level": "advanced",
+  "levelNote": "For researchers using a coding agent; each skill brings its own tools and data sources.",
+  "what": "A library of ready-made agent skills for scientific work, such as literature search, bioinformatics and chemistry tasks.",
+  "anchor": "Like custom GPTs or Gems built for a lab, but they plug into coding agents such as Claude Code and run real analysis tools.",
+  "firstTask": "Install it and ask your agent for a literature summary on one narrow question.",
+  "skip": "You aren't doing hands-on research work. This is a researcher's toolkit.",
+  "github": "K-Dense-AI/scientific-agent-skills",
+  "price": {
+   "tier": "Free",
+   "line": "Free · MIT license",
+   "detail": "Open source under the MIT license; you pay for the AI model your agent uses.",
+   "source": {
+    "label": "K-Dense-AI/scientific-agent-skills on GitHub",
+    "url": "https://github.com/K-Dense-AI/scientific-agent-skills"
+   },
+   "checked": "2026-11-28"
+  },
+  "claims": [
+   {
+    "text": "The maintainers say it is used by more than 250,000 scientists (self-reported).",
+    "source": {
+     "label": "Repository description",
+     "url": "https://github.com/K-Dense-AI/scientific-agent-skills"
+    }
+   }
+  ],
+  "match": {
+   "names": [
+    "scientific-agent-skills"
+   ],
+   "urls": [
+    "K-Dense-AI/scientific-agent-skills"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28"
+ },
+ {
+  "slug": "claude-ship",
+  "name": "Claude Ship",
+  "maker": "Anthropic",
+  "url": "https://claude.com/resources/articles/introducing-claude-ship",
+  "jobs": [
+   "code"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "code review",
+   "pull requests",
+   "GitHub",
+   "approvals"
+  ],
+  "level": "advanced",
+  "levelNote": "For software teams on GitHub. You write the policy for what Claude may approve.",
+  "what": "Claude reviews pull requests, fixes failing checks and merge conflicts (PR Steward), and approves changes your team's written policy allows (Claude Approvals).",
+  "anchor": "Like asking Claude to review your code in a chat, but it sits on every GitHub pull request and can fix and approve within rules you set.",
+  "firstTask": "Turn on Code Review in observe-only mode for one repository.",
+  "skip": "You're a solo builder without a review process. A chat review is enough.",
+  "price": {
+   "tier": "Usage-based",
+   "line": "Claude Team and Enterprise · billed on tokens",
+   "detail": "Available on Claude Team and Enterprise plans for GitHub repositories. Code Review is generally available; PR Steward and Claude Approvals are in beta. Usage is billed on tokens, and admins can set spend limits.",
+   "source": {
+    "label": "Anthropic: Introducing Claude Ship",
+    "url": "https://claude.com/resources/articles/introducing-claude-ship"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "Claude Ship"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/claude-ship.webp",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  }
+ },
+ {
+  "slug": "claude-artifact-apps",
+  "name": "Claude artifacts as desktop apps",
+  "maker": "Anthropic",
+  "url": "https://claude.com/resources/articles/install-as-app",
+  "jobs": [
+   "build"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "no-code",
+   "mini apps",
+   "Mac",
+   "Windows"
+  ],
+  "level": "beginner",
+  "levelNote": "Ask Claude for a small tool, then press Install as app. No coding or packaging.",
+  "what": "Turn a small app Claude builds in a chat (an artifact) into a Mac or Windows app with its own icon and window. It can use your connectors and, with permission, send notifications.",
+  "anchor": "Like Canvas in ChatGPT or Gemini, but the thing you made becomes a real desktop app you open every day.",
+  "firstTask": "Ask Claude for a one-screen tracker you'd use daily, then install it.",
+  "skip": "You need a phone app, or your organization has turned the feature off.",
+  "price": {
+   "tier": "Included",
+   "line": "Beta on all Claude plans · Pro US$20/mo",
+   "detail": "Rolling out in beta on all plans in Claude for Mac and Windows; requests count toward your plan's usage limits. Claude Free is US$0; Pro is US$20/mo (US$17/mo billed yearly).",
+   "source": {
+    "label": "Anthropic: Install as app",
+    "url": "https://claude.com/resources/articles/install-as-app"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "Install as app"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/claude-artifact-apps.webp",
+   "source": "https://claude.com/resources/articles/install-as-app"
+  }
+ },
+ {
+  "slug": "spec-kit",
+  "name": "Spec Kit",
+  "maker": "GitHub",
+  "url": "https://github.github.com/spec-kit/",
+  "jobs": [
+   "build",
+   "code"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "specs",
+   "planning",
+   "coding agents"
+  ],
+  "level": "intermediate",
+  "levelNote": "Comfortable with a terminal and a coding agent.",
+  "what": "GitHub's open-source toolkit for spec-driven development: write what you want first, then let a coding agent plan and build from that spec.",
+  "anchor": "Like asking Claude or ChatGPT to plan an app before coding it, but the plan becomes a living spec your coding agent keeps following.",
+  "firstTask": "Write a one-page spec for a small tool and let your agent generate the plan.",
+  "skip": "You're prototyping something throwaway. Just ask your assistant to build it.",
+  "github": "github/spec-kit",
+  "price": {
+   "tier": "Free",
+   "line": "Free · MIT license",
+   "detail": "Open source under the MIT license; you pay for the AI model your agent uses.",
+   "source": {
+    "label": "github/spec-kit on GitHub",
+    "url": "https://github.com/github/spec-kit"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "spec-kit",
+    "Spec Kit"
+   ],
+   "urls": [
+    "github/spec-kit"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28"
+ },
+ {
+  "slug": "text-to-cad",
+  "name": "text-to-cad",
+  "maker": "Open-source project",
+  "url": "https://www.texttocad.dev",
+  "jobs": [
+   "build"
+  ],
+  "pillars": [
+   "AI",
+   "Advanced manufacturing"
+  ],
+  "tags": [
+   "CAD",
+   "3D printing",
+   "STEP",
+   "STL"
+  ],
+  "level": "advanced",
+  "levelNote": "You run it through a coding agent and should know basic CAD and 3D printing.",
+  "what": "Free, open-source CAD for AI agents such as Codex and Claude Code: it generates STEP, STL and 3MF models, checks design for manufacturing, and makes drawings.",
+  "anchor": "Like asking ChatGPT to describe a bracket, but you get a real 3D model file you can print or send to a machine shop.",
+  "firstTask": "Ask for a simple wall bracket with exact dimensions and print it.",
+  "skip": "You don't make physical parts. This is for makers and engineers.",
+  "github": "earthtojake/text-to-cad",
+  "price": {
+   "tier": "Free",
+   "line": "Free · MIT license",
+   "detail": "The project's site says it is 100% open source and free; MIT license on GitHub.",
+   "source": {
+    "label": "texttocad.dev",
+    "url": "https://www.texttocad.dev"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "text-to-cad"
+   ],
+   "urls": [
+    "earthtojake/text-to-cad"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/text-to-cad.webp",
+   "source": "https://www.texttocad.dev"
+  }
+ },
+ {
+  "slug": "opencode",
+  "name": "OpenCode",
+  "maker": "Anomaly",
+  "url": "https://opencode.ai/",
+  "jobs": [
+   "code"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "coding agent",
+   "terminal",
+   "any model",
+   "open source"
+  ],
+  "level": "intermediate",
+  "levelNote": "Comfortable in a terminal or a code editor.",
+  "what": "An open-source coding agent for the desktop, terminal or phone that works with free models or 200+ AI providers, including Claude, GPT and Gemini.",
+  "anchor": "Like Claude Code or Codex, but open source and not tied to one model company.",
+  "firstTask": "Use the free models to explain and tidy one small script.",
+  "skip": "You already have Claude Code or Codex and like it.",
+  "github": "anomalyco/opencode",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free models, no account · bring your own plan",
+   "detail": "Comes with free models and needs no account; you can connect your own subscription or use OpenCode Go.",
+   "source": {
+    "label": "opencode.ai",
+    "url": "https://opencode.ai/"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "OpenCode",
+    "opencode"
+   ],
+   "urls": [
+    "anomalyco/opencode",
+    "opencode.ai"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/opencode.webp",
+   "source": "https://opencode.ai/"
+  }
+ },
+ {
+  "slug": "open-code-review",
+  "name": "Open Code Review",
+  "maker": "Alibaba",
+  "url": "https://github.com/alibaba/open-code-review",
+  "jobs": [
+   "code"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "code review",
+   "security",
+   "pull requests",
+   "open source"
+  ],
+  "level": "advanced",
+  "levelNote": "For developers who can run it in their own pipeline.",
+  "what": "Alibaba's open-source code-review tool that combines fixed checks with an AI agent to leave precise, line-level review comments.",
+  "anchor": "Like pasting a diff into Claude for review, but self-hosted, in your pipeline, and combining rule-based checks with the AI pass.",
+  "firstTask": "Run it on one recent pull request and compare it with a human review.",
+  "skip": "You're not running a code-review pipeline. A chat review is simpler.",
+  "github": "alibaba/open-code-review",
+  "price": {
+   "tier": "Free",
+   "line": "Free · Apache 2.0 license",
+   "detail": "Open source under the Apache 2.0 license; you pay for the AI model it calls.",
+   "source": {
+    "label": "alibaba/open-code-review on GitHub",
+    "url": "https://github.com/alibaba/open-code-review"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "open-code-review",
+    "Open Code Review"
+   ],
+   "urls": [
+    "alibaba/open-code-review"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28"
+ },
+ {
+  "slug": "glm-coding-plan",
+  "name": "GLM-5.4 (Z.ai Coding Plan)",
+  "maker": "Z.ai",
+  "url": "https://z.ai/subscribe",
+  "jobs": [
+   "code"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "model",
+   "coding",
+   "subscription",
+   "Claude Code compatible"
+  ],
+  "level": "intermediate",
+  "levelNote": "You plug the model into a coding tool such as Claude Code, Cline or OpenCode.",
+  "what": "Z.ai's coding subscription, now running GLM-5.4, a 750-billion-parameter model that loops 28 of its layers twice. Works inside existing coding tools.",
+  "anchor": "Like paying for Claude or ChatGPT to power your coding agent, but a lower-cost model you swap in under the same tools.",
+  "firstTask": "Point OpenCode or Cline at the plan and run one familiar task you've done with Claude.",
+  "skip": "You need published, independent benchmarks before switching. Z.ai's comparison is its own claim.",
+  "price": {
+   "tier": "Paid",
+   "line": "Plans \"from 18/month\" (Z.ai's wording)",
+   "detail": "Z.ai's page says plans start from 18 a month; the currency is not shown in the text we read. GLM-5.4 API and open weights are promised later.",
+   "source": {
+    "label": "Z.ai Coding Plan",
+    "url": "https://z.ai/subscribe"
+   },
+   "checked": "2026-11-28"
+  },
+  "claims": [
+   {
+    "text": "Z.ai claims GLM-5.4 reaches intelligence comparable to 2-to-3-trillion-parameter models; it has not published full benchmark scores.",
+    "source": {
+     "label": "Z.ai blog",
+     "url": "https://z.ai/blog/glm-5.4"
+    }
+   }
+  ],
+  "match": {
+   "names": [
+    "GLM-5.4",
+    "Z.ai"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/glm-coding-plan.webp",
+   "source": "https://z.ai/blog/glm-5.4"
+  }
+ },
+ {
+  "slug": "chrome-devtools-mcp",
+  "name": "Chrome DevTools MCP",
+  "maker": "Google Chrome",
+  "url": "https://developer.chrome.com/docs/devtools/agents",
+  "jobs": [
+   "code",
+   "build"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "browser",
+   "testing",
+   "web performance",
+   "MCP"
+  ],
+  "level": "advanced",
+  "levelNote": "For web developers using a coding agent.",
+  "what": "Gives coding agents Chrome DevTools through MCP (Model Context Protocol) or a CLI, so they can open a real browser, check their work and run Lighthouse audits.",
+  "anchor": "Like Claude in Chrome or ChatGPT's agent clicking around, but for developers: the agent inspects and tests the site it just built.",
+  "firstTask": "Ask your agent to load your site and report the slowest part of the page.",
+  "skip": "You don't build websites.",
+  "github": "ChromeDevTools/chrome-devtools-mcp",
+  "price": {
+   "tier": "Free",
+   "line": "Free · Apache 2.0 license",
+   "detail": "Open source under the Apache 2.0 license.",
+   "source": {
+    "label": "ChromeDevTools/chrome-devtools-mcp on GitHub",
+    "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "chrome-devtools-mcp",
+    "Chrome DevTools MCP"
+   ],
+   "urls": [
+    "ChromeDevTools/chrome-devtools-mcp"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28"
+ },
+ {
+  "slug": "nod",
+  "name": "Nod",
+  "maker": "n8n Labs",
+  "url": "https://nod.n8n.io/",
+  "jobs": [
+   "automate",
+   "business"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "personal agent",
+   "errands",
+   "approvals",
+   "open source"
+  ],
+  "level": "intermediate",
+  "levelNote": "A desktop installer, then you connect your AI provider and apps.",
+  "what": "An open-source personal agent with its own sandboxed computer and browser. It chases invoices, preps calls and cancels trials on real websites, and asks before it acts.",
+  "anchor": "Like ChatGPT's agent mode, but it runs on your own machine, uses the AI provider you choose, and asks before every action.",
+  "firstTask": "Give it one errand: check a pricing page every week and tell you when it changes.",
+  "skip": "You don't want to manage API keys or an AI provider bill.",
+  "github": "n8n-io/nod",
+  "price": {
+   "tier": "Free + usage",
+   "line": "Free · you pay your AI provider",
+   "detail": "Nod is open source (Apache 2.0) and free; you pay your model provider, or connect a model running on your own computer. Research preview.",
+   "source": {
+    "label": "n8n blog: Meet Nod",
+    "url": "https://blog.n8n.io/meet-nod/"
+   },
+   "checked": "2026-11-28"
+  },
+  "claims": [
+   {
+    "text": "n8n says that in 678 test runs Nod took zero actions without permission (self-reported).",
+    "source": {
+     "label": "nod.n8n.io",
+     "url": "https://nod.n8n.io/"
+    }
+   }
+  ],
+  "match": {
+   "names": [
+    "Nod"
+   ],
+   "urls": [
+    "n8n-io/nod",
+    "blog.n8n.io/meet-nod",
+    "nod.n8n.io"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/nod.webp",
+   "source": "https://nod.n8n.io/"
+  }
+ },
+ {
+  "slug": "gemini-mac-computer-use",
+  "name": "Gemini computer use for Mac",
+  "maker": "Google",
+  "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac",
+  "jobs": [
+   "automate"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "Mac",
+   "computer use",
+   "background tasks"
+  ],
+  "level": "beginner",
+  "levelNote": "Built into the Gemini Mac app; you choose which apps it may use.",
+  "what": "Gemini can operate Mac apps and websites in a background window while you keep working, with a live preview in the chat.",
+  "anchor": "Like Claude's or ChatGPT's computer use, but built into the Gemini app for Mac and running in the background.",
+  "firstTask": "Ask it to collect three numbers from a website into a spreadsheet.",
+  "skip": "You're outside the U.S., on Windows, or on a free Google account.",
+  "price": {
+   "tier": "Paid",
+   "line": "Google AI Plus, Pro or Ultra · U.S., English",
+   "detail": "Requires an Apple silicon Mac on macOS 15 or later, a personal Google account (18+), and Google AI Plus, Pro or Ultra. Rolling out in English in the U.S.",
+   "source": {
+    "label": "Google blog",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "Gemini computer use",
+    "Gemini on Mac"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/gemini-mac-computer-use.webp",
+   "source": "https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac"
+  }
+ },
+ {
+  "slug": "google-workspace-mcp",
+  "name": "Google Workspace MCP servers and CLI",
+  "maker": "Google",
+  "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
+  "jobs": [
+   "automate"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "Gmail",
+   "Drive",
+   "Docs",
+   "MCP",
+   "admin controls"
+  ],
+  "level": "advanced",
+  "levelNote": "For developers and admins connecting agents to Workspace.",
+  "what": "Google's official way for AI agents to use Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat and Tasks, with user confirmations, audit logs and admin controls.",
+  "anchor": "Like connecting Gmail to Claude or ChatGPT, but Google's own governed connector that any agent can use.",
+  "firstTask": "Connect a test account and let an agent summarize one Drive folder.",
+  "skip": "You only use Gemini's built-in Workspace features. They already have access.",
+  "price": {
+   "tier": "Free + usage",
+   "line": "Standard tier at no cost, with quotas",
+   "detail": "Standard tier: no cost with published usage quotas. Scaled tier: charges for usage above daily free allowances from April 1, 2027.",
+   "source": {
+    "label": "Google Workspace Updates",
+    "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "Google Workspace MCP",
+    "Workspace MCP"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28"
+ },
+ {
+  "slug": "eney",
+  "name": "Eney",
+  "maker": "MacPaw",
+  "url": "https://eney.ai/",
+  "jobs": [
+   "automate",
+   "write"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "Mac",
+   "iPhone",
+   "proactive assistant",
+   "meeting notes"
+  ],
+  "level": "beginner",
+  "levelNote": "An app you install; it asks before it sends, edits or moves anything.",
+  "what": "A proactive assistant for Mac and iPhone that suggests next steps from what's on your screen, transcribes meetings without a bot, and drafts replies.",
+  "anchor": "Like the ChatGPT desktop app, but it speaks up first with suggestions and works across your Mac's files and apps.",
+  "firstTask": "Let it transcribe one meeting and draft the follow-up email.",
+  "skip": "You're on Windows or Android, or you'd rather not have an assistant watching your screen.",
+  "price": {
+   "tier": "Paid",
+   "line": "14-day free trial · then US$14.99/mo",
+   "detail": "Free for 14 days with 10,000 AI credits, then Starter US$14.99/mo (10,000 credits) or Boost US$29.99/mo (25,000); higher tier available.",
+   "source": {
+    "label": "eney.ai",
+    "url": "https://eney.ai/"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "Eney"
+   ],
+   "urls": [
+    "eney.ai"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/eney.webp",
+   "source": "https://eney.ai/"
+  }
+ },
+ {
+  "slug": "anthropic-skills",
+  "name": "Anthropic Agent Skills",
+  "maker": "Anthropic",
+  "url": "https://github.com/anthropics/skills",
+  "jobs": [
+   "automate",
+   "write"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "agent skills",
+   "documents",
+   "templates"
+  ],
+  "level": "intermediate",
+  "levelNote": "Skills install into Claude or a coding agent; reading one is easy, writing your own takes practice.",
+  "what": "Anthropic's public library of Agent Skills: folders of instructions and scripts that teach Claude and other agents repeatable tasks such as making documents and spreadsheets.",
+  "anchor": "Like custom instructions in ChatGPT, but packaged per task, shareable, and loaded only when the task comes up.",
+  "firstTask": "Add one document skill and ask Claude for a formatted report.",
+  "skip": "You only chat casually. Skills pay off when you repeat the same task.",
+  "github": "anthropics/skills",
+  "price": {
+   "tier": "Free",
+   "line": "Free to use with Claude",
+   "detail": "Public repository; licenses vary by skill. Using skills counts toward your Claude plan or API usage.",
+   "source": {
+    "label": "anthropics/skills on GitHub",
+    "url": "https://github.com/anthropics/skills"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "anthropics/skills"
+   ],
+   "urls": [
+    "github.com/anthropics/skills"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28"
+ },
+ {
+  "slug": "comfyui",
+  "name": "ComfyUI",
+  "maker": "Comfy Org",
+  "url": "https://www.comfy.org/",
+  "jobs": [
+   "create"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "image",
+   "video",
+   "node workflows",
+   "local"
+  ],
+  "level": "advanced",
+  "levelNote": "Node-based workflows give full control but take real learning.",
+  "what": "An open-source, node-based app for building image, video, 3D and audio generation workflows, on your own computer or in Comfy Cloud.",
+  "anchor": "Like image generation in ChatGPT or Grok, but you wire every step yourself and run open models on your own machine.",
+  "firstTask": "Load a ready-made workflow from the Comfy library and change one setting.",
+  "skip": "You want quick images, not control. Your assistant is faster.",
+  "github": "Comfy-Org/ComfyUI",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free desktop app · Comfy Cloud optional",
+   "detail": "The desktop app is open source (GPL-3.0) and free; Comfy Cloud and model-provider usage are paid options.",
+   "source": {
+    "label": "comfy.org",
+    "url": "https://www.comfy.org/"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "ComfyUI"
+   ],
+   "urls": [
+    "Comfy-Org/ComfyUI"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/comfyui.webp",
+   "source": "https://www.comfy.org/"
+  }
+ },
+ {
+  "slug": "hyperframes",
+  "name": "HyperFrames",
+  "maker": "HeyGen",
+  "url": "https://hyperframes.heygen.com/",
+  "jobs": [
+   "create"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "video",
+   "HTML",
+   "agent skill",
+   "motion graphics"
+  ],
+  "level": "intermediate",
+  "levelNote": "The Studio app needs no code; the agent-skill route uses Claude Code, Codex or Cursor.",
+  "what": "HeyGen's free, open-source way to make videos with an AI agent: the agent writes each scene as HTML and HyperFrames renders it to video.",
+  "anchor": "Like asking Claude or ChatGPT for a video script, but your agent actually builds and renders the video, scene by scene.",
+  "firstTask": "Make a 20-second product teaser from your own website in the Studio app.",
+  "skip": "You need filmed footage edited, not motion graphics.",
+  "github": "heygen-com/hyperframes",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free, open source · Studio Pro US$25/mo",
+   "detail": "Framework, CLI, agent skills and browser editor are free (Apache 2.0) with no watermark on local renders. HyperFrames Studio has a Free plan; Pro is US$25/mo with 25,000 credits.",
+   "source": {
+    "label": "hyperframes.heygen.com",
+    "url": "https://hyperframes.heygen.com/"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "HyperFrames",
+    "hyperframes"
+   ],
+   "urls": [
+    "heygen-com/hyperframes"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/hyperframes.webp",
+   "source": "https://hyperframes.studio"
+  }
+ },
+ {
+  "slug": "lottie-ai",
+  "name": "Lottie AI",
+  "maker": "LottieFiles",
+  "url": "https://lottiefiles.com/ai",
+  "jobs": [
+   "create"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "animation",
+   "vector",
+   "web",
+   "apps"
+  ],
+  "level": "beginner",
+  "levelNote": "Describe an animation in a sentence; refine with sliders.",
+  "what": "Turns a one-sentence description into an editable vector animation (Lottie format) you can tweak and export for apps and websites.",
+  "anchor": "Like asking ChatGPT for an image, but you get a lightweight, editable animation that plays on a website or in an app.",
+  "firstTask": "Describe a loading animation in your brand colours and export it.",
+  "skip": "You need video, not interface animation.",
+  "price": {
+   "tier": "Free + paid",
+   "line": "10 free generations · paid plans add credits",
+   "detail": "Starter (free) workspaces get 10 Lottie AI generations in total; they don't reset. Paid plans include a monthly AI credit balance.",
+   "source": {
+    "label": "LottieFiles help: plans and credits",
+    "url": "https://help.lottiefiles.com/lottie-ai-plans-and-credits"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "Lottie AI",
+    "LottieFiles"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/lottie-ai.webp",
+   "source": "https://lottiefiles.com/ai"
+  }
+ },
+ {
+  "slug": "suno",
+  "name": "Suno (with Visuals)",
+  "maker": "Suno",
+  "url": "https://suno.com/",
+  "jobs": [
+   "create"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "music",
+   "songs",
+   "video clips",
+   "cover art"
+  ],
+  "level": "beginner",
+  "levelNote": "Type an idea, get a song. Studio features go deeper.",
+  "what": "An AI music maker. Its Visuals tab turns songs into short lip-synced video clips or cover art.",
+  "anchor": "Like asking ChatGPT or Gemini for song lyrics, but you get the finished, sung track and a clip to go with it.",
+  "firstTask": "Make a 30-second jingle for something you care about.",
+  "skip": "You need music you can use commercially on the free plan. Commercial use needs a paid plan.",
+  "price": {
+   "tier": "Free + paid",
+   "line": "Free (50 credits) · Pro US$10/mo",
+   "detail": "Free US$0 with 50 song credits. Pro US$10/mo (US$8 billed yearly) with commercial use rights. Premier US$30/mo. Visuals are part of the top Platinum plan.",
+   "source": {
+    "label": "Suno pricing",
+    "url": "https://suno.com/pricing"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "Suno"
+   ],
+   "urls": [
+    "suno.com"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/suno.webp",
+   "source": "https://suno.com/"
+  }
+ },
+ {
+  "slug": "cloudflare-search-for-agents",
+  "name": "Cloudflare Search for Agents",
+  "maker": "Cloudflare",
+  "url": "https://blog.cloudflare.com/search-for-agents",
+  "jobs": [
+   "business"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "website",
+   "AI search",
+   "small business"
+  ],
+  "level": "beginner",
+  "levelNote": "One switch in the Cloudflare dashboard, if your site already uses Cloudflare.",
+  "what": "One toggle indexes your website and adds a search endpoint on your own domain, so AI agents can search your pages instead of crawling them one by one.",
+  "anchor": "Like hoping ChatGPT or Gemini finds your business correctly, but you hand AI agents an official search of your own site.",
+  "firstTask": "Switch it on for one site and ask an agent a question only your site answers.",
+  "skip": "Your site isn't on Cloudflare.",
+  "price": {
+   "tier": "Free + paid",
+   "line": "All plans, including Free (with limits)",
+   "detail": "Available to all Cloudflare customers, including Free, with limits; usage counts toward your plan's included allowances.",
+   "source": {
+    "label": "Cloudflare blog",
+    "url": "https://blog.cloudflare.com/search-for-agents"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "Search for Agents"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28",
+  "image": {
+   "file": "img/cloudflare-search-for-agents.webp",
+   "source": "https://blog.cloudflare.com/search-for-agents"
+  }
+ },
+ {
+  "slug": "deeptutor",
+  "name": "DeepTutor",
+  "maker": "University of Hong Kong Data Intelligence Lab",
+  "url": "https://deeptutor.info/",
+  "jobs": [
+   "learn"
+  ],
+  "pillars": [
+   "AI"
+  ],
+  "tags": [
+   "tutoring",
+   "study",
+   "open source",
+   "self-hosted"
+  ],
+  "level": "advanced",
+  "levelNote": "You install it yourself (Python or Docker) and connect a model.",
+  "what": "An open-source personal tutor: workspaces per subject, a notebook, study paths and practice, all driven by an AI agent you host.",
+  "anchor": "Like Study mode in ChatGPT or Guided Learning in Gemini, but open source, self-hosted, and organized around your own materials.",
+  "firstTask": "Make one workspace for a subject you're learning and add a single source.",
+  "skip": "You want something that works in a browser tab today. Use your assistant's study mode.",
+  "github": "HKUDS/DeepTutor",
+  "price": {
+   "tier": "Free",
+   "line": "Free · Apache 2.0 license",
+   "detail": "Open source under the Apache 2.0 license; you pay for the AI model you connect.",
+   "source": {
+    "label": "deeptutor.info",
+    "url": "https://deeptutor.info/"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "DeepTutor"
+   ],
+   "urls": [
+    "HKUDS/DeepTutor"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28"
+ },
+ {
+  "slug": "mujoco",
+  "name": "MuJoCo",
+  "maker": "Google DeepMind",
+  "url": "https://mujoco.org/",
+  "jobs": [
+   "learn",
+   "research"
+  ],
+  "pillars": [
+   "Robotics",
+   "AI"
+  ],
+  "tags": [
+   "physics simulation",
+   "robots",
+   "research"
+  ],
+  "level": "advanced",
+  "levelNote": "A research-grade physics simulator; the browser demos are easy, real use needs code.",
+  "what": "Google DeepMind's open-source physics simulator, widely used to train and test robots in simulation before they touch real hardware.",
+  "anchor": "Like asking Gemini how a robot arm works, but you can watch one move, fall and grip in a real physics simulation.",
+  "firstTask": "Open the interactive browser showcase on mujoco.org and push a model around.",
+  "skip": "You're not studying or building robots.",
+  "github": "google-deepmind/mujoco",
+  "price": {
+   "tier": "Free",
+   "line": "Free · Apache 2.0 license",
+   "detail": "Open source under the Apache 2.0 license.",
+   "source": {
+    "label": "google-deepmind/mujoco on GitHub",
+    "url": "https://github.com/google-deepmind/mujoco"
+   },
+   "checked": "2026-11-28"
+  },
+  "match": {
+   "names": [
+    "MuJoCo",
+    "mujoco"
+   ],
+   "urls": [
+    "google-deepmind/mujoco"
+   ]
+  },
+  "status": "Researched · not hands-on tested",
+  "added": "2026-11-28"
+ }
+]
