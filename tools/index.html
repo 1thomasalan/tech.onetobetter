@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en" data-theme="light"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AI Tools Directory · The Tech Brief</title>
+<style>
+:root{color-scheme:light;--paper:#f7f5ef;--ink:#182722;--quiet:#455953;--rule:#b8c4ba;--green:#17604c;--soft:#e6ede5}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.55 Arial,sans-serif}a{color:var(--green);text-underline-offset:3px}a:hover{color:#102d28}:focus-visible{outline:3px solid #985023;outline-offset:3px}.wrap{width:min(100% - 2rem,67rem);margin:auto}.mast{border-bottom:1px solid var(--rule);padding:.85rem 0}.mast .wrap{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:space-between;align-items:center}.mast a{font:bold 1.25rem Georgia,serif;color:inherit}.eyebrow,dt{letter-spacing:.09em;text-transform:uppercase;font:bold .72rem/1.4 Arial,sans-serif;color:var(--green)}h1,h2,h3{font-family:Georgia,serif;line-height:1.1}h1{font-size:clamp(2.6rem,7vw,4.75rem);margin:.15em 0}h2{font-size:1.65rem;margin:.25rem 0}.intro{padding:2.5rem 0 1.4rem}.intro p{margin:.35rem 0;max-width:66ch}.bottom{font-size:1.2rem}.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem;background:var(--soft);padding:1rem;border-block:1px solid var(--rule)}label{font-size:.85rem;font-weight:bold}input,select{width:100%;min-height:44px;padding:.6rem;border:1px solid #72867a;background:#fff;color:var(--ink);font:inherit;border-radius:3px}#count{font-size:.86rem;color:var(--quiet)}.listing{padding:1.15rem 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:minmax(14rem,1fr) 2fr;gap:1.5rem}.listing:target{background:#e9eee6;scroll-margin-top:1rem}.identity p{margin:.4rem 0}.meta{font-size:.9rem}.what{margin:0 0 .55rem}.lead{font-weight:bold;margin:0 0 .35rem}.lead span{font-weight:normal}.details{margin-top:.75rem}summary{cursor:pointer;min-height:44px;display:list-item;padding:.55rem 0;font-weight:bold;color:var(--green)}dl{display:grid;gap:.65rem;margin:.25rem 0}dd{margin:.12rem 0 0}.sources{margin:.65rem 0;font-size:.87rem}footer{border-top:1px solid var(--rule);padding:1rem 0 2rem;color:var(--quiet);font-size:.9rem}[hidden]{display:none!important}@media(max-width:680px){.listing{grid-template-columns:1fr;gap:.65rem}.controls{grid-template-columns:1fr 1fr;gap:.6rem}.controls label:first-child{grid-column:1/-1}.intro{padding-top:1.65rem}}
+</style>
+<style>
+:root{color-scheme:dark;--paper:#0f1013;--ink:#f1f1f1;--quiet:#adadb1;--rule:#37383e;--soft:#16171b;--accent:#ff5159;--brand:#c81018;--input:#101115;--selected:#2e1619}
+:root[data-theme=light]{color-scheme:light;--paper:#fff;--ink:#171717;--quiet:#54545b;--rule:#d4d4da;--soft:#f5f5f6;--accent:#ad141d;--input:#fff;--selected:#fff1f1}
+.brand .logo-light,:root[data-theme=light] .brand .logo-dark{display:none}:root[data-theme=light] .brand .logo-light{display:block}
+body{font:15px/1.48 'Helvetica Neue',Helvetica,Arial,sans-serif}a,a:hover{color:var(--ink)}a:hover,summary:hover{color:var(--accent)}:focus-visible{outline:2px solid var(--accent);outline-offset:3px}.wrap{width:min(100% - 48px,1056px);margin-inline:auto}
+.mast{border:0;padding:16px 0 0}.mast .wrap{display:block;border-top:1px solid var(--ink)}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:15px}.mast a.brand{text-decoration:none;font:700 clamp(23px,5vw,34px)/1 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:-.045em}.brand span{display:flex;align-items:center;gap:2px}.brand img{width:24px;height:24px}.brand small{display:block;color:var(--quiet);letter-spacing:.32em;font-size:12px;margin:8px 0 0 28px}.brand small::before{content:'';display:inline-block;width:16px;border-top:2px solid var(--brand);vertical-align:middle;margin-right:4px}.mast-note{font-size:12px;color:var(--quiet);margin:.7rem 0 .3rem}.nav{display:flex;flex-wrap:wrap;gap:22px;border-bottom:2px solid var(--brand)}.nav a,.nav span{font:700 13px/1.2 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:.10em;text-transform:uppercase;text-decoration:none;padding:13px 0 10px}.nav [aria-current]{box-shadow:inset 0 -2px var(--accent);color:var(--ink)}
+#theme{border:1px solid var(--rule);background:transparent;color:var(--ink);font:inherit;border-radius:999px;padding:0 12px;min-height:44px;white-space:nowrap;cursor:pointer}.eyebrow,dt{color:var(--accent);font-family:inherit;letter-spacing:.12em}.intro{padding:24px 0 14px}h1,h2{font-family:inherit;letter-spacing:-.025em}h1{font-size:clamp(32px,5vw,48px);margin:.2em 0 .38em}h2{font-size:24px}.bluf{border-top:2px solid var(--brand);background:var(--soft);padding:14px 16px}.intro .bluf p{max-width:73ch}.bottom{font-size:18px}.sub{color:var(--quiet);font-size:13px}.controls{gap:12px;background:transparent;padding:10px 0 15px;border-top:0}.controls label{color:var(--quiet);min-width:0}input,select{margin-top:5px;background:var(--input);color:var(--ink);border:1px solid var(--rule);border-radius:16px}input::placeholder{color:var(--quiet)}.listing{padding:18px 0;grid-template-columns:minmax(14rem,1fr) 2fr}.listing:target{background:var(--selected)}.meta,.sources{color:var(--quiet)}.identity h2 a{text-decoration:none}.identity>a{display:inline-block;font-weight:700;margin-top:4px;border:1px solid var(--rule);border-radius:2px;padding:6px 10px;text-decoration:none}.details{border-top:1px solid var(--rule)}summary{color:var(--ink)}
+@media(max-width:680px){.wrap{width:calc(100% - 32px)}.listing{grid-template-columns:1fr;gap:12px}.nav{gap:16px}.controls{grid-template-columns:1fr 1fr}.controls label:first-child{grid-column:1/-1}.bottom{font-size:16px}}
+.edition-feature{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;align-items:start}.campaign{margin:0}.campaign img{display:block;width:100%;height:auto;border:1px solid var(--rule)}.campaign figcaption{color:var(--quiet);font-size:12px;padding-top:5px}.campaign figcaption a{white-space:nowrap}.experience-guide{margin:0 0 14px;padding:12px 0 14px;border-block:1px solid var(--rule)}.experience-heading{display:flex;justify-content:space-between;gap:8px;align-items:center}.experience-heading h2{font-size:20px;margin:0}.experience-heading button,#level-filters button{color:var(--ink);background:var(--input);border:1px solid var(--rule);font:inherit;cursor:pointer}.experience-heading button{padding:0 12px;min-height:44px;border-radius:999px;font-size:13px;white-space:nowrap}#level-filters{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}#level-filters button{padding:10px 12px;text-align:left;border-radius:4px}#level-filters button:hover,.experience-heading button:hover{border-color:var(--accent)}#level-filters button[aria-pressed=true],.experience-heading button[aria-pressed=true]{border-color:var(--accent);background:var(--selected)}.level-title{display:flex;align-items:center;gap:7px}.level-count{margin-left:auto;color:var(--quiet);font-size:12px}.scale-note,.level-note{color:var(--quiet);font-size:13px}.scale-note{display:block;margin-top:5px}.experience-meter{display:inline-flex;gap:3px;align-items:end;height:14px;flex:none;color:var(--accent)}.experience-meter i{display:block;width:5px;height:6px;background:transparent;border:1px solid var(--quiet);border-radius:1px}.experience-meter i:nth-child(2){height:10px}.experience-meter i:nth-child(3){height:14px}.experience-meter i:first-child,.experience-meter.intermediate i:nth-child(2),.experience-meter.advanced i{background:currentColor;border-color:currentColor}.experience-badge{display:flex;align-items:center;gap:8px;font-size:14px;margin-top:9px}.first-task{background:var(--soft);border:1px solid var(--rule);padding:8px 10px;margin:10px 0}.first-task strong{color:var(--accent)}
+@media(max-width:680px){.edition-feature{grid-template-columns:1fr;gap:10px}#level-filters{grid-template-columns:1fr;gap:6px}#level-filters button{min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:8px}.scale-note{margin:0;text-align:right;font-size:12px}.level-count{display:none}}@media(max-width:360px){#level-filters button{display:block}.scale-note{text-align:left;margin-top:4px}}
+</style>
+<style>
+.directory-heading{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px 12px;margin:6px 0 14px}.directory-heading h1{margin:0}.view-switch{display:flex;padding:3px;gap:3px;border:1px solid var(--rule);border-radius:8px;background:var(--input)}.view-switch input{position:absolute;width:1px;height:1px;min-height:0;margin:0;padding:0;clip-path:inset(50%)}.view-switch label{display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 10px;border-radius:4px;color:var(--quiet);font-size:13px;cursor:pointer}.view-switch input:checked+label{background:var(--selected);color:var(--ink);box-shadow:inset 0 0 0 1px var(--accent)}.view-switch input:focus-visible+label{outline:2px solid var(--accent);outline-offset:2px}.view-switch label:hover{color:var(--ink)}.view-switch svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.5}.gallery-art,.gallery-label,.gallery-slot{display:none}
+main:not(:has(#view-list:checked)) #list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:start;padding-bottom:18px}
+main:not(:has(#view-list:checked)) .listing{display:block;padding:0;min-width:0;border:1px solid var(--rule);border-radius:8px;background:var(--soft);overflow-wrap:anywhere}
+main:not(:has(#view-list:checked)) .listing:target{border-color:var(--accent)}
+main:not(:has(#view-list:checked)) .gallery-art{display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:88px;background:var(--selected);border-bottom:1px solid var(--rule);border-radius:7px 7px 0 0;color:var(--accent)}
+.gallery-art svg{width:58px;height:55px;flex:none}.gallery-art span{font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+main:not(:has(#view-list:checked)) .identity{padding:14px 14px 0}main:not(:has(#view-list:checked)) .listing-body{padding:12px 14px 0}main:not(:has(#view-list:checked)) .identity>a{display:inline-flex;align-items:center;min-height:44px}main:not(:has(#view-list:checked)) :is(.identity .level-note,.workflow-slot,.list-label){display:none}main:not(:has(#view-list:checked)) .details[open] .workflow{margin-bottom:10px}main:not(:has(#view-list:checked)) .gallery-label{display:inline}main:not(:has(#view-list:checked)) .gallery-slot{display:block}
+@media(max-width:920px){main:not(:has(#view-list:checked)) #list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:570px){main:not(:has(#view-list:checked)) #list{grid-template-columns:1fr}}
+</style>
+<header class="mast"><div class="wrap"><div class="top"><a class="brand" href="https://tech.onetobetter.com/" aria-label="One to Better Technology · The Tech Brief"><span><img class="logo-dark" width="24" height="24" src="../otb-logo-dark.png" alt="O"><img class="logo-light" width="24" height="24" src="../otb-logo-160.png" alt="O">NE TO BETTER</span><small>TECHNOLOGY</small></a><button id="theme" type="button" hidden>Dark mode</button></div><p class="mast-note">Curated and checked with AI. Verify important details at the source.</p><nav class="nav" aria-label="The Tech Brief"><a href="https://tech.onetobetter.com/#today">Today</a><span aria-current="page">AI Tools</span></nav></div></header>
+<main class="wrap"><section class="intro"><div class="eyebrow">Edition 01 · Creative Production · Private Preview</div><div class="directory-heading"><h1>AI Tools Directory</h1><div class="view-switch" role="group" aria-label="Directory view"><input type="radio" name="directory-view" value="gallery" id="view-gallery" checked><label for="view-gallery"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h5v5H2zm7 0h5v5H9zM2 9h5v5H2zm7 0h5v5H9z"/></svg>Gallery</label><input type="radio" name="directory-view" value="list" id="view-list"><label for="view-list"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"/></svg>List</label></div></div><div class="edition-feature"><div class="bluf"><div class="eyebrow">Bottom line up front</div><p class="bottom">New to AI creative tools? Start with Canva for a promo layout or Photoroom for a product photo. Try motion tools once you have an image you like; leave agent setup for later.</p><p class="sub">Six tools from the Firefly campaign brief, with prices, reviews and real examples.</p></div><figure class="campaign"><img src="candle-campaign-reference.jpg" width="780" height="436" alt="A black Ember &amp; Wick candle beneath a fiery 30 percent Black Friday offer"><figcaption>Ember &amp; Wick campaign · Marco Riccetti. <a href="https://x.com/shikoba_86/status/2126281514606379367">Original sponsored demo ↗</a></figcaption></figure></div></section>
+<section class="experience-guide" aria-labelledby="experience-heading"><div class="experience-heading"><h2 id="experience-heading">Choose your experience level</h2><button type="button" data-level="" aria-pressed="true">All levels</button></div><p id="experience-note" class="sub">Editorial guide to the learning curve for the workflow shown here—not a quality rating. Select a level to filter.</p><div id="level-filters" role="group" aria-label="Experience level" aria-describedby="experience-note"><button type="button" data-level="beginner" aria-pressed="false"><span class="level-title"><span class="experience-meter beginner" aria-hidden="true"><i></i><i></i><i></i></span> <strong>Beginner-friendly</strong><span class="level-count">2</span></span><span class="scale-note">Start with a template or one upload.</span></button>
+<button type="button" data-level="intermediate" aria-pressed="false"><span class="level-title"><span class="experience-meter intermediate" aria-hidden="true"><i></i><i></i><i></i></span> <strong>Intermediate</strong><span class="level-count">3</span></span><span class="scale-note">Expect to adjust settings and iterate.</span></button>
+<button type="button" data-level="advanced" aria-pressed="false"><span class="level-title"><span class="experience-meter advanced" aria-hidden="true"><i></i><i></i><i></i></span> <strong>Advanced</strong><span class="level-count">1</span></span><span class="scale-note">Expect setup, integrations or permissions.</span></button></div></section>
+<div class="controls"><label>Search tools or tasks<input id="search" type="search" placeholder="e.g., product photos, motion, scheduling"></label><label>Job<select id="job"><option value="">All jobs</option><option>Brand &amp; social design</option>
+<option>Creative suite</option>
+<option>Product photography</option>
+<option>Video &amp; motion</option>
+<option>Workflow automation</option></select></label><label>Cost<select id="cost"><option value="">Any cost</option><option value="free">Free option</option><option value="paid">Paid only</option></select></label></div>
+<noscript><p class="sub">Open this file in your browser to use search and filters.</p></noscript><p id="count" role="status" aria-live="polite">6 of 6 tools</p><div id="list"><article id="adobe-firefly" class="listing" data-experience="intermediate">
+    <div class="gallery-art" aria-hidden="true"><svg viewBox="0 0 78 74" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="15" width="43" height="38" rx="3"/><path d="m16 47 11-11 8 7 11-12 10 9m7-28 2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/><circle cx="33" cy="27" r="3"/></svg><span>Build campaign assets</span></div>
+    <div class="identity">
+    <div class="eyebrow">Creative suite</div><h2><a href="#adobe-firefly">Adobe Firefly</a></h2>
+    <div class="experience-badge"><span class="experience-meter intermediate" aria-hidden="true"><i></i><i></i><i></i></span> <strong>Intermediate</strong></div>
+    <p class="level-note">A single image is easy to try; a full campaign means managing models, reference frames and credits.</p>
+    <p class="meta"><a href="https://www.adobe.com/products/firefly/plans.html">Free with limits · Standard $9.99/mo</a></p>
+    <p class="meta"><a href="https://www.g2.com/products/adobe-firefly/reviews">G2: 4.4/5 · 538 reviews</a></p>
+    <a href="https://www.adobe.com/products/firefly.html">Visit Adobe Firefly ↗</a></div>
+    <div class="listing-body"><p class="what">Adobe’s generative creative suite for images, vectors, video and audio. It includes Adobe and partner models and integrates with Creative Cloud workflows.</p>
+    <div class="workflow-slot"><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when you need to take a generated asset into a production workflow: refine it in Adobe apps, or use reference frames to steer a clip.</span></p>
+    <p class="lead">Stick with your assistant when: <span>ChatGPT or Gemini may be enough for a few concept images; Claude can help with the creative brief and shot list. Don’t buy a suite just to explore a direction.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Generate one product still from a reference image before trying video.</p>
+    <dl><div><dt>Example · Sponsored creator demo</dt><dd>Marco Riccetti’s Ember &amp; Wick demo shows a candle brand, product imagery, five keyframes and a 10-second Black Friday promo animated with a partner model, plus a text-overlay variant. Source: the supplied post and screenshot. <a href="https://x.com/shikoba_86/status/2126281514606379367">Original X post</a></dd></div></dl></div></div>
+    <details class="details"><summary><span class="list-label">Full pricing, review notes &amp; sources</span><span class="gallery-label">Workflow, pricing &amp; sources</span></summary><div class="gallery-slot"><p class="level-note">A single image is easy to try; a full campaign means managing models, reference frames and credits.</p><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when you need to take a generated asset into a production workflow: refine it in Adobe apps, or use reference frames to steer a clip.</span></p>
+    <p class="lead">Stick with your assistant when: <span>ChatGPT or Gemini may be enough for a few concept images; Claude can help with the creative brief and shot list. Don’t buy a suite just to explore a direction.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Generate one product still from a reference image before trying video.</p>
+    <dl><div><dt>Example · Sponsored creator demo</dt><dd>Marco Riccetti’s Ember &amp; Wick demo shows a candle brand, product imagery, five keyframes and a 10-second Black Friday promo animated with a partner model, plus a text-overlay variant. Source: the supplied post and screenshot. <a href="https://x.com/shikoba_86/status/2126281514606379367">Original X post</a></dd></div></dl></div></div><dl>
+    <div><dt>Price / free access</dt><dd>US monthly prices: Standard $9.99 (2,000 credits/month), Pro $19.99 (4,000), Pro Plus $49.99 (10,000), Premium $199.99 (50,000). Free access has limited generations; check the current allocation. Premium features and partner models can consume credits at different rates. <a href="https://www.adobe.com/products/firefly/plans.html">Adobe plans and credits</a></dd></div>
+    <div><dt>External reviews</dt><dd>G2 snapshot: 4.4/5 from 538 reviews for Adobe Firefly; not a score for any individual partner model. <a href="https://www.g2.com/products/adobe-firefly/reviews">G2 reviews</a></dd></div><div><dt>Also used in a customer campaign</dt><dd>Adobe reports that Currys used Composition Reference and Generative Expand on its New Term campaign. <a href="https://business.adobe.com/customer-success-stories/currys.html">Adobe’s Currys case study</a></dd></div></dl>
+    <p class="sources">Research snapshot · Nov 28, 2026 · Researched · not hands-on tested</p></details></div></article>
+<article id="runway" class="listing" data-experience="intermediate">
+    <div class="gallery-art" aria-hidden="true"><svg viewBox="0 0 78 74" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="18" width="58" height="37" rx="4"/><path d="M22 18v37m34-37v37M10 29h12M10 44h12m34-15h12M56 44h12m-34-16 13 8-13 8z"/></svg><span>Animate a still</span></div>
+    <div class="identity">
+    <div class="eyebrow">Video &amp; motion</div><h2><a href="#runway">Runway</a></h2>
+    <div class="experience-badge"><span class="experience-meter intermediate" aria-hidden="true"><i></i><i></i><i></i></span> <strong>Intermediate</strong></div>
+    <p class="level-note">A usable clip takes some practice with references, motion prompts and retries.</p>
+    <p class="meta"><a href="https://runway.com/pricing">125 one-time credits · Standard $15/mo</a></p>
+    <p class="meta"><a href="https://g2.com/products/runway-2022-01-04/reviews">G2: 4.2/5 · 173 reviews</a></p>
+    <a href="https://runway.com/product">Visit Runway ↗</a></div>
+    <div class="listing-body"><p class="what">A multi-model creative platform for generating and editing video, animating still images, and chaining generation steps into reusable workflows.</p>
+    <div class="workflow-slot"><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when you need to compare motion models or iterate on multiple shots and reuse the process. Gemini’s video features may cover the generation step; Runway’s edge is the workflow around it.</span></p>
+    <p class="lead">Stick with your assistant when: <span>Use a video feature already included in your subscription for a one-off clip, or use an assistant to write the storyboard before paying for renders.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Animate a single still with one camera move.</p>
+    <dl><div><dt>Example · Vendor case study</dt><dd>Studio Unveil used Runway’s Gen-4.5 and Aleph in a hybrid live-action/AI global campaign for Salomon, according to Runway. <a href="https://runwayml.com/customers/inside-salomons-latest-global-brand-campaign-built-on-runway">Salomon campaign</a></dd></div></dl></div></div>
+    <details class="details"><summary><span class="list-label">Full pricing, review notes &amp; sources</span><span class="gallery-label">Workflow, pricing &amp; sources</span></summary><div class="gallery-slot"><p class="level-note">A usable clip takes some practice with references, motion prompts and retries.</p><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when you need to compare motion models or iterate on multiple shots and reuse the process. Gemini’s video features may cover the generation step; Runway’s edge is the workflow around it.</span></p>
+    <p class="lead">Stick with your assistant when: <span>Use a video feature already included in your subscription for a one-off clip, or use an assistant to write the storyboard before paying for renders.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Animate a single still with one camera move.</p>
+    <dl><div><dt>Example · Vendor case study</dt><dd>Studio Unveil used Runway’s Gen-4.5 and Aleph in a hybrid live-action/AI global campaign for Salomon, according to Runway. <a href="https://runwayml.com/customers/inside-salomons-latest-global-brand-campaign-built-on-runway">Salomon campaign</a></dd></div></dl></div></div><dl>
+    <div><dt>Price / free access</dt><dd>US Standard $15 month-to-month or $12/mo billed annually; 625 credits/month. Pro $35 monthly or $28/mo annually; 2,250 credits/month. Free: 125 one-time credits, not a monthly refill; available models and exports are limited. The API has separate usage pricing. <a href="https://runway.com/pricing">Runway plans</a></dd></div>
+    <div><dt>External reviews</dt><dd>G2 snapshot: 4.2/5 from 173 reviews on the Runway listing, not the separate Gen-2 listing or a rating of a single current model. <a href="https://g2.com/products/runway-2022-01-04/reviews">G2 reviews</a></dd></div></dl>
+    <p class="sources">Research snapshot · Nov 28, 2026 · Researched · not hands-on tested</p></details></div></article>
+<article id="higgsfield" class="listing" data-experience="intermediate">
+    <div class="gallery-art" aria-hidden="true"><svg viewBox="0 0 78 74" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 29V17h13m28 0h13v12m0 15v12H53m-28 0H12V44m15-7h24m-12-12v24"/><circle cx="39" cy="37" r="15"/><circle cx="39" cy="37" r="4"/></svg><span>Direct the camera</span></div>
+    <div class="identity">
+    <div class="eyebrow">Video &amp; motion</div><h2><a href="#higgsfield">Higgsfield</a></h2>
+    <div class="experience-badge"><span class="experience-meter intermediate" aria-hidden="true"><i></i><i></i><i></i></span> <strong>Intermediate</strong></div>
+    <p class="level-note">Presets help, but choosing a model and directing camera motion takes practice. MCP integration is a separate, more technical path.</p>
+    <p class="meta"><a href="https://higgsfield.ai/pricing">Free to explore · Starter $19/mo</a></p>
+    <p class="meta"><a href="https://g2.com/products/higgsfield/reviews">G2: 4.5/5 · 103 reviews</a></p>
+    <a href="https://higgsfield.ai/">Visit Higgsfield ↗</a></div>
+    <div class="listing-body"><p class="what">A multi-model image and video platform with Cinema Studio for camera direction and Marketing Studio for product ads.</p>
+    <div class="workflow-slot"><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when a defined camera move or lens look matters, or when you want Claude to help run a connected ad workflow rather than just write prompts.</span></p>
+    <p class="lead">Stick with your assistant when: <span>Use your existing assistant for scripts, shot lists and mood boards; if your existing video model already makes a usable shot, there’s little reason to add a subscription.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Try one slow push-in using an approved product image.</p>
+    <dl><div><dt>Example · Vendor case study</dt><dd>Alya Health, an olive oil brand, used Claude with Higgsfield MCP to produce video ads. The example shows the two tools working together, not one replacing the other. <a href="https://higgsfield.ai/creator-hub/case-studies/video-ads-in-just-2-hours-with-higgsfield-mcp-alya-health-shares-their-insights">Alya Health case study</a></dd></div></dl></div></div>
+    <details class="details"><summary><span class="list-label">Full pricing, review notes &amp; sources</span><span class="gallery-label">Workflow, pricing &amp; sources</span></summary><div class="gallery-slot"><p class="level-note">Presets help, but choosing a model and directing camera motion takes practice. MCP integration is a separate, more technical path.</p><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when a defined camera move or lens look matters, or when you want Claude to help run a connected ad workflow rather than just write prompts.</span></p>
+    <p class="lead">Stick with your assistant when: <span>Use your existing assistant for scripts, shot lists and mood boards; if your existing video model already makes a usable shot, there’s little reason to add a subscription.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Try one slow push-in using an approved product image.</p>
+    <dl><div><dt>Example · Vendor case study</dt><dd>Alya Health, an olive oil brand, used Claude with Higgsfield MCP to produce video ads. The example shows the two tools working together, not one replacing the other. <a href="https://higgsfield.ai/creator-hub/case-studies/video-ads-in-just-2-hours-with-higgsfield-mcp-alya-health-shares-their-insights">Alya Health case study</a></dd></div></dl></div></div><dl>
+    <div><dt>Price / free access</dt><dd>Starter was listed at $19/mo for 270 credits/month. Plus was listed at $59/mo regular monthly pricing or $30/mo billed annually, with 1,200 credits/month. Free access is for exploration; no included generation credits were listed. Promotions and model access change—check checkout. <a href="https://higgsfield.ai/pricing">Higgsfield plans</a></dd></div>
+    <div><dt>External reviews</dt><dd>G2 snapshot: 4.5/5 from 103 reviews for the platform, not for Cinema Studio or any one video model. <a href="https://g2.com/products/higgsfield/reviews">G2 reviews</a></dd></div><div><dt>Feature guide</dt><dd>See the difference between the template-led ad workflow and direct camera controls. <a href="https://higgsfield.ai/blog/sports-product-video-ads-ai-2026">Higgsfield product ad guide</a></dd></div></dl>
+    <p class="sources">Research snapshot · Nov 28, 2026 · Researched · not hands-on tested</p></details></div></article>
+<article id="canva" class="listing" data-experience="beginner">
+    <div class="gallery-art" aria-hidden="true"><svg viewBox="0 0 78 74" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="17" y="13" width="44" height="47" rx="3"/><path d="M28 24h21m-21 7h14m-14 19 7-8 6 5 5-4 5 7zM9 22v42h42"/></svg><span>Lay out a promo</span></div>
+    <div class="identity">
+    <div class="eyebrow">Brand &amp; social design</div><h2><a href="#canva">Canva</a></h2>
+    <div class="experience-badge"><span class="experience-meter beginner" aria-hidden="true"><i></i><i></i><i></i></span> <strong>Beginner-friendly</strong></div>
+    <p class="level-note">Templates and editable text give you a starting point without technical setup.</p>
+    <p class="meta"><a href="https://www.canva.com/pricing/">Free with limits · Pro $18/mo or $144/yr</a></p>
+    <p class="meta"><a href="https://www.g2.com/products/canva/reviews">G2: 4.7/5 · 8,349 reviews</a></p>
+    <a href="https://www.canva.com/">Visit Canva ↗</a></div>
+    <div class="listing-body"><p class="what">A template-first design platform with editable layouts, brand assets, a video editor, and AI for tasks such as design drafts and media editing.</p>
+    <div class="workflow-slot"><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when one creative needs to become several editable, on-brand assets across formats. ChatGPT, Claude and Gemini can help draft the copy; Canva gives the team a place to lay it out, resize it and revise it.</span></p>
+    <p class="lead">Stick with your assistant when: <span>If you only need campaign copy, a rough layout or a one-off image, start with the assistant you already have.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Edit a promo template with your own photo and offer text.</p>
+    <dl><div><dt>Example · Vendor case study</dt><dd>Nearmap used Canva templates, Resize and Magic Switch to roll out a global rebrand across formats. <a href="https://www.canva.com/case-studies/nearmap">Nearmap case study</a></dd></div></dl></div></div>
+    <details class="details"><summary><span class="list-label">Full pricing, review notes &amp; sources</span><span class="gallery-label">Workflow, pricing &amp; sources</span></summary><div class="gallery-slot"><p class="level-note">Templates and editable text give you a starting point without technical setup.</p><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when one creative needs to become several editable, on-brand assets across formats. ChatGPT, Claude and Gemini can help draft the copy; Canva gives the team a place to lay it out, resize it and revise it.</span></p>
+    <p class="lead">Stick with your assistant when: <span>If you only need campaign copy, a rough layout or a one-off image, start with the assistant you already have.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Edit a promo template with your own photo and offer text.</p>
+    <dl><div><dt>Example · Vendor case study</dt><dd>Nearmap used Canva templates, Resize and Magic Switch to roll out a global rebrand across formats. <a href="https://www.canva.com/case-studies/nearmap">Nearmap case study</a></dd></div></dl></div></div><dl>
+    <div><dt>Price / free access</dt><dd>US Pro $18 month-to-month or $144/year; Business $25/person monthly or $250/person annually. Free plan: up to 20 Standard or Premium AI uses per month in a shared allowance. Ultra features such as AI video clip generation are not included on Free; that does not mean the free video editor is unavailable. <a href="https://www.canva.com/pricing/">Canva plans</a></dd></div>
+    <div><dt>External reviews</dt><dd>G2 snapshot reported by Style Factory: 4.7/5 from 8,349 reviews for Canva as a whole, not its generative video features. <a href="https://www.g2.com/products/canva/reviews">G2 reviews</a></dd></div><div><dt>AI limits</dt><dd>Canva uses a shared allowance with different costs depending on the feature. <a href="https://www.canva.com/help/ai-access/">Canva AI access guide</a></dd></div></dl>
+    <p class="sources">Research snapshot · Nov 28, 2026 · Researched · not hands-on tested</p></details></div></article>
+<article id="photoroom" class="listing" data-experience="beginner">
+    <div class="gallery-art" aria-hidden="true"><svg viewBox="0 0 78 74" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="15" width="54" height="43" rx="3"/><path d="M34 24h10v7l6 6v12H28V37l6-6zM28 39h22M17 53l9-9m-9 1 9-9m22-9 9-9m-4 13 9-9m-9 32 9-9"/></svg><span>Clean up product photos</span></div>
+    <div class="identity">
+    <div class="eyebrow">Product photography</div><h2><a href="#photoroom">Photoroom</a></h2>
+    <div class="experience-badge"><span class="experience-meter beginner" aria-hidden="true"><i></i><i></i><i></i></span> <strong>Beginner-friendly</strong></div>
+    <p class="level-note">Start with one upload and a guided edit; batch processing and the API are optional.</p>
+    <p class="meta"><a href="https://www.photoroom.com/pricing">Free (non-commercial) · Pro $12.99/mo</a></p>
+    <p class="meta"><a href="https://apps.apple.com/us/app/photoroom-ai-photo-editor/id1455009060">US App Store: 4.8/5 · ~231K ratings</a></p>
+    <a href="https://www.photoroom.com/">Visit Photoroom ↗</a></div>
+    <div class="listing-body"><p class="what">An AI product-photo editor for background removal, product scenes, catalog batches and short product videos from existing photos.</p>
+    <div class="workflow-slot"><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when you already have real product imagery and need consistent listing photos at volume. The batch and catalog workflow matters more here than being able to generate one striking image.</span></p>
+    <p class="lead">Stick with your assistant when: <span>Try ChatGPT or Gemini for one mockup, or any general assistant for photo direction and listing copy. Use real imagery whenever product accuracy matters.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Remove the background from one product photo and check the edges.</p>
+    <dl><div><dt>Example · Vendor case study</dt><dd>Print-on-demand company Completeful integrated Photoroom’s API to automate product mockups for sellers. <a href="https://www.photoroom.com/customer-stories/completeful">Completeful case study</a></dd></div></dl></div></div>
+    <details class="details"><summary><span class="list-label">Full pricing, review notes &amp; sources</span><span class="gallery-label">Workflow, pricing &amp; sources</span></summary><div class="gallery-slot"><p class="level-note">Start with one upload and a guided edit; batch processing and the API are optional.</p><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when you already have real product imagery and need consistent listing photos at volume. The batch and catalog workflow matters more here than being able to generate one striking image.</span></p>
+    <p class="lead">Stick with your assistant when: <span>Try ChatGPT or Gemini for one mockup, or any general assistant for photo direction and listing copy. Use real imagery whenever product accuracy matters.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Remove the background from one product photo and check the edges.</p>
+    <dl><div><dt>Example · Vendor case study</dt><dd>Print-on-demand company Completeful integrated Photoroom’s API to automate product mockups for sellers. <a href="https://www.photoroom.com/customer-stories/completeful">Completeful case study</a></dd></div></dl></div></div><dl>
+    <div><dt>Price / free access</dt><dd>US Pro $12.99 monthly or $7.50/mo billed annually; Max $34.99 monthly or $20.99/mo billed annually; Ultra starts at $99/mo. The Free plan has limited AI access and is for non-commercial use. Verify video and batch allowances for the plan you choose. <a href="https://www.photoroom.com/pricing">Photoroom plans</a></dd></div>
+    <div><dt>External reviews</dt><dd>US Apple App Store snapshot: 4.8/5 from about 231,000 ratings for the mobile app. This is not a score for the web editor, API or paid video features. <a href="https://apps.apple.com/us/app/photoroom-ai-photo-editor/id1455009060">US App Store ratings</a></dd></div></dl>
+    <p class="sources">Research snapshot · Nov 28, 2026 · Researched · not hands-on tested</p></details></div></article>
+<article id="hermes-agent" class="listing" data-experience="advanced">
+    <div class="gallery-art" aria-hidden="true"><svg viewBox="0 0 78 74" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="29" y="28" width="20" height="17" rx="3"/><rect x="8" y="15" width="12" height="12" rx="2"/><rect x="58" y="15" width="12" height="12" rx="2"/><rect x="33" y="56" width="12" height="12" rx="2"/><path d="M14 27v9h15m20 0h15v-9M39 45v11"/></svg><span>Connect a workflow</span></div>
+    <div class="identity">
+    <div class="eyebrow">Workflow automation</div><h2><a href="#hermes-agent">Hermes Agent</a></h2>
+    <div class="experience-badge"><span class="experience-meter advanced" aria-hidden="true"><i></i><i></i><i></i></span> <strong>Advanced</strong></div>
+    <p class="level-note">For a campaign workflow, expect to configure providers and tools, manage file access and review what the agent is allowed to do.</p>
+    <p class="meta"><a href="https://hermes-agent.nousresearch.com/open-source-ai-agent">$0 self-hosted software · usage varies</a></p>
+    <p class="meta"><a href="https://www.trustpilot.com/review/hermes-agent.nousresearch.com">Trustpilot: 2.7/5 · 6 reviews</a></p>
+    <a href="https://hermes-agent.nousresearch.com/docs/">Visit Hermes Agent ↗</a></div>
+    <div class="listing-body"><p class="what">Nous Research’s open-source agent for using models, tools, files and integrations across repeatable tasks. It coordinates a creative workflow; it is not itself an image or video model.</p>
+    <div class="workflow-slot"><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when you want a self-hostable agent that can choose among configured providers, work across files and integrations, and reuse workflows. It can complement models from OpenAI, Anthropic or Google.</span></p>
+    <p class="lead">Stick with your assistant when: <span>For drafting or a one-off assisted task, start with your existing chat or agent mode. Hermes adds setup, permissions, maintenance and potentially separate provider charges.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Have it turn a brief into a local shot list before connecting video or granting wider permissions.</p>
+    <dl><div><dt>Example · User-published engineering write-up</dt><dd>Razorpay Engineering describes deploying network-isolated Hermes agents for internal workflows. That is evidence of deployment, not a general claim about productivity or security. <a href="https://medium.com/razorpay-engineering/running-hermes-at-razorpay-a-network-isolated-self-improving-second-brain-for-every-employee-f91d56bea3f1">Razorpay Engineering write-up</a></dd></div></dl></div></div>
+    <details class="details"><summary><span class="list-label">Full pricing, review notes &amp; sources</span><span class="gallery-label">Workflow, pricing &amp; sources</span></summary><div class="gallery-slot"><p class="level-note">For a campaign workflow, expect to configure providers and tools, manage file access and review what the agent is allowed to do.</p><div class="workflow">
+    <p class="lead">Worth it for: <span>Use it when you want a self-hostable agent that can choose among configured providers, work across files and integrations, and reuse workflows. It can complement models from OpenAI, Anthropic or Google.</span></p>
+    <p class="lead">Stick with your assistant when: <span>For drafting or a one-off assisted task, start with your existing chat or agent mode. Hermes adds setup, permissions, maintenance and potentially separate provider charges.</span></p>
+    <p class="first-task"><strong>Try first:</strong> Have it turn a brief into a local shot list before connecting video or granting wider permissions.</p>
+    <dl><div><dt>Example · User-published engineering write-up</dt><dd>Razorpay Engineering describes deploying network-isolated Hermes agents for internal workflows. That is evidence of deployment, not a general claim about productivity or security. <a href="https://medium.com/razorpay-engineering/running-hermes-at-razorpay-a-network-isolated-self-improving-second-brain-for-every-employee-f91d56bea3f1">Razorpay Engineering write-up</a></dd></div></dl></div></div><dl>
+    <div><dt>Price / free access</dt><dd>The MIT-licensed agent is free to self-host. Model, tool and hosting costs depend on what you connect. Optional Nous Portal paid subscriptions: Plus $20/mo, Super $100/mo, Ultra $200/mo; do not assume any plan covers a separate video provider. <a href="https://hermes-agent.nousresearch.com/open-source-ai-agent">Nous open-source and hosted options</a></dd></div>
+    <div><dt>External reviews</dt><dd>Trustpilot snapshot: 2.7/5 from six reviews for the Hermes Agent site. Too small to infer reliability. GitHub stars are not customer ratings. <a href="https://www.trustpilot.com/review/hermes-agent.nousresearch.com">Trustpilot reviews</a></dd></div><div><dt>Disclosure</dt><dd>This directory preview was prepared with Hermes Agent. We did not run the candle video workflow or a head-to-head test. <a href="https://github.com/NousResearch/hermes-agent">Hermes Agent repository</a></dd></div></dl>
+    <p class="sources">Research snapshot · Nov 28, 2026 · Researched · used to prepare this directory</p></details></div></article></div>
+<footer><strong>How we list tools:</strong> Each entry links to its evidence. Ratings are snapshots from external sources, not our scores. Vendor examples and sponsored demos are labeled. Prices can change; confirm region, credits and billing at checkout. This is a private preview, not a published page.</footer></main>
+<script id="seed" type="application/json">[
+  {
+    "slug": "adobe-firefly",
+    "name": "Adobe Firefly",
+    "category": "Creative suite",
+    "tags": [
+      "image",
+      "video",
+      "vector",
+      "branding",
+      "keyframes"
+    ],
+    "product": "https://www.adobe.com/products/firefly.html",
+    "level": "intermediate",
+    "levelNote": "A single image is easy to try; a full campaign means managing models, reference frames and credits.",
+    "firstTask": "Generate one product still from a reference image before trying video.",
+    "what": "Adobe’s generative creative suite for images, vectors, video and audio. It includes Adobe and partner models and integrates with Creative Cloud workflows.",
+    "edge": "Use it when you need to take a generated asset into a production workflow: refine it in Adobe apps, or use reference frames to steer a clip.",
+    "skip": "ChatGPT or Gemini may be enough for a few concept images; Claude can help with the creative brief and shot list. Don’t buy a suite just to explore a direction.",
+    "freeKind": "recurring",
+    "priceShort": "Free with limits · Standard $9.99/mo",
+    "pricing": "US monthly prices: Standard $9.99 (2,000 credits/month), Pro $19.99 (4,000), Pro Plus $49.99 (10,000), Premium $199.99 (50,000). Free access has limited generations; check the current allocation. Premium features and partner models can consume credits at different rates.",
+    "pricingSource": {
+      "label": "Adobe plans and credits",
+      "url": "https://www.adobe.com/products/firefly/plans.html"
+    },
+    "ratingShort": "G2: 4.4/5 · 538 reviews",
+    "reviews": "G2 snapshot: 4.4/5 from 538 reviews for Adobe Firefly; not a score for any individual partner model.",
+    "reviewSource": {
+      "label": "G2 reviews",
+      "url": "https://www.g2.com/products/adobe-firefly/reviews"
+    },
+    "exampleType": "Sponsored creator demo",
+    "example": "Marco Riccetti’s Ember & Wick demo shows a candle brand, product imagery, five keyframes and a 10-second Black Friday promo animated with a partner model, plus a text-overlay variant. Source: the supplied post and screenshot.",
+    "exampleSource": {
+      "label": "Original X post",
+      "url": "https://x.com/shikoba_86/status/2126281514606379367"
+    },
+    "extra": {
+      "label": "Also used in a customer campaign",
+      "text": "Adobe reports that Currys used Composition Reference and Generative Expand on its New Term campaign.",
+      "source": {
+        "label": "Adobe’s Currys case study",
+        "url": "https://business.adobe.com/customer-success-stories/currys.html"
+      }
+    },
+    "checked": "Nov 28, 2026",
+    "status": "Researched · not hands-on tested"
+  },
+  {
+    "slug": "runway",
+    "name": "Runway",
+    "category": "Video & motion",
+    "tags": [
+      "keyframes",
+      "video",
+      "image-to-video",
+      "editing",
+      "creative workflows"
+    ],
+    "product": "https://runway.com/product",
+    "level": "intermediate",
+    "levelNote": "A usable clip takes some practice with references, motion prompts and retries.",
+    "firstTask": "Animate a single still with one camera move.",
+    "what": "A multi-model creative platform for generating and editing video, animating still images, and chaining generation steps into reusable workflows.",
+    "edge": "Use it when you need to compare motion models or iterate on multiple shots and reuse the process. Gemini’s video features may cover the generation step; Runway’s edge is the workflow around it.",
+    "skip": "Use a video feature already included in your subscription for a one-off clip, or use an assistant to write the storyboard before paying for renders.",
+    "freeKind": "limited",
+    "priceShort": "125 one-time credits · Standard $15/mo",
+    "pricing": "US Standard $15 month-to-month or $12/mo billed annually; 625 credits/month. Pro $35 monthly or $28/mo annually; 2,250 credits/month. Free: 125 one-time credits, not a monthly refill; available models and exports are limited. The API has separate usage pricing.",
+    "pricingSource": {
+      "label": "Runway plans",
+      "url": "https://runway.com/pricing"
+    },
+    "ratingShort": "G2: 4.2/5 · 173 reviews",
+    "reviews": "G2 snapshot: 4.2/5 from 173 reviews on the Runway listing, not the separate Gen-2 listing or a rating of a single current model.",
+    "reviewSource": {
+      "label": "G2 reviews",
+      "url": "https://g2.com/products/runway-2022-01-04/reviews"
+    },
+    "exampleType": "Vendor case study",
+    "example": "Studio Unveil used Runway’s Gen-4.5 and Aleph in a hybrid live-action/AI global campaign for Salomon, according to Runway.",
+    "exampleSource": {
+      "label": "Salomon campaign",
+      "url": "https://runwayml.com/customers/inside-salomons-latest-global-brand-campaign-built-on-runway"
+    },
+    "checked": "Nov 28, 2026",
+    "status": "Researched · not hands-on tested"
+  },
+  {
+    "slug": "higgsfield",
+    "name": "Higgsfield",
+    "category": "Video & motion",
+    "tags": [
+      "product ads",
+      "camera",
+      "image-to-video",
+      "lens",
+      "cinematic"
+    ],
+    "product": "https://higgsfield.ai/",
+    "level": "intermediate",
+    "levelNote": "Presets help, but choosing a model and directing camera motion takes practice. MCP integration is a separate, more technical path.",
+    "firstTask": "Try one slow push-in using an approved product image.",
+    "what": "A multi-model image and video platform with Cinema Studio for camera direction and Marketing Studio for product ads.",
+    "edge": "Use it when a defined camera move or lens look matters, or when you want Claude to help run a connected ad workflow rather than just write prompts.",
+    "skip": "Use your existing assistant for scripts, shot lists and mood boards; if your existing video model already makes a usable shot, there’s little reason to add a subscription.",
+    "freeKind": "browse",
+    "priceShort": "Free to explore · Starter $19/mo",
+    "pricing": "Starter was listed at $19/mo for 270 credits/month. Plus was listed at $59/mo regular monthly pricing or $30/mo billed annually, with 1,200 credits/month. Free access is for exploration; no included generation credits were listed. Promotions and model access change—check checkout.",
+    "pricingSource": {
+      "label": "Higgsfield plans",
+      "url": "https://higgsfield.ai/pricing"
+    },
+    "ratingShort": "G2: 4.5/5 · 103 reviews",
+    "reviews": "G2 snapshot: 4.5/5 from 103 reviews for the platform, not for Cinema Studio or any one video model.",
+    "reviewSource": {
+      "label": "G2 reviews",
+      "url": "https://g2.com/products/higgsfield/reviews"
+    },
+    "exampleType": "Vendor case study",
+    "example": "Alya Health, an olive oil brand, used Claude with Higgsfield MCP to produce video ads. The example shows the two tools working together, not one replacing the other.",
+    "exampleSource": {
+      "label": "Alya Health case study",
+      "url": "https://higgsfield.ai/creator-hub/case-studies/video-ads-in-just-2-hours-with-higgsfield-mcp-alya-health-shares-their-insights"
+    },
+    "extra": {
+      "label": "Feature guide",
+      "text": "See the difference between the template-led ad workflow and direct camera controls.",
+      "source": {
+        "label": "Higgsfield product ad guide",
+        "url": "https://higgsfield.ai/blog/sports-product-video-ads-ai-2026"
+      }
+    },
+    "checked": "Nov 28, 2026",
+    "status": "Researched · not hands-on tested"
+  },
+  {
+    "slug": "canva",
+    "name": "Canva",
+    "category": "Brand & social design",
+    "tags": [
+      "templates",
+      "brand kit",
+      "social variants",
+      "presentation",
+      "video"
+    ],
+    "product": "https://www.canva.com/",
+    "level": "beginner",
+    "levelNote": "Templates and editable text give you a starting point without technical setup.",
+    "firstTask": "Edit a promo template with your own photo and offer text.",
+    "what": "A template-first design platform with editable layouts, brand assets, a video editor, and AI for tasks such as design drafts and media editing.",
+    "edge": "Use it when one creative needs to become several editable, on-brand assets across formats. ChatGPT, Claude and Gemini can help draft the copy; Canva gives the team a place to lay it out, resize it and revise it.",
+    "skip": "If you only need campaign copy, a rough layout or a one-off image, start with the assistant you already have.",
+    "freeKind": "recurring",
+    "priceShort": "Free with limits · Pro $18/mo or $144/yr",
+    "pricing": "US Pro $18 month-to-month or $144/year; Business $25/person monthly or $250/person annually. Free plan: up to 20 Standard or Premium AI uses per month in a shared allowance. Ultra features such as AI video clip generation are not included on Free; that does not mean the free video editor is unavailable.",
+    "pricingSource": {
+      "label": "Canva plans",
+      "url": "https://www.canva.com/pricing/"
+    },
+    "ratingShort": "G2: 4.7/5 · 8,349 reviews",
+    "reviews": "G2 snapshot reported by Style Factory: 4.7/5 from 8,349 reviews for Canva as a whole, not its generative video features.",
+    "reviewSource": {
+      "label": "G2 reviews",
+      "url": "https://www.g2.com/products/canva/reviews"
+    },
+    "exampleType": "Vendor case study",
+    "example": "Nearmap used Canva templates, Resize and Magic Switch to roll out a global rebrand across formats.",
+    "exampleSource": {
+      "label": "Nearmap case study",
+      "url": "https://www.canva.com/case-studies/nearmap"
+    },
+    "extra": {
+      "label": "AI limits",
+      "text": "Canva uses a shared allowance with different costs depending on the feature.",
+      "source": {
+        "label": "Canva AI access guide",
+        "url": "https://www.canva.com/help/ai-access/"
+      }
+    },
+    "checked": "Nov 28, 2026",
+    "status": "Researched · not hands-on tested"
+  },
+  {
+    "slug": "photoroom",
+    "name": "Photoroom",
+    "category": "Product photography",
+    "tags": [
+      "packshot",
+      "product photos",
+      "ecommerce",
+      "background removal",
+      "catalog",
+      "video"
+    ],
+    "product": "https://www.photoroom.com/",
+    "level": "beginner",
+    "levelNote": "Start with one upload and a guided edit; batch processing and the API are optional.",
+    "firstTask": "Remove the background from one product photo and check the edges.",
+    "what": "An AI product-photo editor for background removal, product scenes, catalog batches and short product videos from existing photos.",
+    "edge": "Use it when you already have real product imagery and need consistent listing photos at volume. The batch and catalog workflow matters more here than being able to generate one striking image.",
+    "skip": "Try ChatGPT or Gemini for one mockup, or any general assistant for photo direction and listing copy. Use real imagery whenever product accuracy matters.",
+    "freeKind": "recurring",
+    "priceShort": "Free (non-commercial) · Pro $12.99/mo",
+    "pricing": "US Pro $12.99 monthly or $7.50/mo billed annually; Max $34.99 monthly or $20.99/mo billed annually; Ultra starts at $99/mo. The Free plan has limited AI access and is for non-commercial use. Verify video and batch allowances for the plan you choose.",
+    "pricingSource": {
+      "label": "Photoroom plans",
+      "url": "https://www.photoroom.com/pricing"
+    },
+    "ratingShort": "US App Store: 4.8/5 · ~231K ratings",
+    "reviews": "US Apple App Store snapshot: 4.8/5 from about 231,000 ratings for the mobile app. This is not a score for the web editor, API or paid video features.",
+    "reviewSource": {
+      "label": "US App Store ratings",
+      "url": "https://apps.apple.com/us/app/photoroom-ai-photo-editor/id1455009060"
+    },
+    "exampleType": "Vendor case study",
+    "example": "Print-on-demand company Completeful integrated Photoroom’s API to automate product mockups for sellers.",
+    "exampleSource": {
+      "label": "Completeful case study",
+      "url": "https://www.photoroom.com/customer-stories/completeful"
+    },
+    "checked": "Nov 28, 2026",
+    "status": "Researched · not hands-on tested"
+  },
+  {
+    "slug": "hermes-agent",
+    "name": "Hermes Agent",
+    "category": "Workflow automation",
+    "tags": [
+      "agent",
+      "local",
+      "open source",
+      "scheduling",
+      "orchestration",
+      "files"
+    ],
+    "product": "https://hermes-agent.nousresearch.com/docs/",
+    "level": "advanced",
+    "levelNote": "For a campaign workflow, expect to configure providers and tools, manage file access and review what the agent is allowed to do.",
+    "firstTask": "Have it turn a brief into a local shot list before connecting video or granting wider permissions.",
+    "what": "Nous Research’s open-source agent for using models, tools, files and integrations across repeatable tasks. It coordinates a creative workflow; it is not itself an image or video model.",
+    "edge": "Use it when you want a self-hostable agent that can choose among configured providers, work across files and integrations, and reuse workflows. It can complement models from OpenAI, Anthropic or Google.",
+    "skip": "For drafting or a one-off assisted task, start with your existing chat or agent mode. Hermes adds setup, permissions, maintenance and potentially separate provider charges.",
+    "freeKind": "open",
+    "priceShort": "$0 self-hosted software · usage varies",
+    "pricing": "The MIT-licensed agent is free to self-host. Model, tool and hosting costs depend on what you connect. Optional Nous Portal paid subscriptions: Plus $20/mo, Super $100/mo, Ultra $200/mo; do not assume any plan covers a separate video provider.",
+    "pricingSource": {
+      "label": "Nous open-source and hosted options",
+      "url": "https://hermes-agent.nousresearch.com/open-source-ai-agent"
+    },
+    "ratingShort": "Trustpilot: 2.7/5 · 6 reviews",
+    "reviews": "Trustpilot snapshot: 2.7/5 from six reviews for the Hermes Agent site. Too small to infer reliability. GitHub stars are not customer ratings.",
+    "reviewSource": {
+      "label": "Trustpilot reviews",
+      "url": "https://www.trustpilot.com/review/hermes-agent.nousresearch.com"
+    },
+    "exampleType": "User-published engineering write-up",
+    "example": "Razorpay Engineering describes deploying network-isolated Hermes agents for internal workflows. That is evidence of deployment, not a general claim about productivity or security.",
+    "exampleSource": {
+      "label": "Razorpay Engineering write-up",
+      "url": "https://medium.com/razorpay-engineering/running-hermes-at-razorpay-a-network-isolated-self-improving-second-brain-for-every-employee-f91d56bea3f1"
+    },
+    "extra": {
+      "label": "Disclosure",
+      "text": "This directory preview was prepared with Hermes Agent. We did not run the candle video workflow or a head-to-head test.",
+      "source": {
+        "label": "Hermes Agent repository",
+        "url": "https://github.com/NousResearch/hermes-agent"
+      }
+    },
+    "checked": "Nov 28, 2026",
+    "status": "Researched · used to prepare this directory"
+  }
+]</script>
+<script>
+'use strict';
+const tools=JSON.parse(document.querySelector('#seed').textContent), qs=(x)=>document.querySelector(x), search=qs('#search'), job=qs('#job'), cost=qs('#cost');
+const toggle=qs('#theme');
+const defaultTheme=document.documentElement.dataset.theme;
+const themeKey=`otb-tools-preview-theme-${defaultTheme}`;
+function theme(value){document.documentElement.dataset.theme=value;toggle.textContent=value==='dark'?'Light mode':'Dark mode';}
+try{const saved=localStorage.getItem(themeKey);theme(saved==='light'||saved==='dark'?saved:defaultTheme);}catch{theme(defaultTheme);}
+toggle.hidden=false;
+toggle.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';theme(next);try{localStorage.setItem(themeKey,next);}catch{}});
+const listings=new Map(tools.map(t=>[t.slug,document.getElementById(t.slug)]));
+try{if(localStorage.getItem('otb-tools-gallery-first-view')==='list')qs('#view-list').checked=true;}catch{}
+qs('.view-switch').addEventListener('change',event=>{
+  try{localStorage.setItem('otb-tools-gallery-first-view',event.target.value);}catch{}
+});
+const levelButtons=[...document.querySelectorAll('button[data-level]')];
+let level='';
+function selectLevel(value){level=value;for(const b of levelButtons)b.setAttribute('aria-pressed',String(b.dataset.level===level));apply();}
+for(const b of levelButtons)b.addEventListener('click',()=>selectLevel(b.dataset.level));
+function apply(){const terms=search.value.toLowerCase().trim().split(/\s+/);let count=0;for(const t of tools){const toolCost=t.freeKind==='browse'?'paid':'free';const hit=(!level||t.level===level)&&(!job.value||t.category===job.value)&&(!cost.value||toolCost===cost.value)&&terms.every(s=>[t.name,t.what,t.edge,t.skip,t.category,t.firstTask,...(t.tags||[])].join(' ').toLowerCase().includes(s));listings.get(t.slug).hidden=!hit;count+=Number(hit);}qs('#count').textContent=count?`${count} of ${tools.length} tools`:'No matching tools. Try a broader search or clear a filter.';}
+function reveal(){const a=listings.get(location.hash.slice(1));if(a){if(a.hidden){search.value=job.value=cost.value='';selectLevel('');}a.querySelector('details').open=true;a.scrollIntoView();}}
+for(const ctrl of [search,job,cost])ctrl.addEventListener('input',apply);addEventListener('hashchange',reveal);apply();if(location.hash)reveal();
+</script></html>
