@@ -75,7 +75,9 @@
     tabsEl.setAttribute("aria-label", "Sections");
     tabsEl.innerHTML = TABS.map(function (t) {
       return '<a href="#' + GROUPS[t[0]][0] + '" class="otba-tab" data-otba-tab="' + t[0] + '">' + svg(t[2]) + "<span>" + t[1] + '</span><b class="otba-badge" hidden></b></a>';
-    }).join("");
+    }).join("") +
+      // Tools Directory (Alan, 2026-11-28): a plain link to its own page, not an in-page tab
+      '<a href="tools/" class="otba-tab otba-tab--ext">' + svg('<path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8V20h3.2l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.5 2.5-2.3-.6-.6-2.3z"/>') + "<span>Tools</span></a>";
     document.body.appendChild(tabsEl);
 
     ptr = document.createElement("div");
