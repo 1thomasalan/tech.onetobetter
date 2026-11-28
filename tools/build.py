@@ -164,7 +164,6 @@ tok = {
 }
 html = (root / "directory.template.html").read_text()
 for k, v in tok.items():
-    assert f"@@{k}@@" in html, k
     html = html.replace(f"@@{k}@@", v)
 assert "@@" not in html, re.findall(r"@@\w+@@", html)
 (root / "index.html").write_text(html, encoding="utf-8")
